@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Dante的个人博客</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                Home
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                Archives
+            </a>
+            
+
+            
+            <a href="/tags" class="header-nav-link">
+                Tags
+            </a>
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">Archives</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">Tags</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Unity实验作业 实现对mesh的破碎效果</h2>
+            <div class="post-meta">
+                <span class="post-time">2021-11-01</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a>
+                    
+                </span>
+                
+                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A-4"><span class="toc-text">实验作业 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%9D%E8%B7%AF"><span class="toc-text">实验思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">实验步骤</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="实验作业-4"><a href="#实验作业-4" class="headerlink" title="实验作业 4"></a>实验作业 4</h1><p>目的：  熟悉Mesh的概念，能自由利用Mesh数据</p>
+<p>要求：  编写一个脚本，实现对mesh的破碎效果</p>
+<a id="more"></a>
+<hr>
+<h2 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h2><p>想要实现破碎的效果,大致可以分为几种思路,</p>
+<ul>
+<li><p>首先最朴实无华但效果也不错的就是直接进行物理模拟,将cube切割成碎片,为其添加刚体与碰撞属性,使其具有基本的物理特性,这种方法能够得到较为真实的破碎模拟,但开销较大</p>
+</li>
+<li><p>也可以通过脚本控制mesh顶点偏移的方式实现,但我觉得视觉效果欠佳</p>
+</li>
+<li><p>退而求其次的方法是采用外部动画导入,只对特定情况的碰撞做出反应,这样就不用给予每个子物件物理与碰撞属性,只需检测碰撞后播放动画即可,这种方法也能达到不错的效果,但缺乏交互的多样性</p>
+</li>
+<li><p>再者就是更复杂的着色器效果,通过着色器能够实现非物理效果形式的破碎,比如化为飞灰之类的效果,但这部分编写代码较为复杂和繁琐</p>
+</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>本次实验我采取的是纯粹的物理模仿的方式</p>
+<p>首先我在外部建模软件对mesh进行处理</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102654.png" alt=""> </p>
+<p>将其碎片化为多个mesh的结合体</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102704.png" alt=""></p>
+<p>然后导入unity,为其添加物理属性</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102714.png" alt=""></p>
+<p>这里我试了几种不同的方法来实现破碎效果,首先就是将模型制成帧动画,通过animator controller对其进行动画控制,由碰撞脚本触发破碎效果,在动画快结束时将材质透明度降低并释放内存(但实际效果很辣眼睛)</p>
+<p>后来我便采用物理模拟的方法来着手,mesh collider能够比较好的模拟,但实际肯定不能使用这么浪费性能的方法,可以在触发想要发生碰撞动画前关闭碰撞检测,由大碰撞体检测,在落地大碰撞触发时,将碎片碰撞打开,进行碰撞模拟</p>
+<p>这种方法也同样适用于当碎片以box collider的时候,但box collider因为挤压,在落地的一瞬间会产生强大的排斥力,让碎片四散飞去.效果略显夸张,在低重力指数的情况下可以模仿烟花爆破等场景(但应该没人会用实体模仿吧)</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E7%A0%B4%E7%A2%8E.gif" alt=""></p>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
+            
+            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
+            
+            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
+            
+            <a class="tag" href="/tags/Unity/" title="Unity">Unity</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Unity实验作业 用Cube实现篝火动态效果</span>
+                <span class="nav-mobile">Prev</span>
+            </a>
+        
+        
+            <a class="next" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/">
+                <span class="nav-default">Unity实验作业 探索SDK之外的秘密</span>
+                <span class="nav-mobile">Next</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2022
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Dante的个人博客</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                Home
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                Archives
+            </a>
+            
+
+            
+            <a href="/tags" class="header-nav-link">
+                Tags
+            </a>
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">Archives</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">Tags</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">OpenGL GLFW, GLAD 在 Visual Studio 配置</h2>
+            <div class="post-meta">
+                <span class="post-time">2021-03-08</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
+                    
+                </span>
+                
+                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GLFW"><span class="toc-text">GLFW</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDGLFW"><span class="toc-text">下载GLFW</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDCMake"><span class="toc-text">下载CMake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-text">编译</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%93%BE%E6%8E%A5"><span class="toc-text">链接</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GLAD"><span class="toc-text">GLAD</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEGLAD"><span class="toc-text">配置GLAD</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h2 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h2><h3 id="下载GLFW"><a href="#下载GLFW" class="headerlink" title="下载GLFW"></a>下载GLFW</h3><p><a target="_blank" rel="noopener" href="https://github.com/glfw/glfw/releases/download/3.3.3/glfw-3.3.3.zip">下载地址</a>  </p>
+<p>下载好后解压解压</p>
+<blockquote>
+<p>github下载可能略慢,建议翻墙</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="下载CMake"><a href="#下载CMake" class="headerlink" title="下载CMake"></a>下载CMake</h3><p><a target="_blank" rel="noopener" href="https://cmake.org/download/">下载地址</a><br>下载好后解压,打开’bin/cmake-gui.exe’<br>我们现在需要一个源代码目录(即之前下好的glfw)和一个存放编译结果的目标文件目录(新建一个build文件夹)  </p>
+<blockquote>
+<p>注意路径不要有中文<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013232.png" alt="cmake"><br>Configure(设置)按钮,选择VS2019 16,然后保存<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013317.png" alt="Configure"></p>
+</blockquote>
+<p>最后点击Generate(生成)按钮，生成的工程文件会在你的build文件夹中</p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>在build文件夹里可以找到GLFW.sln文件，用VS打开,直接生成解决方案<br><code>glfw3.lib</code> 就会出现在 <code>src/Debug</code></p>
+<p> <strong>glfw3.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86或者x64 \</code></p>
+<blockquote>
+<p>取决于编译,建议使用x32</p>
+</blockquote>
+<p>将<code>glfw-3.3.3\include\GLFW</code> 整个文件夹放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code></p>
+<h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>在VS<code>项目-&gt;工程属性-&gt;连接器-&gt;输入(input)-&gt;附加依赖项(第一项)</code>添加glfw3.lib<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309032115.png" alt="lib"></p>
+<h2 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h2><h3 id="配置GLAD"><a href="#配置GLAD" class="headerlink" title="配置GLAD"></a>配置GLAD</h3><p>打开<a target="_blank" rel="noopener" href="http://glad.dav1d.de/">GLAD在线服务</a>设置如下后generate,下载提供的zip文件,解压<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309014907.png" alt="GLAD"><br>把<code>glad\include</code>中的2个文件夹放入路径<code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code>  </p>
+<p>把<strong>glad.c</strong>添加到工程文件中<br>最后你就能将以下的指令加到你的文件顶部了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;glad&#x2F;glad.h&gt; </span><br></pre></td></tr></table></figure></p>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
+            
+            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
+            
+            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
+            
+            <a class="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" title="计算机图形学">计算机图形学</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">OpenGL_01_OpenGL的绘图基本流程与概念</span>
+                <span class="nav-mobile">Prev</span>
+            </a>
+        
+        
+            <a class="next" href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E5%88%86%E7%B1%BBClassification/">
+                <span class="nav-default">Pytorch学习笔记5--分类Classification</span>
+                <span class="nav-mobile">Next</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2022
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

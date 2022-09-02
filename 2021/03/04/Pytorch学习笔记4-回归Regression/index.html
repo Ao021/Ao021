@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Dante的个人博客</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                Home
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                Archives
+            </a>
+            
+
+            
+            <a href="/tags" class="header-nav-link">
+                Tags
+            </a>
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">Archives</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">Tags</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Pytorch学习笔记4--回归Regression</h2>
+            <div class="post-meta">
+                <span class="post-time">2021-03-04</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+                    
+                </span>
+                
+                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>通过一个散点图建立一个简单神经网络  </p>
+<p>步骤为  </p>
+<ol>
+<li>建立xy数据点集</li>
+<li>定义神经网络结构,只有hidden和predict 2层</li>
+<li>训练神经网络同时绘制图像<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif" alt="训练过程"></li>
+</ol>
+<a id="more"></a>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">#print(torch.linspace(-1,1,100))</span><br><span class="line">x &#x3D; torch.unsqueeze(torch.linspace(-1,1,100),dim&#x3D;1) #生成二维的-1到1的伪数据,输出是个列向量</span><br><span class="line">#print(&#39;\n&#39;,x)</span><br><span class="line"></span><br><span class="line">y &#x3D; x.pow(2) + 0.2* torch.rand(x.size())   #把点应造成X^2的抖动函数</span><br><span class="line">plt.scatter(x.numpy(),y.numpy())</span><br><span class="line">plt.show()</span><br><span class="line">#输出图片</span><br><span class="line"></span><br><span class="line">class Net(torch.nn.Module):</span><br><span class="line">    def __init__(self,n_feature, n_hidden,n_output):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.hidden &#x3D; torch.nn.Linear(n_feature, n_hidden)#定义隐藏层结构</span><br><span class="line">        self.predict &#x3D; torch.nn.Linear(n_hidden,n_output)#定义预测层结构,输出一个y</span><br><span class="line">    def forward(self,x): #正向传播输入一个x</span><br><span class="line">        x &#x3D; torch.relu(self.hidden(x)) #正向传播x-&gt;relu过的x-&gt;output</span><br><span class="line">        x &#x3D; self.predict(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net &#x3D; Net(n_feature&#x3D;1,n_hidden&#x3D;10,n_output&#x3D;1)  #创建神经网络</span><br><span class="line"></span><br><span class="line">print(net)#可以看出神经网络的结构</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 下面开始训练</span><br><span class="line">optimizer &#x3D; torch.optim.SGD(net.parameters(),lr&#x3D;0.2)#传入net的全部参数,学习率为0.2,越高越快,但也会出现梯度爆炸之类的问题</span><br><span class="line">loss_func &#x3D; torch.nn.MSELoss()</span><br><span class="line"></span><br><span class="line">for i in range(500): #训练500次</span><br><span class="line">    prediction &#x3D; net(x) #向神经网络传入 x , prediction 相当于神经网络正向传播完的y</span><br><span class="line"></span><br><span class="line">    loss &#x3D; loss_func(prediction,y) #计算loss</span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()#梯度归零清空上一步的残余更新参数值</span><br><span class="line">    loss.backward()# 误差反向传播, 计算参数更新值</span><br><span class="line">    optimizer.step() # 将参数更新值施加到 net 的 parameters 上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#绘图</span><br><span class="line">    if i % 5 &#x3D;&#x3D; 0:</span><br><span class="line">        # plot and show learning process</span><br><span class="line">        plt.cla()</span><br><span class="line">        plt.scatter(x.data.numpy(), y.data.numpy())</span><br><span class="line">        plt.plot(x.data.numpy(), prediction.data.numpy(), &#39;r-&#39;, lw&#x3D;5)</span><br><span class="line">        plt.text(0.5, 0, &#39;Loss&#x3D;%.4f&#39; % loss.data.numpy(), fontdict&#x3D;&#123;&#39;size&#39;: 20, &#39;color&#39;:  &#39;red&#39;&#125;)</span><br><span class="line">        plt.pause(0.1)</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
+            
+            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
+            
+            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
+            
+            <a class="tag" href="/tags/Pytorch/" title="Pytorch">Pytorch</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Pytorch学习笔记3--激励函数</span>
+                <span class="nav-mobile">Prev</span>
+            </a>
+        
+        
+            <a class="next" href="/2021/03/02/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-pip%E5%AE%89%E8%A3%85python%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/">
+                <span class="nav-default">Pytorch学习笔记-pip安装python模块使用国内镜像</span>
+                <span class="nav-mobile">Next</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2022
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>

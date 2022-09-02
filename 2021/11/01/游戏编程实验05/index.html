@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>Dante的个人博客</title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+<link rel="stylesheet" href="/css/gitment.css">
+
+    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
+<body>
+<header class="header">
+    <div class="header-inner">
+        <div class="header-title">
+
+        </div>
+        <nav class="header-nav">
+            
+            <a href="/" class="header-nav-link" >
+                Home
+            </a>
+            
+
+            
+            <a href="/archives" class="header-nav-link">
+                Archives
+            </a>
+            
+
+            
+            <a href="/tags" class="header-nav-link">
+                Tags
+            </a>
+            
+
+            
+        </nav>
+    </div>
+</header>
+<header class="mobile-header">
+    <div class="mobile-nav">
+        <div class="mobile-nav-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-nav-title">
+            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
+        </div>
+
+    </div>
+    <nav class="mobile-menu">
+        <ul class="mobile-menu-list">
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-home"></i>
+                <a href="/" class="mobile-nav-link">Home</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-archive"></i>
+                <a href="/archives" class="mobile-nav-link">Archives</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-tag"></i>
+                <a href="/tags" class="mobile-nav-link">Tags</a>
+            </li>
+            <li class="mobile-menu-item">
+                <i class="iconfont icon-about"></i>
+                <a href="/about/" class="mobile-nav-link">About</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<div class="main">
+    <div class="content-inner">
+        <div class="posts">
+    <article class="post-whole">
+        <div class="post-title">
+            <h2 class="title">Unity实验作业 用Cube实现篝火动态效果</h2>
+            <div class="post-meta">
+                <span class="post-time">2021-11-01</span>
+                
+                <span class="post-category">
+                    
+                    <a class="category" href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a>
+                    
+                </span>
+                
+                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
+            </div>
+        </div>
+        <div class="post-toc" id="post-toc">
+    <strong class="post-toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A-5"><span class="toc-text">实验作业 5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%9D%E8%80%83"><span class="toc-text">实验思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">实验步骤</span></a></li></ol></li></ol>
+    <div class="back-to-top" id="back-to-top">
+        <a href="javascript:void(0);">回到顶部</a>
+    </div>
+</div>
+        <div class="post-content">
+            <h1 id="实验作业-5"><a href="#实验作业-5" class="headerlink" title="实验作业 5"></a>实验作业 5</h1><p>目的：  熟悉脚本控制的“动态过程”。</p>
+<p>要求：  编写一个脚本，用Cube实现篝火动态效果。<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102805.png" alt=""></p>
+<a id="more"></a>
+<hr>
+<h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><ul>
+<li><p>看到如图示的效果我第一个想到的是利用顶点着色器来做,因为之前看见过类似的方块着色器作品,但奈何能力和时间有限</p>
+</li>
+<li><p>既然是考察动态过程,那么做法其实已经很明显了,火的效果有着大小的缩放,位置的移动与微量的旋转以及颜色的渐变,好家伙,基本上该变的都变了,如果说要在此基础上锦上添花,可以对这些移动加入抖动,也可以做一些后处理</p>
+</li>
+<li><p>另外的做法的话可以考虑使用失重的物理性质来做</p>
+</li>
+</ul>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E7%AF%9D%E7%81%AB.gif" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">IEnumerator getFire()</span><br><span class="line">&#123;</span><br><span class="line">    while (true)</span><br><span class="line">    &#123;</span><br><span class="line">        if (num &lt; maxNum)</span><br><span class="line">        &#123;</span><br><span class="line">            GameObject fire &#x3D; GameObject.CreatePrimitive(PrimitiveType.Cube);</span><br><span class="line">            num++;</span><br><span class="line">            fire.transform.position &#x3D; new Vector3(NextGaussian(0,4f,-4f,4f), 0, NextGaussian(0, 4f,-4f,4f));</span><br><span class="line">            fire.transform.localScale &#x3D; Vector3.one * 2f;</span><br><span class="line">            </span><br><span class="line">            StartCoroutine(zoom(fire, 2f, 0.2f, 200f - 15 * fire.transform.position.x));</span><br><span class="line">            StartCoroutine(rotate(fire, 1f));</span><br><span class="line">            StartCoroutine(rise(fire, 0.1f, 30f - 5*fire.transform.position.x));</span><br><span class="line">            StartCoroutine(color(fire));</span><br><span class="line">        &#125;</span><br><span class="line">        yield return new WaitForSeconds(0.1f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>过程没怎么截图,由代码说起吧 上面放的是生成火立方和开始协程动画的代码,首先我们观察火焰的生成,是一个类似于正态分布一样的存在,简单的random所生成的均值火焰显然不符合自然火焰的样貌,所以我嫖了一个正太分布的代码过来,通过协程进行火焰立方的生成,限制最大生成个数以保证火焰稳定</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    public static float NextGaussian()</span><br><span class="line">    &#123;</span><br><span class="line">        float v1, v2, s;</span><br><span class="line">        do</span><br><span class="line">        &#123;</span><br><span class="line">            v1 &#x3D; 2.0f * Random.Range(0f, 1f) - 1.0f;</span><br><span class="line">            v2 &#x3D; 2.0f * Random.Range(0f, 1f) - 1.0f;</span><br><span class="line">            s &#x3D; v1 * v1 + v2 * v2;</span><br><span class="line">        &#125; while (s &gt;&#x3D; 1.0f || s &#x3D;&#x3D; 0f);</span><br><span class="line"></span><br><span class="line">        s &#x3D; Mathf.Sqrt((-2.0f * Mathf.Log(s)) &#x2F; s);</span><br><span class="line">        return v1 * s;</span><br><span class="line">    &#125;</span><br><span class="line">    public static float NextGaussian(float mean, float standard_deviation)</span><br><span class="line">    &#123;</span><br><span class="line">        return mean + NextGaussian() * standard_deviation;</span><br><span class="line">    &#125;</span><br><span class="line">    public static float NextGaussian(float mean, float standard_deviation, float min, float max)</span><br><span class="line">    &#123;</span><br><span class="line">        float x;</span><br><span class="line">        do</span><br><span class="line">        &#123;</span><br><span class="line">            x &#x3D; NextGaussian(mean, standard_deviation);</span><br><span class="line">        &#125; while (x &lt; min || x &gt; max);</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成了cube之后,显然还需要上升动画,这里通过协程用非线性运动的上升曲线来做直线上升运动(本来还应该做抖动的,但好像有点麻烦了),这样生成的火焰像圆柱一样,所以协程部分以最大高度为参数书写,最大高度会根据距离火源的距离产生衰减,来达到火焰中间高,两边低的效果</p>
+<p>为了火焰立方不单调,我采用多轴的随机旋转来让火立方生动形象一点,这里采用四元组旋转</p>
+<p>这样直直方法的立方柱并不是我想要的,因为火焰外围的立方应该小一点才对,于是我又用了另一条非线性曲线对cube大小进行协程缩减(协程多了控制条件也多了)为了达成以上几个协程中途还是吃了不少麻烦的.同样,依葫芦画瓢,大小缩减的动画也加入了距离火源的距离衰减</p>
+<p>最后就是颜色部分,采用距离实现线性插值(不想管火焰怎么生成的了),外焰红色,内焰黄色.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101143223.png" alt=""></p>
+<p>我做到这里就不是很想做下去了,但事实上作为发光物体的火立方,我没有对其阴影和发光属性进行处理,但由于是用代码生成的cube而不是预先准备好的prefab,所以我选择放弃,这是实验开始时没想好的(偷懒的借口),当然,如果能够对其进行后处理就再好不过了,不过这些都是后话了,实验主要的目的还是做动效.嗯</p>
+<p>但结果还是有点怪怪的(可能是因为用正太分布的时候对最大值最小值进行了裁剪导致的)</p>
+
+        </div>
+        
+        <div class="post-tag">
+            
+            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
+            
+            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
+            
+            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
+            
+            <a class="tag" href="/tags/Unity/" title="Unity">Unity</a>
+            
+        </div>
+        
+    </article>
+</div>
+<div class="paginator">
+    
+        
+            <a class="prev" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/">
+                <i class="iconfont icon-prev"></i>
+                <span class="nav-default">Unity实验作业 鼠标操作3D空间物体</span>
+                <span class="nav-mobile">Prev</span>
+            </a>
+        
+        
+            <a class="next" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/">
+                <span class="nav-default">Unity实验作业 实现对mesh的破碎效果</span>
+                <span class="nav-mobile">Next</span>
+                <i class="iconfont icon-next"></i>
+            </a>
+        
+    
+</div>
+<div id="comment-container"></div>
+    </div>
+</div>
+<footer class="footer-social">
+    
+
+    
+
+    
+
+    <div class="footer-copyright">
+        <p class="time-line">
+            &copy;
+            
+            
+            2022
+            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
+            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
+        </p>
+        <p class="theme-info">
+            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
+            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
+        </p>
+    </div>
+</footer>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="/js/index.js"></script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+    
+
+</script>
+</html>
