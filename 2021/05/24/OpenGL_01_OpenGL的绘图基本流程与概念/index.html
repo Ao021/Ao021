@@ -1,147 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>
-    OpenGL_01_OpenGL的绘图基本流程与概念 | Dante的个人博客
-  </title>
-  <meta name="description" content="">
-  
-  <meta name="keywords" content="
-  学习,记录,经验,计算机图形学,OpenGL
-  ">
-  
-  <meta name="author" content="Dante">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DANTE的游戏博客">
+    <meta name="keyword" content="GAMES# seo key words">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/964987e788bb8e7784f2f3b0c6b20f30.png# your favicon png">
+    <link rel="alternate" type="application/atom+xml" title="Dante-Game" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        OpenGL_01_OpenGL的绘图基本流程与概念｜Dante-Game
+        
+    </title>
 
-  <meta http-equiv="Cache-Control" content="no-transform"/>
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta name="theme-color" content="#1e2327">
-  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+    <link rel="canonical" href="http://dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL的绘图基本流程与概念/">
 
-  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-  
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
-</head>
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
 
-<body id="replica-app">
 
-<nav class="navbar-wrapper">
-  <div class="navbar">
-    <div class="container clearfix">
-      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
 
-      <div class="navbar-search float-left desktop-only">
-        <div class="navbar-search-form">
-          <label for="gsc-i-id1">This website</label>
-          <div id="google-search">
-            <gcse:search></gcse:search>
-          </div>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Dante-Game
+                </span>
+                's Blog
+            </a>
         </div>
-      </div>
 
-      <ul class="navbar-nav float-left">
-        
-        <li><a href="/">Archives</a></li>
-        
-        
-        <li><a href="/">Categories</a></li>
-        
-        
-        <li><a href="/">Tags</a></li>
-        
-        
-        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
-        
-      </ul>
-
-      <ul class="navbar-nav user-nav float-right desktop-only">
-        <li class="user-nav-notification">
-          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
-        </li>
-        <li>
-          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
-        </li>
-        <li class="user-nav-logo">
-          <a><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"> <i class="fa fa-caret-down"></i></i></a>
-        </li>
-      </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+    <!-- /.container -->
 </nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
 
-<div class="main-container">
-  <header class="header-wrapper desktop-only">
-  <div class="container header-site-detail">
-    <ul class="header-toolbar">
-      <li class="clearfix">
-        <a href="/" class="header-toolbar-left"><i
-                  class="fa fa-file-text"></i> Posts </a>
-        <a href="/"
-           class="header-toolbar-right"> 20 </a>
-      </li>
-      <li>
-        <a href="/" class="header-toolbar-left"><i
-                  class="fa fa-tags"></i> Tags </a>
-        <a href="/"
-           class="header-toolbar-right"> 9 </a>
-      </li>
-      <li>
-        <a href="/" class="header-toolbar-left"><i
-                  class="fa fa-folder-open"></i> Categories </a>
-        <a href="/"
-           class="header-toolbar-right"> 4 </a>
-      </li>
-    </ul>
-    <h2 class="header-title">
-      <i class="fa fa-book text-muted"></i>
-      <a href="/">Dante的个人博客</a>
-      
-      
-    </h2>
-  </div>
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
 
-  <div class="container">
-    <div class="header-tab-wrapper clearfix">
-      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
-      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
-      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
-      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
-      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>OpenGL_01_OpenGL的绘图基本流程与概念</h1>
+                    
+                    <span class="meta">
+                         作者 Dante
+                        <span>
+                          日期 2021-05-24
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#OpenGL"
+                           title="OpenGL">OpenGL</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
+    <div class="post-title-haojen">
+        <span>
+            OpenGL_01_OpenGL的绘图基本流程与概念
+        </span>
+    </div>
 </header>
 
-
-<div class="post-container container">
-  <h3>
-    <i class="fa fa-user-o"></i>
-    Dante
-
-    <span class="post-date float-right" title="{{moment(1621833674000).format('MMM DD, YYYY, h:mm:ss A')}}">
-      
-          <i class="fa fa-pencil-square-o"></i>
-      
-      {{moment(1621833674000).fromNow()}}
-    </span>
-  </h3>
-
-  <article class="post-content">
-    <h1>OpenGL_01_OpenGL的绘图基本流程与概念</h1>
-    <h1 id="OpenGL的绘图基本流程与概念"><a href="#OpenGL的绘图基本流程与概念" class="headerlink" title="OpenGL的绘图基本流程与概念"></a>OpenGL的绘图基本流程与概念</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本博客仅记录本人的理解<br>全部内容来源于<a target="_blank" rel="noopener" href="https://learnopengl-cn.readthedocs.io/zh/latest/">OpenGL</a>与<a target="_blank" rel="noopener" href="http://colin1994.github.io/2017/11/11/OpenGLES-Lesson04/">GLSL</a>以及<a target="_blank" rel="noopener" href="https://space.bilibili.com/211153830">傅老师OpenGL课程</a><br>如有问题,欢迎评论<br><a id="more"></a></p>
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="OpenGL的绘图基本流程与概念"><a href="#OpenGL的绘图基本流程与概念" class="headerlink" title="OpenGL的绘图基本流程与概念"></a>OpenGL的绘图基本流程与概念</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本博客仅记录本人的理解<br>全部内容来源于<a target="_blank" rel="noopener" href="https://learnopengl-cn.readthedocs.io/zh/latest/">OpenGL</a>与<a target="_blank" rel="noopener" href="http://colin1994.github.io/2017/11/11/OpenGLES-Lesson04/">GLSL</a>以及<a target="_blank" rel="noopener" href="https://space.bilibili.com/211153830">傅老师OpenGL课程</a><br>如有问题,欢迎评论<br><a id="more"></a></p>
 <h2 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524115540.png" alt=""></p>
 <p>图形渲染管线可以被划分为两个主要部分：</p>
 <ul>
@@ -183,48 +236,208 @@
 </blockquote>
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>OpenGL库是用C语言写的，内核是一个C库。由于C的一些语言结构不易被翻译到其它的高级语言，因此OpenGL开发的时候引入了一些抽象层。“对象(Object)”就是其中一个。<br>在OpenGL中一个对象是指一些选项的集合，它代表OpenGL状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个C风格的结构体(Struct)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct object_name &#123;</span><br><span class="line">    float  option1;</span><br><span class="line">    int    option2;</span><br><span class="line">    char[] name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>当我们使用一个对象时，通常看起来像如下一样（把OpenGL上下文看作一个大的结构体）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; OpenGL的状态</span><br><span class="line">struct OpenGL_Context &#123;</span><br><span class="line">    ...</span><br><span class="line">    object* object_Window_Target;</span><br><span class="line">    ...     </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建对象</span><br><span class="line">unsigned int objectId &#x3D; 0;</span><br><span class="line">glGenObject(1, &amp;objectId);</span><br><span class="line">&#x2F;&#x2F; 绑定对象至上下文</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, objectId);</span><br><span class="line">&#x2F;&#x2F; 设置当前绑定到 GL_WINDOW_TARGET 的对象的一些选项</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_WIDTH, 800);</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, 600);</span><br><span class="line">&#x2F;&#x2F; 将上下文对象设回默认,解绑对象</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, 0);</span><br></pre></td></tr></table></figure></p>
 
-  </article>
-</div>
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2021/05/24/OpenGL-02-向量和矩阵/" data-toggle="tooltip" data-placement="top"
+                           title="OpenGL_02_向量和矩阵">&larr; Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/03/08/OpenGL  GLFW, GLAD 在 Visual Studio 配置/" data-toggle="tooltip" data-placement="top"
+                           title="OpenGL GLFW, GLAD 在 Visual Studio 配置">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
 
 
-    
+                <!--加入新的评论系统-->
+                
 
+                
 
+            </div>
 
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5"><span class="toc-text">OpenGL的绘图基本流程与概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GPU%E4%B8%8ECPU"><span class="toc-text">GPU与CPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VAO%E4%B8%8EVBO"><span class="toc-text">VAO与VBO</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#VBO-%E9%A1%B6%E7%82%B9%E7%BC%93%E5%86%B2%E5%AF%B9%E8%B1%A1-Vertex-Buffer-Objects"><span class="toc-text">VBO (顶点缓冲对象 [Vertex Buffer Objects] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#VAO-%E9%A1%B6%E7%82%B9%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1-Vertex-Array-Object"><span class="toc-text">VAO (顶点数组对象 [Vertex Array Object] )</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EBO-%E7%B4%A2%E5%BC%95%E7%BC%93%E5%86%B2%E5%AF%B9%E8%B1%A1-Element-Buffer-Object-%E4%B9%9F%E5%8F%AB-Index-Buffer-Object%EF%BC%8CIBO"><span class="toc-text">EBO(索引缓冲对象 [ Element Buffer Object] 也叫 [Index Buffer Object，IBO] )</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9D%80%E8%89%B2%E5%99%A8-Shader"><span class="toc-text">着色器 Shader</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%9C%BA"><span class="toc-text">状态机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-text">对象</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <div class="row">
+            <!-- Sidebar Container -->
 
-<div class="footer-wrapper container">
-  <footer class="footer clearfix">
-    <div class="clearfix">
-    <a href="http://dante-game.com.cn" class="footer-logo">
-      <i class="fa fa-github"></i>
-    </a>
-    <ul class="footer-social-link">
-      <li>© 2019 Dante</li>
-      <li><a href="http://dante-game.com.cn">Home</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Github</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Weibo</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Linkedin</a></li>
-      
-    </ul>
-    <div class="footer-theme-info">
-      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#OpenGL"
+                           title="OpenGL">OpenGL</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
     </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Ao021">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Dante-Game 2022
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
     </div>
-    
-  </footer>
-</div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://dante-game.com.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
 
 
 
+<!-- Google Analytics -->
 
-<script src="/js/main.js"></script>
 
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png">
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -241,4 +454,5 @@
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
+
 </html>

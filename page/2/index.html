@@ -1,567 +1,792 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
+<!-- Head tag -->
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>
-    Dante的个人博客
-  </title>
-  <meta name="description" content="">
-  
-  <meta name="author" content="Dante">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DANTE的游戏博客">
+    <meta name="keyword" content="GAMES# seo key words">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/964987e788bb8e7784f2f3b0c6b20f30.png# your favicon png">
+    <link rel="alternate" type="application/atom+xml" title="Dante-Game" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        Dante-Game
+        
+    </title>
 
-  <meta http-equiv="Cache-Control" content="no-transform"/>
-  <meta http-equiv="Cache-Control" content="no-siteapp">
-  <meta name="theme-color" content="#1e2327">
-  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
+    <link rel="canonical" href="http://dante-game.com.cn/page/2/">
 
-  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
 
-  
 
-  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
-</head>
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
 
-<body id="replica-app">
 
-<nav class="navbar-wrapper">
-  <div class="navbar">
-    <div class="container clearfix">
-      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
 
-      <div class="navbar-search float-left desktop-only">
-        <div class="navbar-search-form">
-          <label for="gsc-i-id1">This website</label>
-          <div id="google-search">
-            <gcse:search></gcse:search>
-          </div>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="false
+" data-ishome = "true" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Dante-Game
+                </span>
+                's Blog
+            </a>
         </div>
-      </div>
 
-      <ul class="navbar-nav float-left">
-        
-        <li><a href="/">Archives</a></li>
-        
-        
-        <li><a href="/">Categories</a></li>
-        
-        
-        <li><a href="/">Tags</a></li>
-        
-        
-        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
-        
-      </ul>
-
-      <ul class="navbar-nav user-nav float-right desktop-only">
-        <li class="user-nav-notification">
-          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
-        </li>
-        <li>
-          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
-        </li>
-        <li class="user-nav-logo">
-          <a><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"> <i class="fa fa-caret-down"></i></i></a>
-        </li>
-      </ul>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+    <!-- /.container -->
 </nav>
-
-<div class="main-container">
-  
-
-<div class="container-lg">
-  
-
-<div class="blog-intro">
-  <div class="blog-intro-user">
-    <img class="avatar" src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png">
-    <div class="user-name">
-      <div class="blog-title"></div>
-      <div class="blog-author"></div>
-        <ul class="user-detail mobile-only">
-    
-    <li>
-      <i class="fa fa-map-marker"></i>
-      江苏 无锡
-    </li>
-    
-    <li>
-      <i class="fa fa-envelope-o"></i>
-      <a href="mailto:a980735179@Gmail.com">a980735179@Gmail.com</a>
-    </li>
-    
-    <li>
-      <i class="fa fa-link"></i>
-      <a href="http://dante-game.com.cn">http://dante-game.com.cn</a>
-    </li>
-  </ul>
-    </div>
-    <div class="blog-description">
-      
-    </div>
-  </div>
-
-  <ul class="user-detail desktop-only">
-    
-    <li>
-      <i class="fa fa-map-marker"></i>
-      江苏 无锡
-    </li>
-    
-    <li>
-      <i class="fa fa-envelope-o"></i>
-      <a href="mailto:a980735179@Gmail.com">a980735179@Gmail.com</a>
-    </li>
-    
-    <li>
-      <i class="fa fa-link"></i>
-      <a href="http://dante-game.com.cn">http://dante-game.com.cn</a>
-    </li>
-  </ul>
-
-  <div class="social-media desktop-only">
-    <h4>Social Media</h4>
-    <ul>
-      
-      <li class="social-media-item"><a href="https://github.com/Ao021" target="_blank"><i class="fa fa-github"></i></a></li>
-      
-      <li class="social-media-item"><a href="https://github.com/Ao021" target="_blank"><i class="fa fa-weibo"></i></a></li>
-      
-      <li class="social-media-item"><a href="https://github.com/Ao021" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-      
-    </ul>
-  </div>
-</div>
-
-
-  <div class="blog-detail">
-    
-<nav class="blog-detail-nav desktop-only">
-  <ul class="clearfix">
-    <li class="selected">
-      <a href="/">Overview</a></li>
-    <li class="">
-      <a href="/">Posts <span class="counter">20</span></a>
-    </li>
-    <li class="">
-      <a href="/">Categories <span
-                class="counter">4</span></a></li>
-    <li class="">
-      <a href="/">Tags <span class="counter">9</span></a></li>
-  </ul>
-</nav>
-
-    <div class="body-secondary">
-      <p class="right-title">Recent post</p>
-      <ul class="recent-post clearfix">
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/">OpenGL GLFW, GLAD 在 Visual Studio 配置</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 GLFW    下载GLFW   下载地址    
- 下载好后解压解压 
- 
- github下
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><i class="fa fa-folder-open"></i> 环境配置</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 4 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E5%88%86%E7%B1%BBClassification/">Pytorch学习笔记5--分类Classification</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 过程  其实和回归那个神经网络没差,就是数据集变化了,神经网络的输入输出端变为2个参数   
-
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 机器学习</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 4 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/">OpenGL(glut包)在Visual Studio配置</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 OpenGL(glut包)在Visual Studio配置    1.glut下载    下载
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><i class="fa fa-folder-open"></i> 环境配置</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 4 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/">PicGo GitHub图床设置</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 PicGo GitHub图床设置  
- 创建一个仓库,用于存储图片 
- 生成一个token,点
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><i class="fa fa-folder-open"></i> 环境配置</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 3 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/">Pytorch学习笔记3--激励函数</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 激励函数    什么是 Activation  激励函数是非线性函数 神经网络每一层出来都是线
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 机器学习</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 4 </span>
-            </p>
-          </div>
-        </li>
-        
-        <li class="recent-post-item">
-          <div class="clearfix">
-            <h5 class="post-title text-ellipsis">
-              <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/">Pytorch学习笔记4--回归Regression</a>
-            </h5>
-            <p class="post-description text-ellipsis desktop-only">
-                 过程  通过一个散点图建立一个简单神经网络   
- 步骤为   
- 
- 建立xy数据点集 
- 
-            </p>
-            <p class="post-info desktop-only">
-              <span>
-                
-                  <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><i class="fa fa-folder-open"></i> 机器学习</a>
-                
-              </span>
-              <span><i class="fa fa-tag"></i> 4 </span>
-            </p>
-          </div>
-        </li>
-        
-      </ul>
-      <div class="calendar-container" id="calendar">
-  <div class="calendar">
-    <h3>
-      {{posts.length}} contributions in the last year
-    </h3>
-    <div class="calendar-graph-container">
-      <div class="calendar-graph">
-        <svg width="676" height="104" @mouseout="mouseoverDate=null">
-          <g transform="translate(16, 20)">
-            <g v-for="week in calendar" :transform="week.transform">
-              <rect v-for="day in week.days"
-                    :x="day.x"
-                    :y="day.y"
-                    :fill="day.fill"
-                    @click="selectedDate=day.date"
-                    @mouseover="mouseoverDate=day.date"
-                    :class="{active:selectedDate===day.date}"
-                    data-count="{{day.posts.length}}"
-                    data-date="{{day.date}}"
-                    class="day" width="10" height="10"
-              ></rect>
-            </g>
-
-            <text v-for="month in monthLabels"
-                  :x="month.x"
-                  y="-5"
-                  class="month">{{month.text}}
-            </text>
-
-
-            <text text-anchor="start" class="wday" dx="-14" dy="8"
-                  style="display: none;">S
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="20">Mon</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="32"
-                  style="display: none;">T
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="44">Wed</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="57"
-                  style="display: none;">T
-            </text>
-            <text text-anchor="start" class="wday" dx="-14" dy="69">Fri</text>
-            <text text-anchor="start" class="wday" dx="-14" dy="81"
-                  style="display: none;">S
-            </text>
-          </g>
-        </svg>
-        <div class="svg-tip svg-tip-one-line"
-             v-bind:style="{ top: svgtip.top, left: svgtip.left, display: svgtip.display}">
-          <strong>{{svgtip.text}}</strong> on
-          {{moment(mouseoverDate).format('MMM DD, YYYY')}}
-        </div>
-      </div>
-      <div class="calendar-footer clearfix">
-      <span>
-        <a href="#">Learn how we count contributions.</a>
-      </span>
-        <div class="calendar-legend">
-          <span>Less</span>
-          <ul class="legend">
-            <li style="background-color: #eee"></li>
-            <li style="background-color: #d6e685"></li>
-            <li style="background-color: #8cc665"></li>
-            <li style="background-color: #44a340"></li>
-            <li style="background-color: #1e6823"></li>
-          </ul>
-          <span>More</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <h3>Contribution activity</h3>
-  <div class="contribution-list">
-    <ul>
-      <li v-for="post in posts | filterBy selectedDate in 'date'">
-        <a href="{{post.url}}">{{post.title}}
-        </a>
-        <span>{{post.date}}</span>
-      </li>
-    </ul>
-  </div>
-</div>
-
-
 <script>
-  var posts = [{"date":"2021-11-01","title":"Unity实验作业 手动搭建指定的三维场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/"},{"date":"2021-11-01","title":"Unity实验作业 动态的“日-地-月”场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C01/"},{"date":"2021-11-01","title":"Unity实验作业 制作一个动态3D时钟","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/"},{"date":"2021-11-01","title":"Unity实验作业 探索SDK之外的秘密","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/"},{"date":"2021-11-01","title":"Unity实验作业 实现对mesh的破碎效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/"},{"date":"2021-11-01","title":"Unity实验作业 用Cube实现篝火动态效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/"},{"date":"2021-11-01","title":"Unity实验作业 鼠标操作3D空间物体","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/"}];
-  var today = moment().format('YYYY-MM-DD');
-  var oneYearAgo = moment(today).subtract(1, 'years');
-  posts = posts.filter(function(post) {
-    return new Date(post.date) > oneYearAgo;
-  });
-  var monthLabels = [];
-  var monthName = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  var calendar = getCalendar(posts);
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
 
-  var dateRange = {
-    start: moment(oneYearAgo).format('MMM D, YYYY'),
-    end: moment().format('MMM D, YYYY')
-  }
-
-  var app = new Vue({
-    el: '#calendar',
-    data: {
-      posts: posts,
-      selectedDate: null,
-      calendar: calendar,
-      dateRange: dateRange,
-      mouseoverDate: null,
-      moment: moment,
-      monthLabels: monthLabels
-    },
-    created: function() {
-      this.selectedDate = 'none';
-    },
-    methods: {},
-    computed: {
-      svgtip: function() {
-        var date = this.mouseoverDate;
-        var display = date ? 'block' : 'none';
-        if (date) {
-          var coordinator = getIndexByDate(date);
-          var x = coordinator[0];
-          var y = coordinator[1];
-          var len = this.calendar[x].days[y].posts.length;
-          var text = len ? len + ' contributions' : 'No contributions';
-          var left = coordinator[0] * 12 - 37 + 'px';
-          coordinator[1] = coordinator[0] ? coordinator[1] : coordinator[1] + oneYearAgo.day();
-          var top = coordinator[1] * 12 + 12 - 32 + 'px';
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
         }
-        return {
-          text: text,
-          left: left,
-          top: top,
-          display: display
+    }
+</script>
+
+<!-- Main Content -->
+
+
+<style>
+
+    .custom-haojen-container .post-preview:nth-of-type(1),
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        text-align: center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        background-size: cover;
+        padding: 0;
+        height: 300px;
+        display: table;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.16);
+    }
+
+    /*去掉诗歌的背景图片*/
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) {
+        background-image: none !important;
+        background-color: rgba(255, 248, 220, 0.5);
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) h2,
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta,
+    .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+        text-shadow: 0 0 40px rgba(0, 0, 0, 1);
+        letter-spacing: 1px;
+        color: #fff;
+        margin-top: 0;
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .custom-haojen-container .post-preview:nth-child(1) .post-meta {
+        font-size: .9em;
+        font-weight: 300;
+        margin-top: 0;
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-child(1) .post-subtitle {
+        letter-spacing: 6px;
+        font-size: 18px;
+        font-family: unset;
+        font-weight: 400;
+        color: rgba(0, 0, 0, .75)
+    }
+
+    /*不显示摘要*/
+    .custom-haojen-container .post-preview:nth-child(1) .post-content-preview {
+        display: none
+    }
+
+    /*只第一个显示背景图片*/
+    .custom-haojen-container .post-preview:not(:nth-child(1)) {
+        background-image: none !important;
+    }
+
+    /*第一个分界线去掉*/
+    .custom-haojen-container hr:nth-of-type(1) {
+        display: none;
+    }
+
+    /*主题*/
+    .custom-haojen-container .post-preview:nth-of-type(1) > a {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    /*诗词标题*/
+    .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+        font-size: 35px;
+        font-family: STKaiti;
+        color: rgba(0, 0, 0, .8);
+    }
+
+    .custom-haojen-container .post-preview-poetry:nth-of-type(1) .post-meta {
+        color: #0e2231;
+    }
+
+    @media (max-width: 768px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 240px;
         }
-      }
-    }
-  });
 
-  function getCalendar(posts) {
-    // raw calendar
-    var maxCount = 0;
-    var tmr = new Date();
-    tmr.setDate(tmr.getDate() + 1);
-    var tmrStr = tmr.toISOString().slice(0, 10);
-    var date = new Date();
-    date.setYear(date.getFullYear() - 1); // start date is a year ago;
-    var calendar = [];
-    while (date.toISOString().slice(0, 10) !== tmrStr) {
-      var day = date.getDay();
-      if (day === 0 || calendar.length === 0) {
-        var x = calendar.length * 13;
-        calendar.push({
-          transform: 'translate(' + x + ',0)',
-          days: []
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 28px !important;
+            margin-top: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .custom-haojen-container .post-preview:nth-of-type(1) > a {
+            padding: 20px
+        }
+    }
+
+    /*手机屏幕*/
+    @media (max-width: 400px) {
+        .custom-haojen-container .post-preview:nth-child(1) {
+            height: 195px;
+        }
+
+        .custom-haojen-container .post-preview-poetry:nth-child(1) h2 {
+            font-size: 20px !important;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) .post-subtitle {
+            font-size: 16px;
+        }
+
+        .custom-haojen-container .post-preview:nth-child(1) a {
+            padding: 30px 20px;
+        }
+    }
+</style>
+
+<!-- Page Header -->
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
+    <div class="row">
+        <header class="intro-header">
+            <div class="container">
+                <div class="site-heading text-center">
+                    <div class="about-me">
+                        <!--移动端头部显示-->
+                        <img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"/>
+                        <h5><a href="/about/">Dante</a></h5>
+                        <p>null</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+</div>
+<!-- Main Content -->
+<div class="container custom-haojen-container">
+    <!-- Post Container -->
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
+            <!-- Main Content -->
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/08/OpenGL  GLFW, GLAD 在 Visual Studio 配置/">
+        <h2 class="post-title">
+            OpenGL GLFW, GLAD 在 Visual Studio 配置
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-08
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                GLFW下载GLFW下载地址  
+下载好后解压解压
+
+github下载可能略慢,建议翻墙
+
+
+下载CMake下载地址下载好后解压,打开’bin/cmake-gui.exe’我们现在需要一个源代码目录(即之前下好的glfw)和一个存放编译结果的目标文件目录(新建一个build文件夹)  
+
+注意路..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/04/Pytorch学习笔记5-分类Classification/">
+        <h2 class="post-title">
+            Pytorch学习笔记5--分类Classification
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                过程其实和回归那个神经网络没差,就是数据集变化了,神经网络的输入输出端变为2个参数  
+
+
+代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/04/OpenGL(glut包)在Visual Studio配置/">
+        <h2 class="post-title">
+            OpenGL(glut包)在Visual Studio配置
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                OpenGL(glut包)在Visual Studio配置1.glut下载 下载链接
+2.环境配置
+下载好会有如下文件
+.h 文件 glut.h 放入路径 C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/04/PicGo GitHub图床设置/">
+        <h2 class="post-title">
+            PicGo GitHub图床设置
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                PicGo GitHub图床设置
+创建一个仓库,用于存储图片
+生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  
+
+
+
+
+genera..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/04/Pytorch学习笔记3-激励函数/">
+        <h2 class="post-title">
+            Pytorch学习笔记3--激励函数
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                激励函数什么是 Activation激励函数是非线性函数神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  
+常用的激励函数有
+
+relu
+sigmoid
+tanh
+softplus
+
+
+Torch中的激励函数python的可视化模块以下是测试代码123456789101..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/04/Pytorch学习笔记4-回归Regression/">
+        <h2 class="post-title">
+            Pytorch学习笔记4--回归Regression
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-04
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                过程通过一个散点图建立一个简单神经网络  
+步骤为  
+
+建立xy数据点集
+定义神经网络结构,只有hidden和predict 2层
+训练神经网络同时绘制图像
+
+
+代码1234567891011121314151617181920212223242526272829303132333435363..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/03/02/Pytorch学习笔记-pip安装python模块使用国内镜像/">
+        <h2 class="post-title">
+            Pytorch学习笔记-pip安装python模块使用国内镜像
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-03-02
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                镜像源由于pip install 都是从海外源下载,正常的 install 很慢使用国内的镜像源会大幅度提升 install 速度
+以下的国内的一些镜像源
+镜像源：豆瓣：https://pypi.douban.com/simple/清华：https://pypi.douban.com/simpl..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/02/19/Pytorch学习笔记2-Autograd 自动求导机制/">
+        <h2 class="post-title">
+            Pytorch学习笔记--自动求导机制
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-02-19
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                Autograd: 自动求导机制PyTorch 中所有神经网络的核心是 autograd 包。 我们先简单介绍一下这个包，然后训练第一个简单的神经网络。
+autograd包为张量上的所有操作提供了自动求导。 它是一个在运行时定义的框架，这意味着反向传播是根据你的代码来确定如何运行，并且每次迭代可..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/01/27/Pytorch学习笔记1-张量/">
+        <h2 class="post-title">
+            Pytorch学习笔记--张量
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                PyTorch是什么基于Python的科学计算包，服务于以下两种场景:
+
+作为NumPy的替代品，可以使用GPU的强大计算能力
+提供最大的灵活性和高速的深度学习研究平台
+
+
+Tensors 张量创建Tensors与Numpy中的 ndarrays类似，但是在PyTorch中 Tensors 可以..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+<div class="post-preview "
+     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
+    <a href="/2021/01/27/语义分割_入门_经验分享/">
+        <h2 class="post-title">
+            人工智能小测试
+        </h2>
+        <p class="post-meta">
+            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
+        </p>
+        
+        <div class="post-content-preview">
+            <p>
+                前置
+翻墙工具
+github账号,看源码必备
+基于pytorch
+最好有个Google账号
+使用Google的深度学习服务器Colab,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过Google云端硬盘上传,自带15G免费内存,可扩充100G/月(250..
+            </p>
+        </div>
+    </a>
+
+</div>
+
+<hr>
+
+
+
+
+<!-- 翻页 pager -->
+
+<ul class="pager">
+    
+    <li class="previous">
+        <a href="/">&larr; Newer Posts</a>
+    </li>
+    
+    
+</ul>
+
+
+        </div>
+        <!-- Sidebar Container -->
+        <div class="
+                col-lg-3 col-lg-offset-0
+                col-md-3 col-md-offset-0
+                col-sm-12
+                col-xs-12
+                sidebar-container
+            ">
+
+            <!-- About Me -->
+            <section class="visible-md visible-lg" style="padding: 0 18px">
+                <div class="short-about">
+                    <!--侧边栏头像-->
+                    
+                    <img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"/>
+                    
+                    <h5><a href="/about/">Dante</a></h5>
+                    
+                    <hr>
+                    <!-- SNS Link 社交 -->
+                    <ul class="list-inline">
+                        
+                        
+                        
+
+                        
+
+                        
+
+                        
+                        <li>
+                            <a target="_blank" href="https://github.com/Ao021">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                        </span>
+                            </a>
+                        </li>
+                        
+
+                        
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Featured Tags  标签 -->
+            
+            <section>
+                <div class="tags">
+                    
+                    
+                    <a href="/tags/#学习" title="学习"
+                       rel="20">学习</a>
+                    
+                    
+                    
+                    <a href="/tags/#记录" title="记录"
+                       rel="20">记录</a>
+                    
+                    
+                    
+                    <a href="/tags/#经验" title="经验"
+                       rel="20">经验</a>
+                    
+                    
+                    
+                    <a href="/tags/#计算机图形学" title="计算机图形学"
+                       rel="5">计算机图形学</a>
+                    
+                    
+                    
+                    <a href="/tags/#OpenGL" title="OpenGL"
+                       rel="3">OpenGL</a>
+                    
+                    
+                    
+                    <a href="/tags/#Pytorch" title="Pytorch"
+                       rel="6">Pytorch</a>
+                    
+                    
+                    
+                    
+                    
+                    <a href="/tags/#Unity" title="Unity"
+                       rel="7">Unity</a>
+                    
+                    
+                    
+                    
+                </div>
+            </section>
+            
+
+            
+
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Ao021">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Dante-Game 2022
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://dante-game.com.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
         })
-      }
-
-      calendar[calendar.length - 1].days.push({
-        x: 14 - calendar.length,
-        y: day * 12,
-        date: date.toISOString().slice(0, 10),
-        posts: []
-      });
-
-      if (day === 0 && date.getDate() < 8) {
-        monthLabels.push({
-          x: 14 - calendar.length + x,
-          text: monthName[date.getMonth() - 1]
-        })
-      }
-
-      date.setDate(date.getDate() + 1);
     }
+</script>
 
-    // handle post info
-    posts.forEach(function(post) {
-      var x = getIndexByDate(post.date)[0];
-      var y = getIndexByDate(post.date)[1];
-
-      calendar[x].days[y].posts.push({
-        title: post.title,
-        url: post.url
-      });
-
-      var len = calendar[x].days[y].posts.length;
-      maxCount = Math.max(len, maxCount);
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
     })
-
-    // handle fill color
-    calendar.forEach(function(week) {
-      week.days.forEach(function(day) {
-        day.fill = getColorByLength(day.posts.length, maxCount);
-      })
-    })
-
-    return calendar;
-  }
-
-  function getIndexByDate(date) {
-    date = moment(date);
-    var firstColumnLen = 7 - oneYearAgo.day();
-    var days = date.diff(oneYearAgo, 'days');
-
-    var x = days > firstColumnLen - 1 ? Math.ceil((days - firstColumnLen + 1) / 7) : 0;
-    var y = days > firstColumnLen - 1 ? date.day() : date.day() - oneYearAgo.day();
-    return [x, y];
-  }
-
-  function getColorByLength(len, max) {
-    var colors = ['#eee', '#d6e685', '#8cc665', '#44a340', '#1e6823'];
-    var colorsLen = colors.length - 1;
-    var color = len ? colors[0] : colors[1];
-    var interval = max / colorsLen;
-    if (max < colorsLen) {
-      color = colors[len];
-    } else {
-      color = colors[Math.ceil(len / interval)];
-    }
-    return color;
-  }
-
 </script>
 
 
-    </div>
-  </div>
-</div>
 
-</div>
-
-<div class="footer-wrapper container">
-  <footer class="footer clearfix">
-    <div class="clearfix">
-    <a href="http://dante-game.com.cn" class="footer-logo">
-      <i class="fa fa-github"></i>
-    </a>
-    <ul class="footer-social-link">
-      <li>© 2019 Dante</li>
-      <li><a href="http://dante-game.com.cn">Home</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Github</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Weibo</a></li>
-      
-      <li><a target="_blank" rel="noopener" href="https://github.com/Ao021">Linkedin</a></li>
-      
-    </ul>
-    <div class="footer-theme-info">
-      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
-      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
-    </div>
-    </div>
-    
-  </footer>
-</div>
+<!-- Google Analytics -->
 
 
 
+<!-- Baidu Tongji -->
 
-<script src="/js/main.js"></script>
 
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png">
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
@@ -578,4 +803,5 @@
 </script>
 <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
+
 </html>

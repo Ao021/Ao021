@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Dante的个人博客</title>
-  
-  
+  <title>Dante-Game</title>
+  <icon>https://www.gravatar.com/avatar/3d52e60c6199417f09d966057eded997</icon>
+  <subtitle>致热爱游戏的人</subtitle>
   <link href="http://dante-game.com.cn/atom.xml" rel="self"/>
   
   <link href="http://dante-game.com.cn/"/>
@@ -11,7 +11,7 @@
   
   <author>
     <name>Dante</name>
-    
+    <email>a980735179@gmail.com</email>
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
