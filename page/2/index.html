@@ -252,14 +252,10 @@
           <div class="clearfix">
             <h5 class="post-title text-ellipsis">
               <i class="fa fa-bars"></i>
-              <a href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/">Pytorch学习笔记4--回归Regression</a>
+              <a href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/">Pytorch学习笔记3--激励函数</a>
             </h5>
             <p class="post-description text-ellipsis desktop-only">
-                 过程  通过一个散点图建立一个简单神经网络   
- 步骤为   
- 
- 建立xy数据点集 
- 
+                 激励函数    什么是 Activation  激励函数是非线性函数 神经网络每一层出来都是线
             </p>
             <p class="post-info desktop-only">
               <span>
@@ -359,7 +355,7 @@
 
 
 <script>
-  var posts = [{"date":"2021-11-01","title":"Unity实验作业 手动搭建指定的三维场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/"},{"date":"2021-11-01","title":"Unity实验作业 动态的“日-地-月”场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C01/"},{"date":"2021-11-01","title":"Unity实验作业 制作一个动态3D时钟","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/"},{"date":"2021-11-01","title":"Unity实验作业 探索SDK之外的秘密","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/"},{"date":"2021-11-01","title":"Unity实验作业 实现对mesh的破碎效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/"},{"date":"2021-11-01","title":"Unity实验作业 用Cube实现篝火动态效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/"},{"date":"2021-11-01","title":"Unity实验作业 鼠标操作3D空间物体","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/"},{"date":"2022-09-02","title":"Hello World","url":"http://dante-game.com.cn/2022/09/02/hello-world/"}];
+  var posts = [{"date":"2021-11-01","title":"Unity实验作业 手动搭建指定的三维场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/"},{"date":"2021-11-01","title":"Unity实验作业 制作一个动态3D时钟","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/"},{"date":"2021-11-01","title":"Unity实验作业 动态的“日-地-月”场景","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C01/"},{"date":"2021-11-01","title":"Unity实验作业 探索SDK之外的秘密","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/"},{"date":"2021-11-01","title":"Unity实验作业 实现对mesh的破碎效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/"},{"date":"2021-11-01","title":"Unity实验作业 用Cube实现篝火动态效果","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/"},{"date":"2021-11-01","title":"Unity实验作业 鼠标操作3D空间物体","url":"http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/"},{"date":"2022-09-02","title":"Hello World","url":"http://dante-game.com.cn/2022/09/02/hello-world/"}];
   var today = moment().format('YYYY-MM-DD');
   var oneYearAgo = moment(today).subtract(1, 'years');
   posts = posts.filter(function(post) {
