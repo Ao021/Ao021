@@ -1,200 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>Dante的个人博客</title>
-    
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-    
-<link rel="stylesheet" href="/css/gitment.css">
 
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
-</head>
-<body>
-<header class="header">
-    <div class="header-inner">
-        <div class="header-title">
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-        </div>
-        <nav class="header-nav">
-            
-            <a href="/" class="header-nav-link" >
-                Home
-            </a>
-            
+{% block page_class %}page-post-detail{% endblock %}
 
-            
-            <a href="/archives" class="header-nav-link">
-                Archives
-            </a>
-            
 
-            
-            <a href="/tags" class="header-nav-link">
-                Tags
-            </a>
-            
+{% block content %}
 
-            
-        </nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
+
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
-</header>
-<header class="mobile-header">
-    <div class="mobile-nav">
-        <div class="mobile-nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
-        </div>
+  </div>
 
-    </div>
-    <nav class="mobile-menu">
-        <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">Home</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">Archives</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">Tags</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">About</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="main">
-    <div class="content-inner">
-        <div class="posts">
-    <article class="post-whole">
-        <div class="post-title">
-            <h2 class="title">OpenGL(glut包)在Visual Studio配置</h2>
-            <div class="post-meta">
-                <span class="post-time">2021-03-04</span>
-                
-                <span class="post-category">
-                    
-                    <a class="category" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">环境配置</a>
-                    
-                </span>
-                
-                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
-            </div>
-        </div>
-        <div class="post-toc" id="post-toc">
-    <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#OpenGL-glut%E5%8C%85-%E5%9C%A8Visual-Studio%E9%85%8D%E7%BD%AE"><span class="toc-text">OpenGL(glut包)在Visual Studio配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-glut%E4%B8%8B%E8%BD%BD"><span class="toc-text">1.glut下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">2.环境配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#h-%E6%96%87%E4%BB%B6"><span class="toc-text">.h 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lib-%E6%96%87%E4%BB%B6"><span class="toc-text">.lib 文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dll-%E6%96%87%E4%BB%B6"><span class="toc-text">.dll 文件</span></a></li></ol></li></ol></li></ol>
-    <div class="back-to-top" id="back-to-top">
-        <a href="javascript:void(0);">回到顶部</a>
-    </div>
-</div>
-        <div class="post-content">
-            <h1 id="OpenGL-glut包-在Visual-Studio配置"><a href="#OpenGL-glut包-在Visual-Studio配置" class="headerlink" title="OpenGL(glut包)在Visual Studio配置"></a>OpenGL(glut包)在Visual Studio配置</h1><h2 id="1-glut下载"><a href="#1-glut下载" class="headerlink" title="1.glut下载"></a>1.glut下载</h2><p> <a target="_blank" rel="noopener" href="https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip">下载链接</a></p>
-<h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h2><a id="more"></a>
-<p>下载好会有如下文件<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304215209.png" alt="下载文件"></p>
-<h3 id="h-文件"><a href="#h-文件" class="headerlink" title=".h 文件"></a>.h 文件</h3><p> <strong>glut.h</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include \ GL \</code>，GL是文件夹手动创建的。</p>
-<h3 id="lib-文件"><a href="#lib-文件" class="headerlink" title=".lib 文件"></a>.lib 文件</h3><p> <strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86 \</code>  </p>
-<p><strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x64 \</code>  </p>
-<h3 id="dll-文件"><a href="#dll-文件" class="headerlink" title=".dll 文件"></a>.dll 文件</h3><p><strong>glut.dll</strong> 和 <strong>glut32.dll</strong> 放入<code>C:\ Windows \ SysWOW64 \</code><br><strong>glut32.dll</strong> 放入 <code>C:\ Windows \ System32 \</code>  </p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jjhfen00/article/details/50646834">参考blog</a></p>
-</blockquote>
+{% endblock %}
 
-        </div>
-        
-        <div class="post-tag">
-            
-            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
-            
-            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
-            
-            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
-            
-            <a class="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" title="计算机图形学">计算机图形学</a>
-            
-        </div>
-        
-    </article>
-</div>
-<div class="paginator">
-    
-        
-            <a class="prev" href="/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E5%88%86%E7%B1%BBClassification/">
-                <i class="iconfont icon-prev"></i>
-                <span class="nav-default">Pytorch学习笔记5--分类Classification</span>
-                <span class="nav-mobile">Prev</span>
-            </a>
-        
-        
-            <a class="next" href="/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/">
-                <span class="nav-default">PicGo GitHub图床设置</span>
-                <span class="nav-mobile">Next</span>
-                <i class="iconfont icon-next"></i>
-            </a>
-        
-    
-</div>
-<div id="comment-container"></div>
-    </div>
-</div>
-<footer class="footer-social">
-    
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-    
 
-    
-
-    <div class="footer-copyright">
-        <p class="time-line">
-            &copy;
-            
-            
-            2022
-            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
-        </p>
-        <p class="theme-info">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
-            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
-        </p>
-    </div>
-</footer>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    
-
-</script>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

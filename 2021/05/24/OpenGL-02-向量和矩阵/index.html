@@ -1,220 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>Dante的个人博客</title>
-    
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-    
-<link rel="stylesheet" href="/css/gitment.css">
 
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
-</head>
-<body>
-<header class="header">
-    <div class="header-inner">
-        <div class="header-title">
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-        </div>
-        <nav class="header-nav">
-            
-            <a href="/" class="header-nav-link" >
-                Home
-            </a>
-            
+{% block page_class %}page-post-detail{% endblock %}
 
-            
-            <a href="/archives" class="header-nav-link">
-                Archives
-            </a>
-            
 
-            
-            <a href="/tags" class="header-nav-link">
-                Tags
-            </a>
-            
+{% block content %}
 
-            
-        </nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
+
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
-</header>
-<header class="mobile-header">
-    <div class="mobile-nav">
-        <div class="mobile-nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
-        </div>
+  </div>
 
-    </div>
-    <nav class="mobile-menu">
-        <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">Home</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">Archives</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">Tags</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">About</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="main">
-    <div class="content-inner">
-        <div class="posts">
-    <article class="post-whole">
-        <div class="post-title">
-            <h2 class="title">OpenGL_02_向量和矩阵</h2>
-            <div class="post-meta">
-                <span class="post-time">2021-05-24</span>
-                
-                <span class="post-category">
-                    
-                    <a class="category" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a>
-                    
-                </span>
-                
-                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
-            </div>
-        </div>
-        <div class="post-toc" id="post-toc">
-    <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5"><span class="toc-text">向量和矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%91%E9%87%8F"><span class="toc-text">向量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%82%B9%E7%A7%AF-dot-product"><span class="toc-text">向量点积(dot product)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%91%E9%87%8F%E7%9A%84%E5%8F%89%E7%A7%AF-cross-product"><span class="toc-text">向量的叉积(cross product)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5"><span class="toc-text">矩阵</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%A9%E9%98%B5%E5%92%8C%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95"><span class="toc-text">矩阵和矩阵乘法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%8C%E5%88%97%E5%BC%8F"><span class="toc-text">行列式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%86%E7%9F%A9%E9%98%B5"><span class="toc-text">逆矩阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A3%E4%BA%A4%E7%9F%A9%E9%98%B5"><span class="toc-text">正交矩阵</span></a></li></ol></li></ol></li></ol>
-    <div class="back-to-top" id="back-to-top">
-        <a href="javascript:void(0);">回到顶部</a>
-    </div>
-</div>
-        <div class="post-content">
-            <h1 id="向量和矩阵"><a href="#向量和矩阵" class="headerlink" title="向量和矩阵"></a>向量和矩阵</h1><p>默认大家都学过向量和矩阵,这里就记录一些核心的东西</p>
-<h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><h3 id="向量点积-dot-product"><a href="#向量点积-dot-product" class="headerlink" title="向量点积(dot product)"></a>向量点积(dot product)</h3><p>向量点积，也称为向量的数量积，点积的结果是一个标量，其定义为$|\ A\ |\cdot{|\ B\ |\cos\theta}$,其几何意义如下,一般用于计算投影和夹角<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524154830.png" alt=""></p>
-<a id="more"></a>
-<h3 id="向量的叉积-cross-product"><a href="#向量的叉积-cross-product" class="headerlink" title="向量的叉积(cross product)"></a>向量的叉积(cross product)</h3><p>两个向量a和b的叉积,结果是一个向量$c=a×b$,c的方向垂直于a和b，据右手规则来确定；c的大小等于  $|c| = |a||b|\sin\theta$<img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524155621.png" alt=""></p>
-<blockquote>
-<p>$a×b=−b×a$</p>
-</blockquote>
-<p>在利用以坐标形式表示向量a和b时，在3D空间中，叉积的结果用矩阵表示为:<br>$c = a×b\=<br>\begin{bmatrix}<br>i&amp;j&amp;k\<br>a_x&amp;a_y&amp;a_z\<br>b_x&amp;b_y&amp;b_z\<br>\end{bmatrix} $</p>
-<p>$=<br>\begin{bmatrix}<br>a_y&amp;a_z\<br>b_y&amp;b_z<br>\end{bmatrix}i-<br>\begin{bmatrix}<br>a_x&amp;a_z\<br>b_x&amp;b_z<br>\end{bmatrix}j+<br>\begin{bmatrix}<br>a_x&amp;a_y\<br>b_x&amp;b_y<br>\end{bmatrix}k$</p>
-<p>$=<br>\begin{bmatrix}<br>a_yb_z-a_zb_y\<br>a_xb_z-a_zb_x\<br>a_xb_y-a_yb_x<br>\end{bmatrix}<br>$</p>
-<blockquote>
-<p>其中 i,j,k为x,y,z三个方向上的单位向量</p>
-</blockquote>
-<p>叉积的几何意义<br>叉积的模可以视为以a和b为两边的平行四边形的面积，如下图所示<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524162017.png" alt=""><br>同时在OpenGL中还可以用来确定第三个方向 $up=dir×side$</p>
-<h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><h3 id="矩阵和矩阵乘法"><a href="#矩阵和矩阵乘法" class="headerlink" title="矩阵和矩阵乘法"></a>矩阵和矩阵乘法</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524162238.png" alt=""><br>向量的点积公式可以重新表示为:<br>$a=(a1,b2,⋯,cn),\ b=(b1,b2,⋯,bn)$</p>
-<p>$a\cdot{b}=a<em>1b_1+a_2b_2+\dots+a_nb_n\$<br>$=\sum</em>{i=1}^na_ib_i\$<br>$=a^Tb$</p>
-<h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524163031.png" alt=""></p>
-<h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><p>对于n阶方阵A，如果存在一个n阶方阵B使得:$AB=BA=I_{nxn}$</p>
-<ul>
-<li>逆矩阵的应用意义<br>在3D图形处理中，用一个变换矩阵乘以向量，代表了对原始图形进行了某种变换，例如缩小，旋转等，逆矩阵表示这个操作的逆操作，也就是能够撤销这一操作。例如对一个向量$v$用矩阵$M$相乘，然后再用$M^{−1}$相乘，则能得到原来的向量$v$</li>
-</ul>
-<blockquote>
-<p>注意转换矩阵应用顺序 当用矩阵$A,B,C$转换向量$v$时，如果$v$用行向量记法，则矩阵按转换顺序从左往右列出，表达为$vABC$;如果$v$采用列向量记法，则转换矩阵应该放在左边，并且转换从右往左发生，对应的转换记为$CBAv$</p>
-</blockquote>
-<h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>对于方阵M，当且仅当$M$与其转置矩阵$M^T$的乘积等于单位矩阵时，称其为正交矩阵。即：$MM^T=E$正交矩阵的一大优势在于，计算逆矩阵时，只需要对原矩阵转置即可，从而减少了计算量。在3D图形处理中的旋转和镜像变换都是正交的</p>
-<blockquote>
-<p>正交矩阵一定是可逆的</p>
-</blockquote>
+{% endblock %}
 
-        </div>
-        
-        <div class="post-tag">
-            
-            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
-            
-            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
-            
-            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
-            
-            <a class="tag" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" title="计算机图形学">计算机图形学</a>
-            
-            <a class="tag" href="/tags/OpenGL/" title="OpenGL">OpenGL</a>
-            
-        </div>
-        
-    </article>
-</div>
-<div class="paginator">
-    
-        
-            <a class="prev" href="/2021/05/25/OpenGL-03-%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%91%84%E5%83%8F%E6%9C%BA/">
-                <i class="iconfont icon-prev"></i>
-                <span class="nav-default">OpenGL_03_坐标系统与摄像机</span>
-                <span class="nav-mobile">Prev</span>
-            </a>
-        
-        
-            <a class="next" href="/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/">
-                <span class="nav-default">OpenGL_01_OpenGL的绘图基本流程与概念</span>
-                <span class="nav-mobile">Next</span>
-                <i class="iconfont icon-next"></i>
-            </a>
-        
-    
-</div>
-<div id="comment-container"></div>
-    </div>
-</div>
-<footer class="footer-social">
-    
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-    
 
-    
-
-    <div class="footer-copyright">
-        <p class="time-line">
-            &copy;
-            
-            
-            2022
-            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
-        </p>
-        <p class="theme-info">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
-            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
-        </p>
-    </div>
-</footer>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    
-
-</script>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}

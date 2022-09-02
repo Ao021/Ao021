@@ -1,206 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <title>Dante的个人博客</title>
-    
-<link rel="stylesheet" href="/css/style.css">
+{% extends '_layout.swig' %}
+{% import '_macro/post.swig' as post_template %}
+{% import '_macro/sidebar.swig' as sidebar_template %}
 
-    
-<link rel="stylesheet" href="/css/gitment.css">
 
-    <link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_859455_eaq7v6w8ktj.css">
-<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
-</head>
-<body>
-<header class="header">
-    <div class="header-inner">
-        <div class="header-title">
+{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
 
-        </div>
-        <nav class="header-nav">
-            
-            <a href="/" class="header-nav-link" >
-                Home
-            </a>
-            
+{% block page_class %}page-post-detail{% endblock %}
 
-            
-            <a href="/archives" class="header-nav-link">
-                Archives
-            </a>
-            
 
-            
-            <a href="/tags" class="header-nav-link">
-                Tags
-            </a>
-            
+{% block content %}
 
-            
-        </nav>
+  <div id="posts" class="posts-expand">
+    {{ post_template.render(page) }}
+
+    <div class="post-spread">
+      {% if theme.jiathis %}
+        {% include '_partials/share/jiathis.swig' %}
+      {% elseif theme.baidushare %}
+        {% include '_partials/share/baidushare.swig' %}
+      {% elseif theme.add_this_id %}
+        {% include '_partials/share/add-this.swig' %}
+      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
+        {% include '_partials/share/duoshuo_share.swig' %}
+      {% endif %}
     </div>
-</header>
-<header class="mobile-header">
-    <div class="mobile-nav">
-        <div class="mobile-nav-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="mobile-nav-title">
-            <a href="/" class="mobile-nav-title-link">Dante's Blog</a>
-        </div>
+  </div>
 
-    </div>
-    <nav class="mobile-menu">
-        <ul class="mobile-menu-list">
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-home"></i>
-                <a href="/" class="mobile-nav-link">Home</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-archive"></i>
-                <a href="/archives" class="mobile-nav-link">Archives</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-tag"></i>
-                <a href="/tags" class="mobile-nav-link">Tags</a>
-            </li>
-            <li class="mobile-menu-item">
-                <i class="iconfont icon-about"></i>
-                <a href="/about/" class="mobile-nav-link">About</a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<div class="main">
-    <div class="content-inner">
-        <div class="posts">
-    <article class="post-whole">
-        <div class="post-title">
-            <h2 class="title">Unity实验作业 动态的“日-地-月”场景</h2>
-            <div class="post-meta">
-                <span class="post-time">2021-11-01</span>
-                
-                <span class="post-category">
-                    
-                    <a class="category" href="/categories/%E8%AF%BE%E7%A8%8B/">课程</a>
-                    
-                </span>
-                
-                <span class="post-visit"> visited：<span id="busuanzi_value_page_pv"></span></span>
-            </div>
-        </div>
-        <div class="post-toc" id="post-toc">
-    <strong class="post-toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A-1"><span class="toc-text">实验作业 1</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%9D%E8%80%83"><span class="toc-text">实验思考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">实验步骤</span></a></li></ol></li></ol>
-    <div class="back-to-top" id="back-to-top">
-        <a href="javascript:void(0);">回到顶部</a>
-    </div>
-</div>
-        <div class="post-content">
-            <h1 id="实验作业-1"><a href="#实验作业-1" class="headerlink" title="实验作业 1"></a>实验作业 1</h1><p>目的：  熟悉世界坐标和局部坐标</p>
-<p>要求：  完成一个动态的“日-地-月”场景</p>
-<a id="more"></a>
-<hr>
-<h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>本次实验是制作一个动态日地月场景,基本步骤就是场景搭建与动效实现</p>
-<p>场景搭建采用日-&gt;地-&gt;月的顺序依次包含子物件,在变换时会较为方便,动效实现可以直接对位置采取变换,也可以设置各个天体之间的力来控制运动来实现平衡运动</p>
-<p>虽然现实生活中的天体轨迹是椭圆的,但既然只是练习,就以圆代替</p>
-<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>首先搭建场景,从网上找来地月日模型与宇宙天空盒来搭建场景</p>
-<p>并且将其按照上述父子节点关系整理,通过局部position归零来快速构建,其中将太阳的模型的阴影效果去除以达到发光体效果,将平行光设为太阳子节点并朝向地月系统以实现局部平行光的效果,将摄像机置于太阳子节点以实现追拍效果</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102216.png" alt=""></p>
-<p>添加运动脚本,这里采用协程动画</p>
-<p>type用于控制旋转方向,每种天体均有整体的rotate速度与其子节点planet也就是其星球本体的旋转速度</p>
-<p>由于数据太大,场景搭建不规范,也并不涉及力学知识,参数就随便取的令人便于观赏的值</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/edeb9369c9066edcdfd58b0e0894b6f48b12e42575eeaef879da47097c947286.png" alt=""></p>
-<p>最后为星体添加trail render组件来更直观的显示移动轨迹</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E4%B8%89%E6%98%9F%E8%BF%90%E5%8A%A8~2.gif" alt=""></p>
+{% endblock %}
 
-        </div>
-        
-        <div class="post-tag">
-            
-            <a class="tag" href="/tags/%E5%AD%A6%E4%B9%A0/" title="学习">学习</a>
-            
-            <a class="tag" href="/tags/%E8%AE%B0%E5%BD%95/" title="记录">记录</a>
-            
-            <a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" title="经验">经验</a>
-            
-            <a class="tag" href="/tags/Unity/" title="Unity">Unity</a>
-            
-        </div>
-        
-    </article>
-</div>
-<div class="paginator">
-    
-        
-            <a class="prev" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/">
-                <i class="iconfont icon-prev"></i>
-                <span class="nav-default">Unity实验作业 制作一个动态3D时钟</span>
-                <span class="nav-mobile">Prev</span>
-            </a>
-        
-        
-            <a class="next" href="/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/">
-                <span class="nav-default">Unity实验作业 手动搭建指定的三维场景</span>
-                <span class="nav-mobile">Next</span>
-                <i class="iconfont icon-next"></i>
-            </a>
-        
-    
-</div>
-<div id="comment-container"></div>
-    </div>
-</div>
-<footer class="footer-social">
-    
+{% block sidebar %}
+  {{ sidebar_template.render(true) }}
+{% endblock %}
 
-    
 
-    
-
-    <div class="footer-copyright">
-        <p class="time-line">
-            &copy;
-            
-            
-            2022
-            &nbsp;<i class="iconfont icon-heart"></i>&nbsp;
-            <a target="_blank" href="https://github.com/iJinxin">Dante</a>
-        </p>
-        <p class="theme-info">
-            Powered by <a target="_blank" href="https://hexo.io">Hexo</a>  |  Theme -
-            <a target="_blank" href="https://github.com/iJinxin/hexo-theme-sky">Sky</a>
-        </p>
-    </div>
-</footer>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-<script src="/js/index.js"></script>
-
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-    
-
-</script>
-</html>
+{% block script_extra %}
+  {% include '_scripts/pages/post-details.swig' %}
+{% endblock %}
