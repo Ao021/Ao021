@@ -6,7 +6,7 @@
   <link href="http://dante-game.com.cn/atom.xml" rel="self"/>
   
   <link href="http://dante-game.com.cn/"/>
-  <updated>2022-09-02T06:48:29.120Z</updated>
+  <updated>2022-09-02T06:49:21.364Z</updated>
   <id>http://dante-game.com.cn/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://dante-game.com.cn/2022/09/02/hello-world/"/>
-    <id>http://dante-game.com.cn/2022/09/02/hello-world/</id>
-    <published>2022-09-02T06:48:29.120Z</published>
-    <updated>2022-09-02T06:48:29.120Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Unity实验作业 鼠标操作3D空间物体</title>
@@ -594,6 +574,39 @@
     <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
     <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人工智能小测试</title>
+    <link href="http://dante-game.com.cn/2021/01/27/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2_%E5%85%A5%E9%97%A8_%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    <id>http://dante-game.com.cn/2021/01/27/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2_%E5%85%A5%E9%97%A8_%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</id>
+    <published>2021-01-27T14:31:14.000Z</published>
+    <updated>2022-09-02T06:49:21.364Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><ul><li>翻墙工具</li><li>github账号,看源码必备</li><li>基于pytorch</li><li>最好有个Google账号</li><li>使用Google的深度学习服务器<a href="https://colab.research.google.com/">Colab</a>,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过<a href="https://drive.google.com/">Google云端硬盘</a>上传,自带15G免费内存,可扩充100G/月(250日元/月,差不多15块吧,我们学习阶段应该用不上扩充)</li></ul><a id="more"></a><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul><li>学习完全可以跟着这个<a href="https://github.com/Jack-Cherish/Deep-Learning">网站</a>学</li><li>我先跳过理论直接做了UNet框架的训练,具体步骤参照<a href="https://cuijiahua.com/blog/2020/03/dl-16.html">这个网站</a>手把手教学,有源码和<a href="https://drive.google.com/drive/folders/1uWliDqL0bLOnnyFuOjjm2VwzGlJKBMsa?usp=sharing">数据集</a></li><li>我们需要做的只有学会怎么用colab</li><li>进入colab首先配置GPU加速模式,不然训练的超级慢<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20201217224044.png" alt=""><br>进去后硬件加速器选GPU(训练模型用GPU,不充钱不稳定后文有推荐本地运行的方法)</li><li>记得选择这个显示模式,更直观<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20201217224344.png" alt=""></li><li>然后跟着使用入门连接你的Google云端硬盘</li><li>然后再文件-&gt;新建笔记本</li><li>再左侧栏最下面文件夹里就是你的目录了,可以新建文件或者文件夹,你也能看见你的云端硬盘的文件夹,可以直接通过复制路径调用资源</li><li>记得自己的代码最好建立在本地或云端硬盘里,colab容易丢失,谢邀写到这里发现我代码没了</li><li>写的.py文件通过第一栏的笔记本输入<code>!python 绝对路径(直接复制的路径)/相对路径</code>执行</li><li>本地运行点击右上角 连接-&gt;切换到本地运行时,使用jupyter本地运行</li><li><p>请在终端分别输入以下代码(前提你已经配置好了python环境)</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_http_over_ws</span><br><span class="line">jupyter serverextension enable --py jupyter_http_over_ws</span><br></pre></td></tr></table></figure>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  jupyter notebook --NotebookApp.allow_origin&#x3D;&#39;https:&#x2F;&#x2F;colab.research.google.com&#39; \</span><br><span class="line">--port&#x3D;8888 --no-browser</span><br></pre></td></tr></table></figure></li><li><p>在colab输入你 终端显示的<code>http://localhost:8888/?token=</code>xxxxx</p></li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前置&quot;&gt;&lt;a href=&quot;#前置&quot; class=&quot;headerlink&quot; title=&quot;前置&quot;&gt;&lt;/a&gt;前置&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;翻墙工具&lt;/li&gt;
+&lt;li&gt;github账号,看源码必备&lt;/li&gt;
+&lt;li&gt;基于pytorch&lt;/li&gt;
+&lt;li&gt;最好有个Google账号&lt;/li&gt;
+&lt;li&gt;使用Google的深度学习服务器&lt;a href=&quot;https://colab.research.google.com/&quot;&gt;Colab&lt;/a&gt;,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过&lt;a href=&quot;https://drive.google.com/&quot;&gt;Google云端硬盘&lt;/a&gt;上传,自带15G免费内存,可扩充100G/月(250日元/月,差不多15块吧,我们学习阶段应该用不上扩充)&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="人工智能" scheme="http://dante-game.com.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   
