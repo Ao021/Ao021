@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Dante的个人博客</title>
+  
+  
+  <link href="http://dante-game.com.cn/atom.xml" rel="self"/>
+  
+  <link href="http://dante-game.com.cn/"/>
+  <updated>2022-09-02T06:48:29.120Z</updated>
+  <id>http://dante-game.com.cn/</id>
+  
+  <author>
+    <name>Dante</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://dante-game.com.cn/2022/09/02/hello-world/"/>
+    <id>http://dante-game.com.cn/2022/09/02/hello-world/</id>
+    <published>2022-09-02T06:48:29.120Z</published>
+    <updated>2022-09-02T06:48:29.120Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 鼠标操作3D空间物体</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C06/</id>
+    <published>2021-10-31T16:00:06.000Z</published>
+    <updated>2022-09-02T06:49:21.364Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-6"><a href="#实验作业-6" class="headerlink" title="实验作业 6"></a>实验作业 6</h1><p>要求：  鼠标操作3D空间物体</p><p>必备：悬停高亮 左键拖拽 右键旋转</p><p>可单独旋转某个物体，或者旋转整体视角</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101165225.png" alt=""></p><a id="more"></a><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>主要是对射线进行考察,可通过协程实现对鼠标左右按键拖拽的监控,由事件进行鼠标位置的判定</p><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>当鼠标悬停时,物体会变红<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101180429.png" alt=""><br>当鼠标离开时,红色物体会慢慢褪为白色<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101180451.png" alt=""><br>当鼠标持续按下左键或右键时,会计算鼠标偏移量,并将物体标绿,经过坐标转换使物体拖拽移动<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101180507.png" alt=""><br>当鼠标持续右键时,会将物体标蓝,并根据鼠标偏移量进行旋转<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101180523.png" alt=""></p><p>创建协程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">IEnumerator OnMouseDown()</span><br><span class="line">&#123;</span><br><span class="line">    Material mt &#x3D; GetComponent&lt;MeshRenderer&gt;().material;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    cubeScreenPos &#x3D; Camera.main.WorldToScreenPoint(transform.position);</span><br><span class="line">    Vector3 mousePos &#x3D; new Vector3(Input.mousePosition.x, Input.mousePosition.y, cubeScreenPos.z);</span><br><span class="line">    mousePos &#x3D; Camera.main.ScreenToWorldPoint(mousePos);</span><br><span class="line">    offset &#x3D; transform.position - mousePos;</span><br><span class="line"></span><br><span class="line">    while (Input.GetMouseButton(0) || Input.GetMouseButton(1))</span><br><span class="line">    &#123;</span><br><span class="line">        </span><br><span class="line">        if (Input.GetMouseButton(0) &amp;&amp; !Input.GetMouseButton(1))</span><br><span class="line">        &#123;</span><br><span class="line">            mt.color &#x3D; Color.green;</span><br><span class="line">            Vector3 curMousePos &#x3D; new Vector3(Input.mousePosition.x, Input.mousePosition.y, cubeScreenPos.z);</span><br><span class="line">            curMousePos &#x3D; Camera.main.ScreenToWorldPoint(curMousePos);</span><br><span class="line">            transform.position &#x3D; curMousePos + offset; </span><br><span class="line">        &#125;</span><br><span class="line">        if(Input.GetMouseButton(1))</span><br><span class="line">        &#123;</span><br><span class="line">            mt.color &#x3D; Color.blue;</span><br><span class="line">            Vector3 curMousePos &#x3D; new Vector3(Input.mousePosition.x, Input.mousePosition.y, cubeScreenPos.z);</span><br><span class="line">            curMousePos &#x3D; Camera.main.ScreenToWorldPoint(curMousePos);</span><br><span class="line">            transform.Rotate(offset*10);</span><br><span class="line">        &#125;</span><br><span class="line">        yield return new WaitForFixedUpdate(); </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-6&quot;&gt;&lt;a href=&quot;#实验作业-6&quot; class=&quot;headerlink&quot; title=&quot;实验作业 6&quot;&gt;&lt;/a&gt;实验作业 6&lt;/h1&gt;&lt;p&gt;要求：  鼠标操作3D空间物体&lt;/p&gt;
+&lt;p&gt;必备：悬停高亮 左键拖拽 右键旋转&lt;/p&gt;
+&lt;p&gt;可单独旋转某个物体，或者旋转整体视角&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101165225.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 用Cube实现篝火动态效果</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C05/</id>
+    <published>2021-10-31T16:00:05.000Z</published>
+    <updated>2022-09-02T06:49:21.363Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-5"><a href="#实验作业-5" class="headerlink" title="实验作业 5"></a>实验作业 5</h1><p>目的：  熟悉脚本控制的“动态过程”。</p><p>要求：  编写一个脚本，用Cube实现篝火动态效果。<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102805.png" alt=""></p><a id="more"></a><hr><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><ul><li><p>看到如图示的效果我第一个想到的是利用顶点着色器来做,因为之前看见过类似的方块着色器作品,但奈何能力和时间有限</p></li><li><p>既然是考察动态过程,那么做法其实已经很明显了,火的效果有着大小的缩放,位置的移动与微量的旋转以及颜色的渐变,好家伙,基本上该变的都变了,如果说要在此基础上锦上添花,可以对这些移动加入抖动,也可以做一些后处理</p></li><li><p>另外的做法的话可以考虑使用失重的物理性质来做</p></li></ul><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E7%AF%9D%E7%81%AB.gif" alt=""><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">IEnumerator getFire()</span><br><span class="line">&#123;</span><br><span class="line">    while (true)</span><br><span class="line">    &#123;</span><br><span class="line">        if (num &lt; maxNum)</span><br><span class="line">        &#123;</span><br><span class="line">            GameObject fire &#x3D; GameObject.CreatePrimitive(PrimitiveType.Cube);</span><br><span class="line">            num++;</span><br><span class="line">            fire.transform.position &#x3D; new Vector3(NextGaussian(0,4f,-4f,4f), 0, NextGaussian(0, 4f,-4f,4f));</span><br><span class="line">            fire.transform.localScale &#x3D; Vector3.one * 2f;</span><br><span class="line">            </span><br><span class="line">            StartCoroutine(zoom(fire, 2f, 0.2f, 200f - 15 * fire.transform.position.x));</span><br><span class="line">            StartCoroutine(rotate(fire, 1f));</span><br><span class="line">            StartCoroutine(rise(fire, 0.1f, 30f - 5*fire.transform.position.x));</span><br><span class="line">            StartCoroutine(color(fire));</span><br><span class="line">        &#125;</span><br><span class="line">        yield return new WaitForSeconds(0.1f);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>过程没怎么截图,由代码说起吧 上面放的是生成火立方和开始协程动画的代码,首先我们观察火焰的生成,是一个类似于正态分布一样的存在,简单的random所生成的均值火焰显然不符合自然火焰的样貌,所以我嫖了一个正太分布的代码过来,通过协程进行火焰立方的生成,限制最大生成个数以保证火焰稳定</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">    public static float NextGaussian()</span><br><span class="line">    &#123;</span><br><span class="line">        float v1, v2, s;</span><br><span class="line">        do</span><br><span class="line">        &#123;</span><br><span class="line">            v1 &#x3D; 2.0f * Random.Range(0f, 1f) - 1.0f;</span><br><span class="line">            v2 &#x3D; 2.0f * Random.Range(0f, 1f) - 1.0f;</span><br><span class="line">            s &#x3D; v1 * v1 + v2 * v2;</span><br><span class="line">        &#125; while (s &gt;&#x3D; 1.0f || s &#x3D;&#x3D; 0f);</span><br><span class="line"></span><br><span class="line">        s &#x3D; Mathf.Sqrt((-2.0f * Mathf.Log(s)) &#x2F; s);</span><br><span class="line">        return v1 * s;</span><br><span class="line">    &#125;</span><br><span class="line">    public static float NextGaussian(float mean, float standard_deviation)</span><br><span class="line">    &#123;</span><br><span class="line">        return mean + NextGaussian() * standard_deviation;</span><br><span class="line">    &#125;</span><br><span class="line">    public static float NextGaussian(float mean, float standard_deviation, float min, float max)</span><br><span class="line">    &#123;</span><br><span class="line">        float x;</span><br><span class="line">        do</span><br><span class="line">        &#123;</span><br><span class="line">            x &#x3D; NextGaussian(mean, standard_deviation);</span><br><span class="line">        &#125; while (x &lt; min || x &gt; max);</span><br><span class="line">        return x;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>生成了cube之后,显然还需要上升动画,这里通过协程用非线性运动的上升曲线来做直线上升运动(本来还应该做抖动的,但好像有点麻烦了),这样生成的火焰像圆柱一样,所以协程部分以最大高度为参数书写,最大高度会根据距离火源的距离产生衰减,来达到火焰中间高,两边低的效果</p><p>为了火焰立方不单调,我采用多轴的随机旋转来让火立方生动形象一点,这里采用四元组旋转</p><p>这样直直方法的立方柱并不是我想要的,因为火焰外围的立方应该小一点才对,于是我又用了另一条非线性曲线对cube大小进行协程缩减(协程多了控制条件也多了)为了达成以上几个协程中途还是吃了不少麻烦的.同样,依葫芦画瓢,大小缩减的动画也加入了距离火源的距离衰减</p><p>最后就是颜色部分,采用距离实现线性插值(不想管火焰怎么生成的了),外焰红色,内焰黄色.</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101143223.png" alt=""></p><p>我做到这里就不是很想做下去了,但事实上作为发光物体的火立方,我没有对其阴影和发光属性进行处理,但由于是用代码生成的cube而不是预先准备好的prefab,所以我选择放弃,这是实验开始时没想好的(偷懒的借口),当然,如果能够对其进行后处理就再好不过了,不过这些都是后话了,实验主要的目的还是做动效.嗯</p><p>但结果还是有点怪怪的(可能是因为用正太分布的时候对最大值最小值进行了裁剪导致的)</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-5&quot;&gt;&lt;a href=&quot;#实验作业-5&quot; class=&quot;headerlink&quot; title=&quot;实验作业 5&quot;&gt;&lt;/a&gt;实验作业 5&lt;/h1&gt;&lt;p&gt;目的：  熟悉脚本控制的“动态过程”。&lt;/p&gt;
+&lt;p&gt;要求：  编写一个脚本，用Cube实现篝火动态效果。&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102805.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 实现对mesh的破碎效果</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C04/</id>
+    <published>2021-10-31T16:00:04.000Z</published>
+    <updated>2022-09-02T06:49:21.363Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-4"><a href="#实验作业-4" class="headerlink" title="实验作业 4"></a>实验作业 4</h1><p>目的：  熟悉Mesh的概念，能自由利用Mesh数据</p><p>要求：  编写一个脚本，实现对mesh的破碎效果</p><a id="more"></a><hr><h2 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h2><p>想要实现破碎的效果,大致可以分为几种思路,</p><ul><li><p>首先最朴实无华但效果也不错的就是直接进行物理模拟,将cube切割成碎片,为其添加刚体与碰撞属性,使其具有基本的物理特性,这种方法能够得到较为真实的破碎模拟,但开销较大</p></li><li><p>也可以通过脚本控制mesh顶点偏移的方式实现,但我觉得视觉效果欠佳</p></li><li><p>退而求其次的方法是采用外部动画导入,只对特定情况的碰撞做出反应,这样就不用给予每个子物件物理与碰撞属性,只需检测碰撞后播放动画即可,这种方法也能达到不错的效果,但缺乏交互的多样性</p></li><li><p>再者就是更复杂的着色器效果,通过着色器能够实现非物理效果形式的破碎,比如化为飞灰之类的效果,但这部分编写代码较为复杂和繁琐</p></li></ul><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>本次实验我采取的是纯粹的物理模仿的方式</p><p>首先我在外部建模软件对mesh进行处理</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102654.png" alt=""> </p><p>将其碎片化为多个mesh的结合体</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102704.png" alt=""></p><p>然后导入unity,为其添加物理属性</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102714.png" alt=""></p><p>这里我试了几种不同的方法来实现破碎效果,首先就是将模型制成帧动画,通过animator controller对其进行动画控制,由碰撞脚本触发破碎效果,在动画快结束时将材质透明度降低并释放内存(但实际效果很辣眼睛)</p><p>后来我便采用物理模拟的方法来着手,mesh collider能够比较好的模拟,但实际肯定不能使用这么浪费性能的方法,可以在触发想要发生碰撞动画前关闭碰撞检测,由大碰撞体检测,在落地大碰撞触发时,将碎片碰撞打开,进行碰撞模拟</p><p>这种方法也同样适用于当碎片以box collider的时候,但box collider因为挤压,在落地的一瞬间会产生强大的排斥力,让碎片四散飞去.效果略显夸张,在低重力指数的情况下可以模仿烟花爆破等场景(但应该没人会用实体模仿吧)</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E7%A0%B4%E7%A2%8E.gif" alt=""></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-4&quot;&gt;&lt;a href=&quot;#实验作业-4&quot; class=&quot;headerlink&quot; title=&quot;实验作业 4&quot;&gt;&lt;/a&gt;实验作业 4&lt;/h1&gt;&lt;p&gt;目的：  熟悉Mesh的概念，能自由利用Mesh数据&lt;/p&gt;
+&lt;p&gt;要求：  编写一个脚本，实现对mesh的破碎效果&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 探索SDK之外的秘密</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C03/</id>
+    <published>2021-10-31T16:00:03.000Z</published>
+    <updated>2022-09-02T06:49:21.363Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-3"><a href="#实验作业-3" class="headerlink" title="实验作业 3"></a>实验作业 3</h1><p>目的：  实践程序实验，自主探索SDK之外的秘密</p><p>要求：  探索不同GameObject上的Start和Update函数执行顺序。 要求自行设计脚本，可以直接验证执行顺序，并给出合理解释。</p><h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>通过书写几个事件打印出执行顺序,可以让我们更深刻的理解Unity的运作原理()</p><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101150845.png" alt=""><br>我在场景中建立3个空物体来做顺序对比,通过Debug.Log可以了解程式的运作</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101151005.png" alt=""><br>我们可以看出最先运行的是Awake,其中主相机最先awake,然后平行光随后awake</p><p>我所按顺序加进去的test123 3个空物件以从新到旧的顺序awake</p><p>随后各对象触发OnApplicationFocus,顺序并不规律,应该是异步性</p><p>之后开始按照最开始awake顺序执行start()</p><p>我们看下面没截取完的部分</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101151419.png" alt=""></p><p>fixedUpdate也是按照之前顺序进行,随后是UpDate随后是LateUpDate</p><h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>除开OnApplicationFocus异步触发</p><p>可以看出对象的执行顺序是主相机,平行光,从新到旧的game object</p><p>方法的触发顺序是 Awake -&gt; Start -&gt; fixedUpdate -&gt; UpDate -&gt; LateUpDate</p><p>但Update一类并不是单次触发的函数</p><p>查阅<a href="https://blog.csdn.net/qq_42351033/article/details/83047657">资料</a>可知</p><p>Update()：每一帧执行时，都会立即调用此方法。<br>LateUpdate()：LateUpdate 是在所有 Update 方法调用之后被调用（语出圣典）。<br>FixedUpdate()：固定更新。默认情况下，系统每0.02秒调用一次。 具体的间隔时间可以在 TimeManager 中配置。</p><p>总体来说，Update() 和 LateUpdate() 属于立即更新，更新之间的频率是不固定的，比如某一帧有一个耗时操作时，就会影响到下<br>一帧更新时间，所以对更新频率要求比较稳定的物理系统（如Rididbody）就不太适合在这里处理更新。</p><p>FixedUpdate() 虽然是固定更新，但是其实也是相对固定的，比如某一帧耗了好几秒，它依然会卡住。不过正常的程序会优化耗时操作，小范围的帧率波动是正常的，可以让它更新的时间间隔稍微长一点，这样它的更新是比较平滑的。</p><p>在实际的开发中，例如以秒为单位的倒计时，并不需要每一帧去判断时间，所以用 FixedUpdate 就再合适不过了。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>```<br>using System.Collections;<br>using System.Collections.Generic;<br>using UnityEngine;</p><p>public class test : MonoBehaviour<br>{<br>    // Start is called before the first frame update<br>    void Start()<br>    {<br>        Debug.Log(this.name + “run Start()”);<br>    }</p><pre><code>// Update is called once per framevoid Update()&#123;    Debug.Log(this.name + &quot;run UpDate()&quot;);&#125;private void OnApplicationFocus(bool focus)&#123;    Debug.Log(this.name + &quot;run OnApplicationFocus:&quot; + focus);&#125;private void OnAnimatorMove()&#123;    Debug.Log(this.name + &quot;run OnApplicationFocus&quot;);&#125;private void OnAnimatorIK(int layerIndex)&#123;    Debug.Log(this.name + &quot;run OnAnimatorIK:&quot; + layerIndex);&#125;private void LateUpdate()&#123;    Debug.Log(this.name + &quot;run LateUpdate&quot;);&#125;private void FixedUpdate()&#123;    Debug.Log(this.name + &quot;run FixedUpdate&quot;);&#125;private void Awake()&#123;    Debug.Log(this.name + &quot;Awake&quot;);&#125;</code></pre><p>}</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-3&quot;&gt;&lt;a href=&quot;#实验作业-3&quot; class=&quot;headerlink&quot; title=&quot;实验作业 3&quot;&gt;&lt;/a&gt;实验作业 3&lt;/h1&gt;&lt;p&gt;目的：  实践程序实验，自主探索SDK之外的秘密&lt;/p&gt;
+&lt;p&gt;要求：  探索不同GameObject上的Start和Update函数执行顺序。 要求自行设计脚本，可以直接验证执行顺序，并给出合理解释。&lt;/p&gt;
+&lt;h2 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 制作一个动态3D时钟</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C02/</id>
+    <published>2021-10-31T16:00:02.000Z</published>
+    <updated>2022-09-02T06:49:21.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业2"><a href="#实验作业2" class="headerlink" title="实验作业2"></a>实验作业2</h1><p>目的：  熟悉世界坐标和局部坐标</p><p>要求：  制作一个动态3D时钟</p><a id="more"></a><hr><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>本题和实验二差别并不是很大,思路基本想通,依旧是搭建场景与动效实现</p><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>搭建场景部分简单的用几个基本物件组合了一下,将整个底座作为父节点,每个时针都与一个empty object绑定为父子关系以方便实现旋转</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102421.png" alt=""> </p><p>24个指示点用empty object+cube的方式制作成了prefab通过代码实现旋转布局</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102440.png" alt=""></p><p>动效的实现依旧是协程,这里采用rotate(gameobject , float)的形式以方便泛用与多个时针</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/d010340cd0cc92577675b2ad291050b8e90863d53543e34386fdf38ea9262d53.png" alt=""></p><p>这样一个简单的时钟就做好了,当然如果根据时针的运动与24个指示点有交互(比如时针经过指示点上下起伏一下)就能让时钟变得更加有意思</p><p>实验结果就是如下的时钟(因为时间太慢了不方便演示,采取加速时间)</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E6%97%B6%E9%92%9F.gif" alt=""></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业2&quot;&gt;&lt;a href=&quot;#实验作业2&quot; class=&quot;headerlink&quot; title=&quot;实验作业2&quot;&gt;&lt;/a&gt;实验作业2&lt;/h1&gt;&lt;p&gt;目的：  熟悉世界坐标和局部坐标&lt;/p&gt;
+&lt;p&gt;要求：  制作一个动态3D时钟&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 动态的“日-地-月”场景</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C01/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C01/</id>
+    <published>2021-10-31T16:00:01.000Z</published>
+    <updated>2022-09-02T06:49:21.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-1"><a href="#实验作业-1" class="headerlink" title="实验作业 1"></a>实验作业 1</h1><p>目的：  熟悉世界坐标和局部坐标</p><p>要求：  完成一个动态的“日-地-月”场景</p><a id="more"></a><hr><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>本次实验是制作一个动态日地月场景,基本步骤就是场景搭建与动效实现</p><p>场景搭建采用日-&gt;地-&gt;月的顺序依次包含子物件,在变换时会较为方便,动效实现可以直接对位置采取变换,也可以设置各个天体之间的力来控制运动来实现平衡运动</p><p>虽然现实生活中的天体轨迹是椭圆的,但既然只是练习,就以圆代替</p><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>首先搭建场景,从网上找来地月日模型与宇宙天空盒来搭建场景</p><p>并且将其按照上述父子节点关系整理,通过局部position归零来快速构建,其中将太阳的模型的阴影效果去除以达到发光体效果,将平行光设为太阳子节点并朝向地月系统以实现局部平行光的效果,将摄像机置于太阳子节点以实现追拍效果</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102216.png" alt=""></p><p>添加运动脚本,这里采用协程动画</p><p>type用于控制旋转方向,每种天体均有整体的rotate速度与其子节点planet也就是其星球本体的旋转速度</p><p>由于数据太大,场景搭建不规范,也并不涉及力学知识,参数就随便取的令人便于观赏的值</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/edeb9369c9066edcdfd58b0e0894b6f48b12e42575eeaef879da47097c947286.png" alt=""></p><p>最后为星体添加trail render组件来更直观的显示移动轨迹</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E4%B8%89%E6%98%9F%E8%BF%90%E5%8A%A8~2.gif" alt=""></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-1&quot;&gt;&lt;a href=&quot;#实验作业-1&quot; class=&quot;headerlink&quot; title=&quot;实验作业 1&quot;&gt;&lt;/a&gt;实验作业 1&lt;/h1&gt;&lt;p&gt;目的：  熟悉世界坐标和局部坐标&lt;/p&gt;
+&lt;p&gt;要求：  完成一个动态的“日-地-月”场景&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Unity实验作业 手动搭建指定的三维场景</title>
+    <link href="http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/"/>
+    <id>http://dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/</id>
+    <published>2021-10-31T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.362Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="实验作业-0"><a href="#实验作业-0" class="headerlink" title="实验作业 0"></a>实验作业 0</h1><p>目的：  熟悉游戏引擎的场景构建功能</p><p>要求：  手动搭建指定的三维场景（三选一）</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/363148b9a2e53962a1d557682117d2b807ce370813d06f31732f8275379dbb24.png" alt=""></p><a id="more"></a><hr><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>本次实验考察unity的移动旋转等建模基础操作,观察要求的几个结果来看,大致可以总结出几种搭建方法</p><ul><li>最简单直接,但也是最麻烦的方法,用unity自带的3Dobjct搭建</li></ul><p>这种方法若不经过详细的计算与特殊的技巧很难精确的达到题目效果,取巧的方法是可以通过外部建模软件将顶点信息导入后作为父节点将2种组对象(如图1的3角球与6连立方体)作为子节点进行较为快速精准的搭建</p><ul><li>代码党</li></ul><p>同上述取巧方法类似,构建组对象预置物件,通过代码构建物件</p><ul><li>外部建模导入</li></ul><p>由于没有插件unity自带的建模能力较差,所以干脆选择外部建模软件对实验要求进行构建,这也是我选择的方法(懒)</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="blender建模"><a href="#blender建模" class="headerlink" title="blender建模"></a>blender建模</h3><p>在blender中构建棱角球,将其细分调至1以方便后续构建</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101101949.png" alt=""></p><p>对棱角球进行倒角,构建题目要求的主体形状</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102014.png" alt=""></p><p>将面剔除留下我们所需的框架结构</p><p>![图 8]<img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102031.png" alt=""></p><p>添加经纬球,并将其作为上述框架的子物件实例化,并将坐标(0,0,0)的经纬球隐藏<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102044.png" alt=""></p><p>复制一份框架结构,对其进行倒角构建柱状框架,将2个物件结合即可构成实验目的结构</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102111.png" alt=""></p><p>简单的着色,并导出为fbx格式<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102134.png" alt=""> </p><p>导入到unity场景,并设置摄像机,可以得到一个较为满意的结果<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102154.png" alt=""></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;实验作业-0&quot;&gt;&lt;a href=&quot;#实验作业-0&quot; class=&quot;headerlink&quot; title=&quot;实验作业 0&quot;&gt;&lt;/a&gt;实验作业 0&lt;/h1&gt;&lt;p&gt;目的：  熟悉游戏引擎的场景构建功能&lt;/p&gt;
+&lt;p&gt;要求：  手动搭建指定的三维场景（三选一）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/363148b9a2e53962a1d557682117d2b807ce370813d06f31732f8275379dbb24.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="课程" scheme="http://dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Unity" scheme="http://dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL_03_坐标系统与摄像机</title>
+    <link href="http://dante-game.com.cn/2021/05/25/OpenGL-03-%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%91%84%E5%83%8F%E6%9C%BA/"/>
+    <id>http://dante-game.com.cn/2021/05/25/OpenGL-03-%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%91%84%E5%83%8F%E6%9C%BA/</id>
+    <published>2021-05-25T00:55:42.000Z</published>
+    <updated>2022-09-02T06:49:21.358Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="坐标系统与摄像机"><a href="#坐标系统与摄像机" class="headerlink" title="坐标系统与摄像机"></a>坐标系统与摄像机</h1><p>本篇简单的记录了关于坐标系统的机制与摄像机,为了方便理解去掉了数学内容,详细的后面会写</p><h2 id="坐标系统"><a href="#坐标系统" class="headerlink" title="坐标系统"></a>坐标系统</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075935.png" alt=""></p><p>我们先来认识这张图,为了将坐标从一个坐标系转换到另一个坐标系，我们需要用到几个转换矩阵，最重要的几个分别是<strong>模型(Model)</strong> 、<strong>视图(View)</strong> 、<strong>投影(Projection)</strong> 三个矩阵。首先，顶点坐标开始于<strong>局部空间(Local Space)</strong> ，称为<strong>局部坐标(Local Coordinate)</strong> ，然后经过<strong>世界坐标(World Coordinate)</strong> ，<strong>观察坐标(View Coordinate)</strong> ，<strong>裁剪坐标(Clip Coordinate)</strong> ，并最后以<strong>屏幕坐标(Screen Coordinate)</strong> 结束。</p><a id="more"></a><p>我们先理解每个矩阵的作用,从开始到结尾一共经过了四个过程:</p><ol><li>Model Matrix</li><li>View Matrix</li><li>Projection Matrix</li><li>Viewport Transform</li></ol><ul><li><strong>Model Matrix</strong><br>我们知道模型坐标以点位置的形式传入着色器, 这些点的参考原点就是本地坐标的原点,即使模型做了变化,这些变化都是相对于原点的变化. 可以理解为3D软件中模型中心点的意思,我们的操作都是以中心点为参照进行的</li><li><strong>View Matrix</strong><br>显然,这样并不能让模型很直观的显示出来,所以我们需要一个View Matrix来设置一个摄像机来观察模型,具体会在下一个点提到.</li><li><p><strong>Projection Matrix</strong><br>我们现在得到了View Space,但这样的视图显然并不是我们想要的最终结果. 通过Projection Matrix我们将指定范围的坐标转换到标准化设备坐标系中(-1,1). 这是一个投影(Projection)的过程, 他会减裁掉多余的坐标保留我们所看到的部分,得到<strong>裁剪坐标(Clip Coordinate)</strong>. 投影矩阵除了起到减裁的作用,还能够指定投影的方式, <strong>正射投影(Orthographic Projection)</strong> 将坐标以正交的方式投影到标准坐标系,呈现中国画的透视关系;而<strong>透视投影(Perspective Projection)</strong> 创建一定角度的平截头体来实现我们人眼所见的透视关系,如下图:</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075953.png" alt=""><br>我们可以简单看看代码</p><p><strong>正射投影</strong><code>glm::ortho(0.0f, 800.0f, 0.0f, 600.0f, 0.1f, 100.0f);</code>前两个参数指定了平截头体的左右坐标，第三和第四参数指定了平截头体的底部和上部,第五和第六个参数则定义了近平面和远平面的距离。这个指定的投影矩阵将处于这些x，y，z范围之间的坐标转换到标准化设备坐标系中。</p><p><strong>透视投影</strong><code>glm::mat4 proj = glm::perspective(45.0f, (float)width/(float)height, 0.1f, 100.0f);</code>它的第一个参数定义了<strong>fov</strong> 的值,第二个参数设置了宽高比，第三和第四个参数设置了平截头体的近和远平面。</p><blockquote><p>如果只是片段的一部分例如三角形，超出了裁剪体积(Clipping Volume)，则OpenGL会重新构建三角形以使一个或多个三角形能适应在裁剪范围内。</p></blockquote></li><li><p><strong>Viewport Transform</strong></p><p>一旦所有顶点被转换到裁剪空间，最终的操作——<strong>透视划分(Perspective Division)</strong> 将会执行，在这个过程中我们将位置向量的x，y，z分量分别除以向量的齐次w分量；透视划分是将4维裁剪空间坐标转换为3维标准化设备坐标。这一步会在每一个顶点着色器运行的最后被自动执行。</p><p>在这一阶段之后，坐标经过转换的结果将会被映射到屏幕空间(由<code>glViewport</code>设置)且被转换成片段。</p></li></ul><p>$V<em>{clip} = M</em>{projection} \cdot M<em>{view} \cdot M</em>{model} \cdot V_{local}$就是这些矩阵变化的最终组合,他将被传入着色器</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#version 330 core</span><br><span class="line">layout (location &#x3D; 0) in vec3 position;</span><br><span class="line">...</span><br><span class="line">uniform mat4 model;</span><br><span class="line">uniform mat4 view;</span><br><span class="line">uniform mat4 projection;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F; 注意从右向左读</span><br><span class="line">    gl_Position &#x3D; projection * view * model * vec4(position, 1.0f);</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="摄像机"><a href="#摄像机" class="headerlink" title="摄像机"></a>摄像机</h2><p>摄像机如何才能满足我们的需求呢, 我们不妨摄像摄像机所需的参数:  摄像机的位置, 摄像机的方向, 摄像机的变换</p><ul><li>摄像机的位置<br>我们通过对目标的相对移动来控制摄像机的位置, 故我们可以相对于原点传入摄像机位置的反方向.</li><li>摄像机的方向<br>我们可以指定目标的位置,通过向量相减我们可以得到摄像机的朝向向量,反之亦然</li><li>摄像机的变换<br>我们在各种三维软件中所认识的摄像机都能通过各种变换来得到一个理想的视角, 想要进行这些变换就需要对摄像机进行矩阵运算,但现在我们并没有一个属于摄像机的坐标空间, 所以我们要利用前面向量和矩阵中的方法来建立一个摄像机坐标空间<details>我们需要的另一个向量是一个右向量(Right Vector)，它代表摄像机空间的x轴的正方向。为获取右向量我们需要先使用一个小技巧：定义一个上向量(Up Vector)。我们把上向量和第二步得到的摄像机方向向量进行叉乘。两个向量叉乘的结果就是同时垂直于两向量的向量，因此我们会得到指向x轴正方向的那个向量(如果我们交换两个向量的顺序就会得到相反的指向x轴负方向的向量)：现在我们已经有了x轴向量和z轴向量，获取摄像机的正y轴相对简单；我们把右向量和方向向量(Direction Vector)进行叉乘;</details></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">glm::vec3 up &#x3D; glm::vec3(0.0f, 1.0f, 0.0f); </span><br><span class="line">glm::vec3 cameraRight &#x3D; glm::normalize(glm::cross(up, cameraDirection));</span><br><span class="line">glm::vec3 cameraUp &#x3D; glm::cross(cameraDirection, cameraRight);</span><br></pre></td></tr></table></figure><p>可以简单的看看官方给出的<a href="https://learnopengl.com/code_viewer.php?code=getting-started/camera_zoom">源码</a>理解下</p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;坐标系统与摄像机&quot;&gt;&lt;a href=&quot;#坐标系统与摄像机&quot; class=&quot;headerlink&quot; title=&quot;坐标系统与摄像机&quot;&gt;&lt;/a&gt;坐标系统与摄像机&lt;/h1&gt;&lt;p&gt;本篇简单的记录了关于坐标系统的机制与摄像机,为了方便理解去掉了数学内容,详细的后面会写&lt;/p&gt;
+&lt;h2 id=&quot;坐标系统&quot;&gt;&lt;a href=&quot;#坐标系统&quot; class=&quot;headerlink&quot; title=&quot;坐标系统&quot;&gt;&lt;/a&gt;坐标系统&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075935.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;我们先来认识这张图,为了将坐标从一个坐标系转换到另一个坐标系，我们需要用到几个转换矩阵，最重要的几个分别是&lt;strong&gt;模型(Model)&lt;/strong&gt; 、&lt;strong&gt;视图(View)&lt;/strong&gt; 、&lt;strong&gt;投影(Projection)&lt;/strong&gt; 三个矩阵。首先，顶点坐标开始于&lt;strong&gt;局部空间(Local Space)&lt;/strong&gt; ，称为&lt;strong&gt;局部坐标(Local Coordinate)&lt;/strong&gt; ，然后经过&lt;strong&gt;世界坐标(World Coordinate)&lt;/strong&gt; ，&lt;strong&gt;观察坐标(View Coordinate)&lt;/strong&gt; ，&lt;strong&gt;裁剪坐标(Clip Coordinate)&lt;/strong&gt; ，并最后以&lt;strong&gt;屏幕坐标(Screen Coordinate)&lt;/strong&gt; 结束。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="OpenGL" scheme="http://dante-game.com.cn/tags/OpenGL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL_02_向量和矩阵</title>
+    <link href="http://dante-game.com.cn/2021/05/24/OpenGL-02-%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5/"/>
+    <id>http://dante-game.com.cn/2021/05/24/OpenGL-02-%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5/</id>
+    <published>2021-05-24T08:47:26.000Z</published>
+    <updated>2022-09-02T06:49:21.358Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="向量和矩阵"><a href="#向量和矩阵" class="headerlink" title="向量和矩阵"></a>向量和矩阵</h1><p>默认大家都学过向量和矩阵,这里就记录一些核心的东西</p><h2 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h2><h3 id="向量点积-dot-product"><a href="#向量点积-dot-product" class="headerlink" title="向量点积(dot product)"></a>向量点积(dot product)</h3><p>向量点积，也称为向量的数量积，点积的结果是一个标量，其定义为$|\ A\ |\cdot{|\ B\ |\cos\theta}$,其几何意义如下,一般用于计算投影和夹角<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524154830.png" alt=""></p><a id="more"></a><h3 id="向量的叉积-cross-product"><a href="#向量的叉积-cross-product" class="headerlink" title="向量的叉积(cross product)"></a>向量的叉积(cross product)</h3><p>两个向量a和b的叉积,结果是一个向量$c=a×b$,c的方向垂直于a和b，据右手规则来确定；c的大小等于  $|c| = |a||b|\sin\theta$<img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524155621.png" alt=""></p><blockquote><p>$a×b=−b×a$</p></blockquote><p>在利用以坐标形式表示向量a和b时，在3D空间中，叉积的结果用矩阵表示为:<br>$c = a×b\=<br>\begin{bmatrix}<br>i&amp;j&amp;k\<br>a_x&amp;a_y&amp;a_z\<br>b_x&amp;b_y&amp;b_z\<br>\end{bmatrix} $</p><p>$=<br>\begin{bmatrix}<br>a_y&amp;a_z\<br>b_y&amp;b_z<br>\end{bmatrix}i-<br>\begin{bmatrix}<br>a_x&amp;a_z\<br>b_x&amp;b_z<br>\end{bmatrix}j+<br>\begin{bmatrix}<br>a_x&amp;a_y\<br>b_x&amp;b_y<br>\end{bmatrix}k$</p><p>$=<br>\begin{bmatrix}<br>a_yb_z-a_zb_y\<br>a_xb_z-a_zb_x\<br>a_xb_y-a_yb_x<br>\end{bmatrix}<br>$</p><blockquote><p>其中 i,j,k为x,y,z三个方向上的单位向量</p></blockquote><p>叉积的几何意义<br>叉积的模可以视为以a和b为两边的平行四边形的面积，如下图所示<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524162017.png" alt=""><br>同时在OpenGL中还可以用来确定第三个方向 $up=dir×side$</p><h2 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h2><h3 id="矩阵和矩阵乘法"><a href="#矩阵和矩阵乘法" class="headerlink" title="矩阵和矩阵乘法"></a>矩阵和矩阵乘法</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524162238.png" alt=""><br>向量的点积公式可以重新表示为:<br>$a=(a1,b2,⋯,cn),\ b=(b1,b2,⋯,bn)$</p><p>$a\cdot{b}=a<em>1b_1+a_2b_2+\dots+a_nb_n\$<br>$=\sum</em>{i=1}^na_ib_i\$<br>$=a^Tb$</p><h3 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a>行列式</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524163031.png" alt=""></p><h3 id="逆矩阵"><a href="#逆矩阵" class="headerlink" title="逆矩阵"></a>逆矩阵</h3><p>对于n阶方阵A，如果存在一个n阶方阵B使得:$AB=BA=I_{nxn}$</p><ul><li>逆矩阵的应用意义<br>在3D图形处理中，用一个变换矩阵乘以向量，代表了对原始图形进行了某种变换，例如缩小，旋转等，逆矩阵表示这个操作的逆操作，也就是能够撤销这一操作。例如对一个向量$v$用矩阵$M$相乘，然后再用$M^{−1}$相乘，则能得到原来的向量$v$</li></ul><blockquote><p>注意转换矩阵应用顺序 当用矩阵$A,B,C$转换向量$v$时，如果$v$用行向量记法，则矩阵按转换顺序从左往右列出，表达为$vABC$;如果$v$采用列向量记法，则转换矩阵应该放在左边，并且转换从右往左发生，对应的转换记为$CBAv$</p></blockquote><h3 id="正交矩阵"><a href="#正交矩阵" class="headerlink" title="正交矩阵"></a>正交矩阵</h3><p>对于方阵M，当且仅当$M$与其转置矩阵$M^T$的乘积等于单位矩阵时，称其为正交矩阵。即：$MM^T=E$正交矩阵的一大优势在于，计算逆矩阵时，只需要对原矩阵转置即可，从而减少了计算量。在3D图形处理中的旋转和镜像变换都是正交的</p><blockquote><p>正交矩阵一定是可逆的</p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;向量和矩阵&quot;&gt;&lt;a href=&quot;#向量和矩阵&quot; class=&quot;headerlink&quot; title=&quot;向量和矩阵&quot;&gt;&lt;/a&gt;向量和矩阵&lt;/h1&gt;&lt;p&gt;默认大家都学过向量和矩阵,这里就记录一些核心的东西&lt;/p&gt;
+&lt;h2 id=&quot;向量&quot;&gt;&lt;a href=&quot;#向量&quot; class=&quot;headerlink&quot; title=&quot;向量&quot;&gt;&lt;/a&gt;向量&lt;/h2&gt;&lt;h3 id=&quot;向量点积-dot-product&quot;&gt;&lt;a href=&quot;#向量点积-dot-product&quot; class=&quot;headerlink&quot; title=&quot;向量点积(dot product)&quot;&gt;&lt;/a&gt;向量点积(dot product)&lt;/h3&gt;&lt;p&gt;向量点积，也称为向量的数量积，点积的结果是一个标量，其定义为$|\ A\ |\cdot{|\ B\ |\cos\theta}$,其几何意义如下,一般用于计算投影和夹角&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524154830.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="OpenGL" scheme="http://dante-game.com.cn/tags/OpenGL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL_01_OpenGL的绘图基本流程与概念</title>
+    <link href="http://dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/"/>
+    <id>http://dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</id>
+    <published>2021-05-24T05:21:14.000Z</published>
+    <updated>2022-09-02T06:49:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OpenGL的绘图基本流程与概念"><a href="#OpenGL的绘图基本流程与概念" class="headerlink" title="OpenGL的绘图基本流程与概念"></a>OpenGL的绘图基本流程与概念</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本博客仅记录本人的理解<br>全部内容来源于<a href="https://learnopengl-cn.readthedocs.io/zh/latest/">OpenGL</a>与<a href="http://colin1994.github.io/2017/11/11/OpenGLES-Lesson04/">GLSL</a>以及<a href="https://space.bilibili.com/211153830">傅老师OpenGL课程</a><br>如有问题,欢迎评论<br><a id="more"></a></p><h2 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524115540.png" alt=""></p><p>图形渲染管线可以被划分为两个主要部分：</p><ul><li>第一部分把你的3D坐标转换为2D坐标</li><li>第二部分是把2D坐标转变为实际的有颜色的像素。<blockquote><p>分别对应第一排和第二排,实际学习中我们基本只用关注vertex shader和fragment shader,其他暂且不管</p></blockquote></li></ul><p>而图形渲染管线的输入便是顶点数据(vertex data),可以包含空间位置,颜色,uv等等信息</p><h2 id="GPU与CPU"><a href="#GPU与CPU" class="headerlink" title="GPU与CPU"></a>GPU与CPU</h2><p>首先我们需要对CPU与GPU有一定的认识,打个比方CPU就像是精英怪或者BOSS,GPU就像是小兵,GPU有着很高的性能,但对于大量的简单运算就显得CPU势单力薄,而GPU却能很好的解决这些问题,GPU有着庞大的基数,虽然每个GPU只能进行简单的运算和处理,但处理大量简单运算时速度就比孤军奋战的CPU快很多.所以在OpenGL中我们使用GPU来处理庞大的顶点数据,而这些运行在GPU的程序被称为shader也就是着色器.  </p><h2 id="VAO与VBO"><a href="#VAO与VBO" class="headerlink" title="VAO与VBO"></a>VAO与VBO</h2><p>所以我们来看这样一幅图<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524122721.png" alt="">  </p><h3 id="VBO-顶点缓冲对象-Vertex-Buffer-Objects"><a href="#VBO-顶点缓冲对象-Vertex-Buffer-Objects" class="headerlink" title="VBO (顶点缓冲对象 [Vertex Buffer Objects] )"></a>VBO (顶点缓冲对象 [Vertex Buffer Objects] )</h3><p>CPU中的顶点数据通过一系列过程传输到GPU,为了节省CPU宝贵的内存,传输到GPU的数据会以数组的形式被立即保存在VBO中使用这些缓冲对象的好处是我们可以一次性的发送一大批数据到显卡上，而不是每个顶点发送一次。从CPU把数据发送到显卡相对较慢，所以只要可能我们都要尝试尽量一次性发送尽可能多的数据。当数据发送至显卡的内存中后，顶点着色器几乎能立即访问顶点，这是个非常快的过程。</p><h3 id="VAO-顶点数组对象-Vertex-Array-Object"><a href="#VAO-顶点数组对象-Vertex-Array-Object" class="headerlink" title="VAO (顶点数组对象 [Vertex Array Object] )"></a>VAO (顶点数组对象 [Vertex Array Object] )</h3><p>顶点着色器允许我们指定任何以顶点属性为形式的输入.我们传入VBO的数组有顶点位置有颜色有uv等各种信息,显然我们的顶点着色器是无法区分这些信息的.所以我们需要用VAO来让顶点着色器认识我们VBO数组中传入的信息都是些什么.我们的顶点缓冲数据会被解析为下面这样子：<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524124443.png" alt=""><br>我们会指定每几个数据位一个顶点,如图中每3个数据为一个顶点的位置,如果有多个类型的数据,比如0,1,2为位置数据;3,4,5为颜色数据;6,7为uv数据,我们就需要指定8为一个步长,其中前三个为位置数据,偏移量为3的3个数据为颜色数据;偏移量为6的2个数据为uv数据.<br>将这些标注好后VAO就像下图一样<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524125024.png" alt="">  </p><h3 id="EBO-索引缓冲对象-Element-Buffer-Object-也叫-Index-Buffer-Object，IBO"><a href="#EBO-索引缓冲对象-Element-Buffer-Object-也叫-Index-Buffer-Object，IBO" class="headerlink" title="EBO(索引缓冲对象 [ Element Buffer Object] 也叫 [Index Buffer Object，IBO] )"></a>EBO(索引缓冲对象 [ Element Buffer Object] 也叫 [Index Buffer Object，IBO] )</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524122721.png" alt=""><br>我们回到最开始的那张图,可以看出VAO除了Array buffer 还有一个Element Buffer.<br>在用glDrawArrays(GL_TRIANGLES)绘图时,如果我们只指定Array buffer,那么OpenGL就会以数组的顺序挨个逆时针以三角形的形式绘制这些顶点. 如果我们的图形较为复杂,这意味着会有很多重复的顶点出现,这会让我们的数组显得非常冗长,这时候我们可以定义一个EBO用来指定绘制顺序,如[0,1,2,1,0,2]就是以0,1,2的顺序绘制第一个三角形,再以1,0,2的顺序绘制第二个三角形</p><blockquote><p>注意:当目标是GL_ELEMENT_ARRAY_BUFFER的时候，VAO会储存glBindBuffer的函数调用。这也意味着它也会储存解绑调用，所以确保你没有在解绑VAO之前解绑索引数组缓冲，否则它就没有这个EBO配置了。  </p></blockquote><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524125640.png" alt=""></p><h2 id="着色器-Shader"><a href="#着色器-Shader" class="headerlink" title="着色器 Shader"></a>着色器 Shader</h2><p>之前已经提到,着色器就是运行在GPU中的一个一个小程序.目前我们主要使用顶点着色器(vertex shader)和片段着色器(fragment shader).对于着色器,我们采用的是GLSL语言(OpenGL Shading Language)编写的程序,类似于C语言程序。<br>要使用着色器需要经历3个步骤:</p><ol><li>创建和编译shader object</li><li>创建shader program,链接多个shader object到program</li><li>在绘制场景时启用shader program<br>具体流程如下图所示:<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524130018.png" alt=""><br>我们可以通过两个简单的顶点着色器代码来认识Shader</li></ol><ul><li>顶点着色器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#version 330   &#x2F;&#x2F; 指定GLSL版本3.3</span><br><span class="line"></span><br><span class="line">layout(location &#x3D; 0) in vec3 position; &#x2F;&#x2F; 顶点属性索引</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    gl_Position &#x3D; vec4(position, 1.0); &#x2F;&#x2F; 输出顶点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li>片段着色器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#version 330</span><br><span class="line"></span><br><span class="line">out vec4 color; &#x2F;&#x2F; 输出片元颜色</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    color &#x3D; vec4(0.8, 0.8, 0.0, 1.0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>着色器程序通过in 和 out也就是输入与输出连成一条线; 我们的顶点数据通过in传入顶点着色器然后输出顶点,然后顶点着色器的out通过片段着色器的in传入片段着色器并进行输出<blockquote><p>这里由于传入的数据没有颜色数据,所以在片段着色器的main中指定了一个颜色</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>由于qt和glfw语法略有不同, 且官网有具体代码, 这里只介绍流程</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.加载库</span><br><span class="line">2.创建窗口</span><br><span class="line">3.传入数据</span><br><span class="line">4.定义VBO,并传入数据</span><br><span class="line">5.定义VAO,并链接VBO</span><br><span class="line">6.创建着色器程序</span><br><span class="line">7.创建引擎(渲染与其他操作)</span><br></pre></td></tr></table></figure><h2 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h2></blockquote></li></ul><p>OpenGL自身是一个巨大的状态机<strong>状态机(State Machine)</strong><br>一系列的变量描述OpenGL此刻应当如何运行。OpenGL的正在运行的状态通常被称为OpenGL上下文(Context)。<br>我们通常使用如下途径去更改OpenGL状态：设置选项，操作缓冲。<br>最后，我们使用当前OpenGL上下文来渲染。<br>假设当我们想告诉OpenGL去画线段而不是三角形的时候，我们通过改变一些上下文变量来改变OpenGL状态，从而告诉OpenGL如何去绘图。一旦我们改变了OpenGL的状态为绘制线段，下一个绘制命令就会画出线段而不是三角形。<br>所以OpenGL本质上是个大<strong>状态机</strong><br>下图是之前所提到的内容用状态机来表示的示例,我们可以通过glEnable来操作状态机里的各种状态<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524151729.png" alt="">  </p><blockquote><p>VAO只能绑定一个VBO,所以如果有其他数据,需要解绑当前的VBO在bind所需VBO</p></blockquote><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>OpenGL库是用C语言写的，内核是一个C库。由于C的一些语言结构不易被翻译到其它的高级语言，因此OpenGL开发的时候引入了一些抽象层。“对象(Object)”就是其中一个。<br>在OpenGL中一个对象是指一些选项的集合，它代表OpenGL状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个C风格的结构体(Struct)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct object_name &#123;</span><br><span class="line">    float  option1;</span><br><span class="line">    int    option2;</span><br><span class="line">    char[] name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>当我们使用一个对象时，通常看起来像如下一样（把OpenGL上下文看作一个大的结构体）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; OpenGL的状态</span><br><span class="line">struct OpenGL_Context &#123;</span><br><span class="line">    ...</span><br><span class="line">    object* object_Window_Target;</span><br><span class="line">    ...     </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建对象</span><br><span class="line">unsigned int objectId &#x3D; 0;</span><br><span class="line">glGenObject(1, &amp;objectId);</span><br><span class="line">&#x2F;&#x2F; 绑定对象至上下文</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, objectId);</span><br><span class="line">&#x2F;&#x2F; 设置当前绑定到 GL_WINDOW_TARGET 的对象的一些选项</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_WIDTH, 800);</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, 600);</span><br><span class="line">&#x2F;&#x2F; 将上下文对象设回默认,解绑对象</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, 0);</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;OpenGL的绘图基本流程与概念&quot;&gt;&lt;a href=&quot;#OpenGL的绘图基本流程与概念&quot; class=&quot;headerlink&quot; title=&quot;OpenGL的绘图基本流程与概念&quot;&gt;&lt;/a&gt;OpenGL的绘图基本流程与概念&lt;/h1&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;本博客仅记录本人的理解&lt;br&gt;全部内容来源于&lt;a href=&quot;https://learnopengl-cn.readthedocs.io/zh/latest/&quot;&gt;OpenGL&lt;/a&gt;与&lt;a href=&quot;http://colin1994.github.io/2017/11/11/OpenGLES-Lesson04/&quot;&gt;GLSL&lt;/a&gt;以及&lt;a href=&quot;https://space.bilibili.com/211153830&quot;&gt;傅老师OpenGL课程&lt;/a&gt;&lt;br&gt;如有问题,欢迎评论&lt;br&gt;</summary>
+    
+    
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="OpenGL" scheme="http://dante-game.com.cn/tags/OpenGL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL GLFW, GLAD 在 Visual Studio 配置</title>
+    <link href="http://dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/"/>
+    <id>http://dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-03-07T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.357Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="GLFW"><a href="#GLFW" class="headerlink" title="GLFW"></a>GLFW</h2><h3 id="下载GLFW"><a href="#下载GLFW" class="headerlink" title="下载GLFW"></a>下载GLFW</h3><p><a href="https://github.com/glfw/glfw/releases/download/3.3.3/glfw-3.3.3.zip">下载地址</a>  </p><p>下载好后解压解压</p><blockquote><p>github下载可能略慢,建议翻墙</p></blockquote><a id="more"></a><h3 id="下载CMake"><a href="#下载CMake" class="headerlink" title="下载CMake"></a>下载CMake</h3><p><a href="https://cmake.org/download/">下载地址</a><br>下载好后解压,打开’bin/cmake-gui.exe’<br>我们现在需要一个源代码目录(即之前下好的glfw)和一个存放编译结果的目标文件目录(新建一个build文件夹)  </p><blockquote><p>注意路径不要有中文<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013232.png" alt="cmake"><br>Configure(设置)按钮,选择VS2019 16,然后保存<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013317.png" alt="Configure"></p></blockquote><p>最后点击Generate(生成)按钮，生成的工程文件会在你的build文件夹中</p><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>在build文件夹里可以找到GLFW.sln文件，用VS打开,直接生成解决方案<br><code>glfw3.lib</code> 就会出现在 <code>src/Debug</code></p><p> <strong>glfw3.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86或者x64 \</code></p><blockquote><p>取决于编译,建议使用x32</p></blockquote><p>将<code>glfw-3.3.3\include\GLFW</code> 整个文件夹放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code></p><h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>在VS<code>项目-&gt;工程属性-&gt;连接器-&gt;输入(input)-&gt;附加依赖项(第一项)</code>添加glfw3.lib<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309032115.png" alt="lib"></p><h2 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h2><h3 id="配置GLAD"><a href="#配置GLAD" class="headerlink" title="配置GLAD"></a>配置GLAD</h3><p>打开<a href="http://glad.dav1d.de/">GLAD在线服务</a>设置如下后generate,下载提供的zip文件,解压<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309014907.png" alt="GLAD"><br>把<code>glad\include</code>中的2个文件夹放入路径<code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code>  </p><p>把<strong>glad.c</strong>添加到工程文件中<br>最后你就能将以下的指令加到你的文件顶部了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;glad&#x2F;glad.h&gt; </span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;GLFW&quot;&gt;&lt;a href=&quot;#GLFW&quot; class=&quot;headerlink&quot; title=&quot;GLFW&quot;&gt;&lt;/a&gt;GLFW&lt;/h2&gt;&lt;h3 id=&quot;下载GLFW&quot;&gt;&lt;a href=&quot;#下载GLFW&quot; class=&quot;headerlink&quot; title=&quot;下载GLFW&quot;&gt;&lt;/a&gt;下载GLFW&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/glfw/glfw/releases/download/3.3.3/glfw-3.3.3.zip&quot;&gt;下载地址&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;下载好后解压解压&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;github下载可能略慢,建议翻墙&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="环境配置" scheme="http://dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记5--分类Classification</title>
+    <link href="http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E5%88%86%E7%B1%BBClassification/"/>
+    <id>http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B05-%E5%88%86%E7%B1%BBClassification/</id>
+    <published>2021-03-03T16:00:01.000Z</published>
+    <updated>2022-09-02T06:49:21.362Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>其实和回归那个神经网络没差,就是数据集变化了,神经网络的输入输出端变为2个参数  </p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%88%86%E7%B1%BB.gif" alt="分类"></p><a id="more"></a><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">#数据集</span><br><span class="line">n_data &#x3D; torch.ones(1000, 2)         # 数据的基本形态</span><br><span class="line">x0 &#x3D; torch.normal(2*n_data, 1)      # 类型0 x data (tensor), shape&#x3D;(100, 2)</span><br><span class="line">y0 &#x3D; torch.zeros(1000)               # 类型0 y data (tensor), shape&#x3D;(100, )</span><br><span class="line">x1 &#x3D; torch.normal(-2*n_data, 1)     # 类型1 x data (tensor), shape&#x3D;(100, 1)</span><br><span class="line">y1 &#x3D; torch.ones(1000)                # 类型1 y data (tensor), shape&#x3D;(100, )</span><br><span class="line"></span><br><span class="line"># 注意 x, y 数据的数据形式是一定要像下面一样 (torch.cat 是在合并数据)</span><br><span class="line">x &#x3D; torch.cat((x0, x1), 0).type(torch.FloatTensor)  # FloatTensor &#x3D; 32-bit floating</span><br><span class="line"></span><br><span class="line">y &#x3D; torch.cat((y0, y1), ).type(torch.LongTensor)    # LongTensor &#x3D; 64-bit integer</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#网络</span><br><span class="line">class Net(torch.nn.Module):</span><br><span class="line">    def __init__(self,n_feature, n_hidden,n_output):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.hidden &#x3D; torch.nn.Linear(n_feature, n_hidden)#定义隐藏层结构</span><br><span class="line">        self.predict &#x3D; torch.nn.Linear(n_hidden,n_output)#定义预测层结构,输出一个y</span><br><span class="line">    def forward(self,x): #正向传播输入一个x</span><br><span class="line">        x &#x3D; torch.relu(self.hidden(x)) #正向传播x-&gt;relu过的x-&gt;output</span><br><span class="line">        x &#x3D; self.predict(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net &#x3D; Net(n_feature &#x3D; 2,n_hidden&#x3D;10,n_output &#x3D; 2)  #创建神经网络</span><br><span class="line"></span><br><span class="line">print(net)#可以看出神经网络的结构</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 训练</span><br><span class="line">optimizer &#x3D; torch.optim.SGD(net.parameters(),lr&#x3D;0.02)#传入net的全部参数,学习率为0.2,越高越快,但也会出现梯度爆炸之类的问题</span><br><span class="line">#loss_func &#x3D; torch.nn.MSELoss() MSE用于回归类型</span><br><span class="line">loss_func &#x3D; torch.nn.CrossEntropyLoss()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">for i in range(500): #训练500次</span><br><span class="line">    out &#x3D; net(x) #向神经网络传入 x , prediction 相当于神经网络正向传播完的y</span><br><span class="line"></span><br><span class="line">    loss &#x3D; loss_func(out,y) #计算loss</span><br><span class="line"></span><br><span class="line">    print(loss)</span><br><span class="line">    time.sleep(0.5)#这里只是为了方便观察</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()#梯度归零清空上一步的残余更新参数值</span><br><span class="line">    loss.backward()# 误差反向传播, 计算参数更新值</span><br><span class="line">    optimizer.step() # 将参数更新值施加到 net 的 parameters 上</span><br><span class="line"></span><br><span class="line">    if i % 2 &#x3D;&#x3D; 0:</span><br><span class="line">        plt.cla()</span><br><span class="line">        # 过了一道 softmax 的激励函数后的最大概率才是预测值</span><br><span class="line">        prediction &#x3D; torch.max(F.softmax(out,dim&#x3D;1), 1)[1]</span><br><span class="line">        pred_y &#x3D; prediction.data.numpy().squeeze()</span><br><span class="line">        target_y &#x3D; y.data.numpy()</span><br><span class="line">        plt.scatter(x.data.numpy()[:, 0], x.data.numpy()[:, 1], c&#x3D;pred_y, s&#x3D;100, lw&#x3D;0, cmap&#x3D;&#39;RdYlGn&#39;)</span><br><span class="line">        accuracy &#x3D; sum(pred_y &#x3D;&#x3D; target_y)&#x2F;2000.  # 预测中有多少和真实值一样</span><br><span class="line">        plt.text(1.5, -4, &#39;Accuracy&#x3D;%.2f&#39; % accuracy, fontdict&#x3D;&#123;&#39;size&#39;: 20, &#39;color&#39;:  &#39;red&#39;&#125;)</span><br><span class="line">        plt.pause(0.1)</span><br><span class="line">        plt.ion()</span><br><span class="line">        plt.show()</span><br><span class="line"></span><br><span class="line">plt.ioff()  # 停止画图</span><br><span class="line">plt.show()</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h2&gt;&lt;p&gt;其实和回归那个神经网络没差,就是数据集变化了,神经网络的输入输出端变为2个参数  &lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%88%86%E7%B1%BB.gif&quot; alt=&quot;分类&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OpenGL(glut包)在Visual Studio配置</title>
+    <link href="http://dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/"/>
+    <id>http://dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.357Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OpenGL-glut包-在Visual-Studio配置"><a href="#OpenGL-glut包-在Visual-Studio配置" class="headerlink" title="OpenGL(glut包)在Visual Studio配置"></a>OpenGL(glut包)在Visual Studio配置</h1><h2 id="1-glut下载"><a href="#1-glut下载" class="headerlink" title="1.glut下载"></a>1.glut下载</h2><p> <a href="https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip">下载链接</a></p><h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h2><a id="more"></a><p>下载好会有如下文件<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304215209.png" alt="下载文件"></p><h3 id="h-文件"><a href="#h-文件" class="headerlink" title=".h 文件"></a>.h 文件</h3><p> <strong>glut.h</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include \ GL \</code>，GL是文件夹手动创建的。</p><h3 id="lib-文件"><a href="#lib-文件" class="headerlink" title=".lib 文件"></a>.lib 文件</h3><p> <strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86 \</code>  </p><p><strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x64 \</code>  </p><h3 id="dll-文件"><a href="#dll-文件" class="headerlink" title=".dll 文件"></a>.dll 文件</h3><p><strong>glut.dll</strong> 和 <strong>glut32.dll</strong> 放入<code>C:\ Windows \ SysWOW64 \</code><br><strong>glut32.dll</strong> 放入 <code>C:\ Windows \ System32 \</code>  </p><blockquote><p><a href="https://blog.csdn.net/jjhfen00/article/details/50646834">参考blog</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;OpenGL-glut包-在Visual-Studio配置&quot;&gt;&lt;a href=&quot;#OpenGL-glut包-在Visual-Studio配置&quot; class=&quot;headerlink&quot; title=&quot;OpenGL(glut包)在Visual Studio配置&quot;&gt;&lt;/a&gt;OpenGL(glut包)在Visual Studio配置&lt;/h1&gt;&lt;h2 id=&quot;1-glut下载&quot;&gt;&lt;a href=&quot;#1-glut下载&quot; class=&quot;headerlink&quot; title=&quot;1.glut下载&quot;&gt;&lt;/a&gt;1.glut下载&lt;/h2&gt;&lt;p&gt; &lt;a href=&quot;https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip&quot;&gt;下载链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-环境配置&quot;&gt;&lt;a href=&quot;#2-环境配置&quot; class=&quot;headerlink&quot; title=&quot;2.环境配置&quot;&gt;&lt;/a&gt;2.环境配置&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="环境配置" scheme="http://dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="http://dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PicGo GitHub图床设置</title>
+    <link href="http://dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
+    <id>http://dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PicGo-GitHub图床设置"><a href="#PicGo-GitHub图床设置" class="headerlink" title="PicGo GitHub图床设置"></a>PicGo GitHub图床设置</h1><ol><li>创建一个仓库,用于存储图片</li><li>生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  </li></ol><a id="more"></a><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213307.png" alt="token"></p><ol><li>generate token后记得复制显示的token,只会出现这一次,如果忘记了需要regenerate</li><li>最后设置图床信息,仓库名为 用户名/仓库名形式,分支名为master,token为之前复制的一长串<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213638.png" alt="图床"></li><li>加速图床,由于GitHub国内访问速度很慢,在自定义域名加上<code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></li><li>最后保存就ok了</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;PicGo-GitHub图床设置&quot;&gt;&lt;a href=&quot;#PicGo-GitHub图床设置&quot; class=&quot;headerlink&quot; title=&quot;PicGo GitHub图床设置&quot;&gt;&lt;/a&gt;PicGo GitHub图床设置&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;创建一个仓库,用于存储图片&lt;/li&gt;
+&lt;li&gt;生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  &lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="环境配置" scheme="http://dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记4--回归Regression</title>
+    <link href="http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/"/>
+    <id>http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.361Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>通过一个散点图建立一个简单神经网络  </p><p>步骤为  </p><ol><li>建立xy数据点集</li><li>定义神经网络结构,只有hidden和predict 2层</li><li>训练神经网络同时绘制图像<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif" alt="训练过程"></li></ol><a id="more"></a><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">#print(torch.linspace(-1,1,100))</span><br><span class="line">x &#x3D; torch.unsqueeze(torch.linspace(-1,1,100),dim&#x3D;1) #生成二维的-1到1的伪数据,输出是个列向量</span><br><span class="line">#print(&#39;\n&#39;,x)</span><br><span class="line"></span><br><span class="line">y &#x3D; x.pow(2) + 0.2* torch.rand(x.size())   #把点应造成X^2的抖动函数</span><br><span class="line">plt.scatter(x.numpy(),y.numpy())</span><br><span class="line">plt.show()</span><br><span class="line">#输出图片</span><br><span class="line"></span><br><span class="line">class Net(torch.nn.Module):</span><br><span class="line">    def __init__(self,n_feature, n_hidden,n_output):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.hidden &#x3D; torch.nn.Linear(n_feature, n_hidden)#定义隐藏层结构</span><br><span class="line">        self.predict &#x3D; torch.nn.Linear(n_hidden,n_output)#定义预测层结构,输出一个y</span><br><span class="line">    def forward(self,x): #正向传播输入一个x</span><br><span class="line">        x &#x3D; torch.relu(self.hidden(x)) #正向传播x-&gt;relu过的x-&gt;output</span><br><span class="line">        x &#x3D; self.predict(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net &#x3D; Net(n_feature&#x3D;1,n_hidden&#x3D;10,n_output&#x3D;1)  #创建神经网络</span><br><span class="line"></span><br><span class="line">print(net)#可以看出神经网络的结构</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 下面开始训练</span><br><span class="line">optimizer &#x3D; torch.optim.SGD(net.parameters(),lr&#x3D;0.2)#传入net的全部参数,学习率为0.2,越高越快,但也会出现梯度爆炸之类的问题</span><br><span class="line">loss_func &#x3D; torch.nn.MSELoss()</span><br><span class="line"></span><br><span class="line">for i in range(500): #训练500次</span><br><span class="line">    prediction &#x3D; net(x) #向神经网络传入 x , prediction 相当于神经网络正向传播完的y</span><br><span class="line"></span><br><span class="line">    loss &#x3D; loss_func(prediction,y) #计算loss</span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()#梯度归零清空上一步的残余更新参数值</span><br><span class="line">    loss.backward()# 误差反向传播, 计算参数更新值</span><br><span class="line">    optimizer.step() # 将参数更新值施加到 net 的 parameters 上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#绘图</span><br><span class="line">    if i % 5 &#x3D;&#x3D; 0:</span><br><span class="line">        # plot and show learning process</span><br><span class="line">        plt.cla()</span><br><span class="line">        plt.scatter(x.data.numpy(), y.data.numpy())</span><br><span class="line">        plt.plot(x.data.numpy(), prediction.data.numpy(), &#39;r-&#39;, lw&#x3D;5)</span><br><span class="line">        plt.text(0.5, 0, &#39;Loss&#x3D;%.4f&#39; % loss.data.numpy(), fontdict&#x3D;&#123;&#39;size&#39;: 20, &#39;color&#39;:  &#39;red&#39;&#125;)</span><br><span class="line">        plt.pause(0.1)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h2&gt;&lt;p&gt;通过一个散点图建立一个简单神经网络  &lt;/p&gt;
+&lt;p&gt;步骤为  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;建立xy数据点集&lt;/li&gt;
+&lt;li&gt;定义神经网络结构,只有hidden和predict 2层&lt;/li&gt;
+&lt;li&gt;训练神经网络同时绘制图像&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif&quot; alt=&quot;训练过程&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记3--激励函数</title>
+    <link href="http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/"/>
+    <id>http://dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.361Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h2><h3 id="什么是-Activation"><a href="#什么是-Activation" class="headerlink" title="什么是 Activation"></a>什么是 Activation</h3><p>激励函数是非线性函数<br>神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  </p><p>常用的激励函数有</p><ul><li>relu</li><li>sigmoid</li><li>tanh</li><li>softplus</li></ul><a id="more"></a><h3 id="Torch中的激励函数"><a href="#Torch中的激励函数" class="headerlink" title="Torch中的激励函数"></a>Torch中的激励函数</h3><p><a href="https://mofanpy.com/tutorials/data-manipulation/plt/">python的可视化模块</a><br>以下是测试代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">from torch.autograd import variable #没啥用了好像</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x &#x3D; torch.linspace(-5,5,200)</span><br><span class="line">x_np &#x3D; x.numpy()</span><br><span class="line"></span><br><span class="line">y_relu &#x3D; torch.relu(x).numpy()</span><br><span class="line">y_sigmoid &#x3D; torch.sigmoid(x).numpy()</span><br><span class="line">y_tanh &#x3D; torch.tanh(x).numpy()</span><br><span class="line">y_softplus &#x3D; F.softplus(x).numpy()</span><br><span class="line"></span><br><span class="line">plt.figure(1, figsize&#x3D;(8, 6))</span><br><span class="line">plt.subplot(221)</span><br><span class="line">plt.plot(x_np, y_relu, c&#x3D;&#39;red&#39;, label&#x3D;&#39;relu&#39;)</span><br><span class="line">plt.ylim((-1, 5))</span><br><span class="line">plt.legend(loc&#x3D;&#39;best&#39;)</span><br><span class="line"></span><br><span class="line">plt.subplot(222)</span><br><span class="line">plt.plot(x_np, y_sigmoid, c&#x3D;&#39;red&#39;, label&#x3D;&#39;sigmoid&#39;)</span><br><span class="line">plt.ylim((-0.2, 1.2))</span><br><span class="line">plt.legend(loc&#x3D;&#39;best&#39;)</span><br><span class="line"></span><br><span class="line">plt.subplot(223)</span><br><span class="line">plt.plot(x_np, y_tanh, c&#x3D;&#39;red&#39;, label&#x3D;&#39;tanh&#39;)</span><br><span class="line">plt.ylim((-1.2, 1.2))</span><br><span class="line">plt.legend(loc&#x3D;&#39;best&#39;)</span><br><span class="line"></span><br><span class="line">plt.subplot(224)</span><br><span class="line">plt.plot(x_np, y_softplus, c&#x3D;&#39;red&#39;, label&#x3D;&#39;softplus&#39;)</span><br><span class="line">plt.ylim((-0.2, 6))</span><br><span class="line">plt.legend(loc&#x3D;&#39;best&#39;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;激励函数&quot;&gt;&lt;a href=&quot;#激励函数&quot; class=&quot;headerlink&quot; title=&quot;激励函数&quot;&gt;&lt;/a&gt;激励函数&lt;/h2&gt;&lt;h3 id=&quot;什么是-Activation&quot;&gt;&lt;a href=&quot;#什么是-Activation&quot; class=&quot;headerlink&quot; title=&quot;什么是 Activation&quot;&gt;&lt;/a&gt;什么是 Activation&lt;/h3&gt;&lt;p&gt;激励函数是非线性函数&lt;br&gt;神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  &lt;/p&gt;
+&lt;p&gt;常用的激励函数有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;relu&lt;/li&gt;
+&lt;li&gt;sigmoid&lt;/li&gt;
+&lt;li&gt;tanh&lt;/li&gt;
+&lt;li&gt;softplus&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记-pip安装python模块使用国内镜像</title>
+    <link href="http://dante-game.com.cn/2021/03/02/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-pip%E5%AE%89%E8%A3%85python%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/"/>
+    <id>http://dante-game.com.cn/2021/03/02/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-pip%E5%AE%89%E8%A3%85python%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/</id>
+    <published>2021-03-01T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h2><p>由于<code>pip install</code> 都是从海外源下载,正常的 install 很慢<br>使用国内的镜像源会大幅度提升 install 速度</p><h3 id="以下的国内的一些镜像源"><a href="#以下的国内的一些镜像源" class="headerlink" title="以下的国内的一些镜像源"></a>以下的国内的一些镜像源</h3><a id="more"></a><p>镜像源：<br>豆瓣：<a href="https://pypi.douban.com/simple/">https://pypi.douban.com/simple/</a><br>清华：<a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.douban.com/simple/</a><br>阿里：<a href="https://mirrors.aliyun.com/pypi/simple/">https://pypi.douban.com/simple/</a><br>中国科技大学 ：<a href="https://pypi.mirrors.ustc.edu.cn/simple/">https://pypi.douban.com/simple/</a></p><h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul><li>方法1<br><code>pip install 模块名 -i 以上镜像源网址</code></li><li>方法2<br>在user目录中创建一个pip目录，如：C:\Users\用户名\pip，新建文件pip.ini，内容如下 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  [global]</span><br><span class="line">index-url &#x3D; https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>url内容可以任意更换为以上源</li></ul><blockquote><p><a href="https://www.jianshu.com/p/2e33b1ed27b7">参考blog</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;镜像源&quot;&gt;&lt;a href=&quot;#镜像源&quot; class=&quot;headerlink&quot; title=&quot;镜像源&quot;&gt;&lt;/a&gt;镜像源&lt;/h2&gt;&lt;p&gt;由于&lt;code&gt;pip install&lt;/code&gt; 都是从海外源下载,正常的 install 很慢&lt;br&gt;使用国内的镜像源会大幅度提升 install 速度&lt;/p&gt;
+&lt;h3 id=&quot;以下的国内的一些镜像源&quot;&gt;&lt;a href=&quot;#以下的国内的一些镜像源&quot; class=&quot;headerlink&quot; title=&quot;以下的国内的一些镜像源&quot;&gt;&lt;/a&gt;以下的国内的一些镜像源&lt;/h3&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+    <category term="python" scheme="http://dante-game.com.cn/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记--自动求导机制</title>
+    <link href="http://dante-game.com.cn/2021/02/19/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-Autograd%20%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/"/>
+    <id>http://dante-game.com.cn/2021/02/19/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-Autograd%20%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/</id>
+    <published>2021-02-18T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.361Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Autograd-自动求导机制"><a href="#Autograd-自动求导机制" class="headerlink" title="Autograd: 自动求导机制"></a>Autograd: 自动求导机制</h2><p>PyTorch 中所有神经网络的核心是 autograd 包。 我们先简单介绍一下这个包，然后训练第一个简单的神经网络。</p><p>autograd包为张量上的所有操作提供了自动求导。 它是一个在运行时定义的框架，这意味着反向传播是根据你的代码来确定如何运行，并且每次迭代可以是不同的。</p><a id="more"></a><p>示例</p><p>张量（Tensor）<br>torch.Tensor是这个包的核心类。如果设置 .requires_grad 为 True，那么将会追踪所有对于该张量的操作。 当完成计算后通过调用 .backward()，自动计算所有的梯度， 这个张量的所有梯度将会自动积累到 .grad 属性。</p><p>要阻止张量跟踪历史记录，可以调用.detach()方法将其与计算历史记录分离，并禁止跟踪它将来的计算记录。</p><p>为了防止跟踪历史记录（和使用内存），可以将代码块包装在with torch.no_grad()：中。 在评估模型时特别有用，因为模型可能具有requires_grad = True的可训练参数，但是我们不需要梯度计算。</p><p>在自动梯度计算中还有另外一个重要的类Function.</p><p>Tensor and Function are interconnected and build up an acyclic graph, that encodes a complete history of computation. Each tensor has a .grad_fn attribute that references a Function that has created the Tensor (except for Tensors created by the user - their grad_fn is None).</p><p>Tensor 和 Function互相连接并生成一个非循环图，它表示和存储了完整的计算历史。 每个张量都有一个.grad_fn属性，这个属性引用了一个创建了Tensor的Function（除非这个张量是用户手动创建的，即，这个张量的 grad_fn 是 None）。</p><p>如果需要计算导数，你可以在Tensor上调用.backward()。 如果Tensor是一个标量（即它包含一个元素数据）则不需要为backward()指定任何参数， 但是如果它有更多的元素，你需要指定一个gradient 参数来匹配张量的形状。</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;Autograd-自动求导机制&quot;&gt;&lt;a href=&quot;#Autograd-自动求导机制&quot; class=&quot;headerlink&quot; title=&quot;Autograd: 自动求导机制&quot;&gt;&lt;/a&gt;Autograd: 自动求导机制&lt;/h2&gt;&lt;p&gt;PyTorch 中所有神经网络的核心是 autograd 包。 我们先简单介绍一下这个包，然后训练第一个简单的神经网络。&lt;/p&gt;
+&lt;p&gt;autograd包为张量上的所有操作提供了自动求导。 它是一个在运行时定义的框架，这意味着反向传播是根据你的代码来确定如何运行，并且每次迭代可以是不同的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Pytorch学习笔记--张量</title>
+    <link href="http://dante-game.com.cn/2021/01/27/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E5%BC%A0%E9%87%8F/"/>
+    <id>http://dante-game.com.cn/2021/01/27/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E5%BC%A0%E9%87%8F/</id>
+    <published>2021-01-27T14:31:14.000Z</published>
+    <updated>2022-09-02T06:49:21.360Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PyTorch是什么"><a href="#PyTorch是什么" class="headerlink" title="PyTorch是什么"></a>PyTorch是什么</h2><p>基于Python的科学计算包，服务于以下两种场景:</p><ul><li>作为NumPy的替代品，可以使用GPU的强大计算能力</li><li>提供最大的灵活性和高速的深度学习研究平台</li></ul><a id="more"></a><h2 id="Tensors-张量"><a href="#Tensors-张量" class="headerlink" title="Tensors 张量"></a>Tensors 张量</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><p>Tensors与Numpy中的 ndarrays类似，但是在PyTorch中 Tensors 可以使用GPU进行计算.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">from __future__ import print_function</span><br><span class="line">import torch</span><br></pre></td></tr></table></figure></p><h4 id="创建一个-5x3-矩阵-但是未初始化"><a href="#创建一个-5x3-矩阵-但是未初始化" class="headerlink" title="创建一个 5x3 矩阵, 但是未初始化:"></a>创建一个 5x3 矩阵, 但是未初始化:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.empty(5, 3)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensor([[0.0000, 0.0000, 0.0000],  </span><br><span class="line">        [0.0000, 0.0000, 0.0000],  </span><br><span class="line">        [0.0000, 0.0000, 0.0000],  </span><br><span class="line">        [0.0000, 0.0000, 0.0000],  </span><br><span class="line">        [0.0000, 0.0000, 0.0000]])</span><br></pre></td></tr></table></figure><h4 id="创建一个随机初始化的矩阵"><a href="#创建一个随机初始化的矩阵" class="headerlink" title="创建一个随机初始化的矩阵:"></a>创建一个随机初始化的矩阵:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.rand(5, 3)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensor([[0.6972, 0.0231, 0.3087],</span><br><span class="line">        [0.2083, 0.6141, 0.6896],</span><br><span class="line">        [0.7228, 0.9715, 0.5304],</span><br><span class="line">        [0.7727, 0.1621, 0.9777],</span><br><span class="line">        [0.6526, 0.6170, 0.2605]])</span><br></pre></td></tr></table></figure><h4 id="创建一个0填充的矩阵，数据类型为long"><a href="#创建一个0填充的矩阵，数据类型为long" class="headerlink" title="创建一个0填充的矩阵，数据类型为long:"></a>创建一个0填充的矩阵，数据类型为long:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.zeros(5, 3, dtype&#x3D;torch.long)</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tensor([[0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0],</span><br><span class="line">        [0, 0, 0]])</span><br></pre></td></tr></table></figure><h4 id="创建tensor并使用现有数据初始化"><a href="#创建tensor并使用现有数据初始化" class="headerlink" title="创建tensor并使用现有数据初始化:"></a>创建tensor并使用现有数据初始化:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.tensor([5.5, 3])</span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensor([5.5000, 3.0000])</span><br></pre></td></tr></table></figure><h4 id="根据现有的张量创建张量。-这些方法将重用输入张量的属性，例如，-dtype，除非设置新的值进行覆盖"><a href="#根据现有的张量创建张量。-这些方法将重用输入张量的属性，例如，-dtype，除非设置新的值进行覆盖" class="headerlink" title="根据现有的张量创建张量。 这些方法将重用输入张量的属性，例如， dtype，除非设置新的值进行覆盖"></a>根据现有的张量创建张量。 这些方法将重用输入张量的属性，例如， dtype，除非设置新的值进行覆盖</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; x.new_ones(5, 3, dtype&#x3D;torch.double)      # new_* 方法来创建对象</span><br><span class="line">print(x)</span><br><span class="line"></span><br><span class="line">x &#x3D; torch.randn_like(x, dtype&#x3D;torch.float)    # 覆盖 dtype!</span><br><span class="line">print(x)                                      #  对象的size 是相同的，只是值和类型发生了变化</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">tensor([[1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.],</span><br><span class="line">        [1., 1., 1.]], dtype&#x3D;torch.float64)</span><br><span class="line">tensor([[ 0.5691, -2.0126, -0.4064],</span><br><span class="line">        [-0.0863,  0.4692, -1.1209],</span><br><span class="line">        [-1.1177, -0.5764, -0.5363],</span><br><span class="line">        [-0.4390,  0.6688,  0.0889],</span><br><span class="line">        [ 1.3334, -1.1600,  1.8457]])</span><br></pre></td></tr></table></figure><h4 id="获取-size"><a href="#获取-size" class="headerlink" title="获取 size"></a>获取 size</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(x.size())</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.Size([5, 3])</span><br></pre></td></tr></table></figure><h2 id="张量的操作"><a href="#张量的操作" class="headerlink" title="张量的操作"></a>张量的操作</h2><h3 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h3><h4 id="加法1"><a href="#加法1" class="headerlink" title="加法1"></a>加法1</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y &#x3D; torch.rand(5, 3)</span><br><span class="line">print(x + y)</span><br></pre></td></tr></table></figure><h4 id="加法2"><a href="#加法2" class="headerlink" title="加法2"></a>加法2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(torch.add(x, y))</span><br></pre></td></tr></table></figure><h4 id="提供输出tensor作为参数"><a href="#提供输出tensor作为参数" class="headerlink" title="提供输出tensor作为参数"></a>提供输出tensor作为参数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">result &#x3D; torch.empty(5, 3)</span><br><span class="line">torch.add(x, y, out&#x3D;result)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><h4 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">y.add_(x)</span><br><span class="line">print(y)</span><br></pre></td></tr></table></figure><blockquote><p>任何 以<code>_</code> 结尾的操作都会用结果替换原变量. 例如: <code>x.copy_(y)</code>, <code>x.t_()</code>, 都会改变 <code>x</code>.这里便是 y+=x</p></blockquote><h4 id="torch-view-可以改变张量的维度和大小"><a href="#torch-view-可以改变张量的维度和大小" class="headerlink" title="torch.view: 可以改变张量的维度和大小"></a>torch.view: 可以改变张量的维度和大小</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.randn(4, 4)</span><br><span class="line">y &#x3D; x.view(16)</span><br><span class="line">z &#x3D; x.view(-1, 8)  #  size -1 从其他维度推断</span><br><span class="line">print(x.size(), y.size(), z.size())</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])</span><br></pre></td></tr></table></figure><h4 id="只有一个元素的张量，使用-item-来得到Python数据类型的数值"><a href="#只有一个元素的张量，使用-item-来得到Python数据类型的数值" class="headerlink" title="只有一个元素的张量，使用.item()来得到Python数据类型的数值"></a>只有一个元素的张量，使用.item()来得到Python数据类型的数值</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x &#x3D; torch.randn(1)</span><br><span class="line">print(x)</span><br><span class="line">print(x.item())</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([-0.2368])</span><br><span class="line">-0.23680149018764496</span><br></pre></td></tr></table></figure><h2 id="NumPy-转换"><a href="#NumPy-转换" class="headerlink" title="NumPy 转换"></a>NumPy 转换</h2><p>将一个Torch Tensor转换为NumPy数组是一件轻松的事，反之亦然。<br>Torch Tensor与NumPy数组共享底层内存地址，修改一个会导致另一个的变化。<br><br><br>将一个Torch Tensor转换为NumPy数组<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a &#x3D; torch.ones(5)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure><br><code>tensor([1., 1., 1., 1., 1.])</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">b &#x3D; a.numpy()</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure><br><code>[1. 1. 1. 1. 1.]</code><br><br></p><h3 id="numpy数组的值是如何改变的。"><a href="#numpy数组的值是如何改变的。" class="headerlink" title="numpy数组的值是如何改变的。"></a>numpy数组的值是如何改变的。</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a.add_(1)</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([2., 2., 2., 2., 2.])</span><br><span class="line">[2. 2. 2. 2. 2.]</span><br></pre></td></tr></table></figure><h4 id="使用from-numpy自动转化"><a href="#使用from-numpy自动转化" class="headerlink" title="使用from_numpy自动转化"></a>使用from_numpy自动转化</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">a &#x3D; np.ones(5)</span><br><span class="line">b &#x3D; torch.from_numpy(a)</span><br><span class="line">np.add(a, 1, out&#x3D;a)</span><br><span class="line">print(a)</span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[2. 2. 2. 2. 2.]</span><br><span class="line">tensor([2., 2., 2., 2., 2.], dtype&#x3D;torch.float64)</span><br></pre></td></tr></table></figure><blockquote><p>所有的 Tensor 类型默认都是基于CPU， CharTensor 类型不支持到 NumPy 的转换.</p><h2 id="CUDA-张量"><a href="#CUDA-张量" class="headerlink" title="CUDA 张量"></a>CUDA 张量</h2><p>使用.to 方法 可以将Tensor移动到任何设备中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># is_available 函数判断是否有cuda可以使用</span><br><span class="line"># &#96;&#96;torch.device&#96;&#96;将张量移动到指定的设备中</span><br><span class="line">if torch.cuda.is_available():</span><br><span class="line">    device &#x3D; torch.device(&quot;cuda&quot;)          # a CUDA 设备对象</span><br><span class="line">    y &#x3D; torch.ones_like(x, device&#x3D;device)  # 直接从GPU创建张量</span><br><span class="line">    x &#x3D; x.to(device)                       # 或者直接使用&#96;&#96;.to(&quot;cuda&quot;)&#96;&#96;将张量移动到cuda中</span><br><span class="line">    z &#x3D; x + y</span><br><span class="line">    print(z)</span><br><span class="line">    print(z.to(&quot;cpu&quot;, torch.double))       # &#96;&#96;.to&#96;&#96; 也会对变量的类型做更改</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tensor([0.7632], device&#x3D;&#39;cuda:0&#39;)</span><br><span class="line">tensor([0.7632], dtype&#x3D;torch.float64)</span><br></pre></td></tr></table></figure></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;PyTorch是什么&quot;&gt;&lt;a href=&quot;#PyTorch是什么&quot; class=&quot;headerlink&quot; title=&quot;PyTorch是什么&quot;&gt;&lt;/a&gt;PyTorch是什么&lt;/h2&gt;&lt;p&gt;基于Python的科学计算包，服务于以下两种场景:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;作为NumPy的替代品，可以使用GPU的强大计算能力&lt;/li&gt;
+&lt;li&gt;提供最大的灵活性和高速的深度学习研究平台&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="机器学习" scheme="http://dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="学习" scheme="http://dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="http://dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="http://dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="Pytorch" scheme="http://dante-game.com.cn/tags/Pytorch/"/>
+    
+  </entry>
+  
+</feed>
