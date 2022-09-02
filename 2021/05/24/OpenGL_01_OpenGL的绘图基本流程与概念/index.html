@@ -1,38 +1,238 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
 
 
-{% block title %}{{ page.title }} | {{ config.title }}{% endblock %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    OpenGL_01_OpenGL的绘图基本流程与概念 | Dante的个人博客
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="keywords" content="
+  学习,记录,经验,计算机图形学,OpenGL
+  ">
+  
+  <meta name="author" content="Dante">
 
-{% block page_class %}page-post-detail{% endblock %}
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
 
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
 
-{% block content %}
+  
 
-  <div id="posts" class="posts-expand">
-    {{ post_template.render(page) }}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
 
-    <div class="post-spread">
-      {% if theme.jiathis %}
-        {% include '_partials/share/jiathis.swig' %}
-      {% elseif theme.baidushare %}
-        {% include '_partials/share/baidushare.swig' %}
-      {% elseif theme.add_this_id %}
-        {% include '_partials/share/add-this.swig' %}
-      {% elseif theme.duoshuo_shortname and theme.duoshuo_share %}
-        {% include '_partials/share/duoshuo_share.swig' %}
-      {% endif %}
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
+      </div>
+
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/">Archives</a></li>
+        
+        
+        <li><a href="/">Categories</a></li>
+        
+        
+        <li><a href="/">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
     </div>
   </div>
+</nav>
 
-{% endblock %}
+<div class="main-container">
+  <header class="header-wrapper desktop-only">
+  <div class="container header-site-detail">
+    <ul class="header-toolbar">
+      <li class="clearfix">
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-file-text"></i> Posts </a>
+        <a href="/"
+           class="header-toolbar-right"> 21 </a>
+      </li>
+      <li>
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-tags"></i> Tags </a>
+        <a href="/"
+           class="header-toolbar-right"> 9 </a>
+      </li>
+      <li>
+        <a href="/" class="header-toolbar-left"><i
+                  class="fa fa-folder-open"></i> Categories </a>
+        <a href="/"
+           class="header-toolbar-right"> 4 </a>
+      </li>
+    </ul>
+    <h2 class="header-title">
+      <i class="fa fa-book text-muted"></i>
+      <a href="/">Dante的个人博客</a>
+      
+      
+    </h2>
+  </div>
 
-{% block sidebar %}
-  {{ sidebar_template.render(true) }}
-{% endblock %}
+  <div class="container">
+    <div class="header-tab-wrapper clearfix">
+      <span class="header-tab header-tab-selected"><i class="fa fa-thumbs-o-up"></i> Like</span>
+      <span class="header-tab"><i class="fa fa-share-alt"></i> Share</span>
+      <span class="header-tab"><i class="fa fa-comments-o"></i> Discussion</span>
+      <span class="header-tab"><i class="fa fa-bookmark-o"></i> Bookmark </span>
+      <span class="header-tab"><i class="fa fa-smile-o"></i> Smile <i class="fa fa-caret-down"></i></span>
+    </div>
+  </div>
+</header>
 
 
-{% block script_extra %}
-  {% include '_scripts/pages/post-details.swig' %}
-{% endblock %}
+<div class="post-container container">
+  <h3>
+    <i class="fa fa-user-o"></i>
+    Dante
+
+    <span class="post-date float-right" title="{{moment(1621833674000).format('MMM DD, YYYY, h:mm:ss A')}}">
+      
+          <i class="fa fa-pencil-square-o"></i>
+      
+      {{moment(1621833674000).fromNow()}}
+    </span>
+  </h3>
+
+  <article class="post-content">
+    <h1>OpenGL_01_OpenGL的绘图基本流程与概念</h1>
+    <h1 id="OpenGL的绘图基本流程与概念"><a href="#OpenGL的绘图基本流程与概念" class="headerlink" title="OpenGL的绘图基本流程与概念"></a>OpenGL的绘图基本流程与概念</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本博客仅记录本人的理解<br>全部内容来源于<a target="_blank" rel="noopener" href="https://learnopengl-cn.readthedocs.io/zh/latest/">OpenGL</a>与<a target="_blank" rel="noopener" href="http://colin1994.github.io/2017/11/11/OpenGLES-Lesson04/">GLSL</a>以及<a target="_blank" rel="noopener" href="https://space.bilibili.com/211153830">傅老师OpenGL课程</a><br>如有问题,欢迎评论<br><a id="more"></a></p>
+<h2 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524115540.png" alt=""></p>
+<p>图形渲染管线可以被划分为两个主要部分：</p>
+<ul>
+<li>第一部分把你的3D坐标转换为2D坐标</li>
+<li>第二部分是把2D坐标转变为实际的有颜色的像素。<blockquote>
+<p>分别对应第一排和第二排,实际学习中我们基本只用关注vertex shader和fragment shader,其他暂且不管</p>
+</blockquote>
+</li>
+</ul>
+<p>而图形渲染管线的输入便是顶点数据(vertex data),可以包含空间位置,颜色,uv等等信息</p>
+<h2 id="GPU与CPU"><a href="#GPU与CPU" class="headerlink" title="GPU与CPU"></a>GPU与CPU</h2><p>首先我们需要对CPU与GPU有一定的认识,打个比方CPU就像是精英怪或者BOSS,GPU就像是小兵,GPU有着很高的性能,但对于大量的简单运算就显得CPU势单力薄,而GPU却能很好的解决这些问题,GPU有着庞大的基数,虽然每个GPU只能进行简单的运算和处理,但处理大量简单运算时速度就比孤军奋战的CPU快很多.所以在OpenGL中我们使用GPU来处理庞大的顶点数据,而这些运行在GPU的程序被称为shader也就是着色器.  </p>
+<h2 id="VAO与VBO"><a href="#VAO与VBO" class="headerlink" title="VAO与VBO"></a>VAO与VBO</h2><p>所以我们来看这样一幅图<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524122721.png" alt="">  </p>
+<h3 id="VBO-顶点缓冲对象-Vertex-Buffer-Objects"><a href="#VBO-顶点缓冲对象-Vertex-Buffer-Objects" class="headerlink" title="VBO (顶点缓冲对象 [Vertex Buffer Objects] )"></a>VBO (顶点缓冲对象 [Vertex Buffer Objects] )</h3><p>CPU中的顶点数据通过一系列过程传输到GPU,为了节省CPU宝贵的内存,传输到GPU的数据会以数组的形式被立即保存在VBO中使用这些缓冲对象的好处是我们可以一次性的发送一大批数据到显卡上，而不是每个顶点发送一次。从CPU把数据发送到显卡相对较慢，所以只要可能我们都要尝试尽量一次性发送尽可能多的数据。当数据发送至显卡的内存中后，顶点着色器几乎能立即访问顶点，这是个非常快的过程。</p>
+<h3 id="VAO-顶点数组对象-Vertex-Array-Object"><a href="#VAO-顶点数组对象-Vertex-Array-Object" class="headerlink" title="VAO (顶点数组对象 [Vertex Array Object] )"></a>VAO (顶点数组对象 [Vertex Array Object] )</h3><p>顶点着色器允许我们指定任何以顶点属性为形式的输入.我们传入VBO的数组有顶点位置有颜色有uv等各种信息,显然我们的顶点着色器是无法区分这些信息的.所以我们需要用VAO来让顶点着色器认识我们VBO数组中传入的信息都是些什么.我们的顶点缓冲数据会被解析为下面这样子：<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524124443.png" alt=""><br>我们会指定每几个数据位一个顶点,如图中每3个数据为一个顶点的位置,如果有多个类型的数据,比如0,1,2为位置数据;3,4,5为颜色数据;6,7为uv数据,我们就需要指定8为一个步长,其中前三个为位置数据,偏移量为3的3个数据为颜色数据;偏移量为6的2个数据为uv数据.<br>将这些标注好后VAO就像下图一样<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524125024.png" alt="">  </p>
+<h3 id="EBO-索引缓冲对象-Element-Buffer-Object-也叫-Index-Buffer-Object，IBO"><a href="#EBO-索引缓冲对象-Element-Buffer-Object-也叫-Index-Buffer-Object，IBO" class="headerlink" title="EBO(索引缓冲对象 [ Element Buffer Object] 也叫 [Index Buffer Object，IBO] )"></a>EBO(索引缓冲对象 [ Element Buffer Object] 也叫 [Index Buffer Object，IBO] )</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524122721.png" alt=""><br>我们回到最开始的那张图,可以看出VAO除了Array buffer 还有一个Element Buffer.<br>在用glDrawArrays(GL_TRIANGLES)绘图时,如果我们只指定Array buffer,那么OpenGL就会以数组的顺序挨个逆时针以三角形的形式绘制这些顶点. 如果我们的图形较为复杂,这意味着会有很多重复的顶点出现,这会让我们的数组显得非常冗长,这时候我们可以定义一个EBO用来指定绘制顺序,如[0,1,2,1,0,2]就是以0,1,2的顺序绘制第一个三角形,再以1,0,2的顺序绘制第二个三角形</p>
+<blockquote>
+<p>注意:当目标是GL_ELEMENT_ARRAY_BUFFER的时候，VAO会储存glBindBuffer的函数调用。这也意味着它也会储存解绑调用，所以确保你没有在解绑VAO之前解绑索引数组缓冲，否则它就没有这个EBO配置了。  </p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524125640.png" alt=""></p>
+<h2 id="着色器-Shader"><a href="#着色器-Shader" class="headerlink" title="着色器 Shader"></a>着色器 Shader</h2><p>之前已经提到,着色器就是运行在GPU中的一个一个小程序.目前我们主要使用顶点着色器(vertex shader)和片段着色器(fragment shader).对于着色器,我们采用的是GLSL语言(OpenGL Shading Language)编写的程序,类似于C语言程序。<br>要使用着色器需要经历3个步骤:</p>
+<ol>
+<li>创建和编译shader object</li>
+<li>创建shader program,链接多个shader object到program</li>
+<li>在绘制场景时启用shader program<br>具体流程如下图所示:<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524130018.png" alt=""><br>我们可以通过两个简单的顶点着色器代码来认识Shader</li>
+</ol>
+<ul>
+<li>顶点着色器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#version 330   &#x2F;&#x2F; 指定GLSL版本3.3</span><br><span class="line"></span><br><span class="line">layout(location &#x3D; 0) in vec3 position; &#x2F;&#x2F; 顶点属性索引</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    gl_Position &#x3D; vec4(position, 1.0); &#x2F;&#x2F; 输出顶点</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>片段着色器<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#version 330</span><br><span class="line"></span><br><span class="line">out vec4 color; &#x2F;&#x2F; 输出片元颜色</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    color &#x3D; vec4(0.8, 0.8, 0.0, 1.0);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+着色器程序通过in 和 out也就是输入与输出连成一条线; 我们的顶点数据通过in传入顶点着色器然后输出顶点,然后顶点着色器的out通过片段着色器的in传入片段着色器并进行输出<blockquote>
+<p>这里由于传入的数据没有颜色数据,所以在片段着色器的main中指定了一个颜色</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>由于qt和glfw语法略有不同, 且官网有具体代码, 这里只介绍流程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.加载库</span><br><span class="line">2.创建窗口</span><br><span class="line">3.传入数据</span><br><span class="line">4.定义VBO,并传入数据</span><br><span class="line">5.定义VAO,并链接VBO</span><br><span class="line">6.创建着色器程序</span><br><span class="line">7.创建引擎(渲染与其他操作)</span><br></pre></td></tr></table></figure>
+<h2 id="状态机"><a href="#状态机" class="headerlink" title="状态机"></a>状态机</h2></blockquote>
+</li>
+</ul>
+<p>OpenGL自身是一个巨大的状态机<strong>状态机(State Machine)</strong><br>一系列的变量描述OpenGL此刻应当如何运行。OpenGL的正在运行的状态通常被称为OpenGL上下文(Context)。<br>我们通常使用如下途径去更改OpenGL状态：设置选项，操作缓冲。<br>最后，我们使用当前OpenGL上下文来渲染。<br>假设当我们想告诉OpenGL去画线段而不是三角形的时候，我们通过改变一些上下文变量来改变OpenGL状态，从而告诉OpenGL如何去绘图。一旦我们改变了OpenGL的状态为绘制线段，下一个绘制命令就会画出线段而不是三角形。<br>所以OpenGL本质上是个大<strong>状态机</strong><br>下图是之前所提到的内容用状态机来表示的示例,我们可以通过glEnable来操作状态机里的各种状态<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524151729.png" alt="">  </p>
+<blockquote>
+<p>VAO只能绑定一个VBO,所以如果有其他数据,需要解绑当前的VBO在bind所需VBO</p>
+</blockquote>
+<h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>OpenGL库是用C语言写的，内核是一个C库。由于C的一些语言结构不易被翻译到其它的高级语言，因此OpenGL开发的时候引入了一些抽象层。“对象(Object)”就是其中一个。<br>在OpenGL中一个对象是指一些选项的集合，它代表OpenGL状态的一个子集。比如，我们可以用一个对象来代表绘图窗口的设置，之后我们就可以设置它的大小、支持的颜色位数等等。可以把对象看做一个C风格的结构体(Struct)：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct object_name &#123;</span><br><span class="line">    float  option1;</span><br><span class="line">    int    option2;</span><br><span class="line">    char[] name;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br>当我们使用一个对象时，通常看起来像如下一样（把OpenGL上下文看作一个大的结构体）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; OpenGL的状态</span><br><span class="line">struct OpenGL_Context &#123;</span><br><span class="line">    ...</span><br><span class="line">    object* object_Window_Target;</span><br><span class="line">    ...     </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建对象</span><br><span class="line">unsigned int objectId &#x3D; 0;</span><br><span class="line">glGenObject(1, &amp;objectId);</span><br><span class="line">&#x2F;&#x2F; 绑定对象至上下文</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, objectId);</span><br><span class="line">&#x2F;&#x2F; 设置当前绑定到 GL_WINDOW_TARGET 的对象的一些选项</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_WIDTH, 800);</span><br><span class="line">glSetObjectOption(GL_WINDOW_TARGET, GL_OPTION_WINDOW_HEIGHT, 600);</span><br><span class="line">&#x2F;&#x2F; 将上下文对象设回默认,解绑对象</span><br><span class="line">glBindObject(GL_WINDOW_TARGET, 0);</span><br></pre></td></tr></table></figure></p>
+
+  </article>
+</div>
+
+
+    
+
+
+
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://dante-game.com.cn" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 Dante</li>
+      <li><a href="http://dante-game.com.cn">Home</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

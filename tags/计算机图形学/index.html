@@ -1,37 +1,350 @@
-{% extends '_layout.swig' %}
-{% import '_macro/post-collapse.swig' as post_template %}
-{% import '_macro/sidebar.swig' as sidebar_template %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block title %}{{ __('title.tag') }}: {{ page.tag }} | {{ config.title }}{% endblock %}
 
-{% block content %}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>
+    Dante的个人博客
+  </title>
+  <meta name="description" content="">
+  
+  <meta name="author" content="Dante">
 
-  {#################}
-  {### TAG BLOCK ###}
-  {#################}
-  <div class="post-block tag">
+  <meta http-equiv="Cache-Control" content="no-transform"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="theme-color" content="#1e2327">
+  <link rel="apple-touch-icon" href="https://github.githubassets.com/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.githubassets.com/apple-touch-icon-180x180.png">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <{% if theme.seo %}h2{% else %}h1{% endif %}>{#
-        #}{{ page.tag }}{#
-        #}<small>{{  __('title.tag')  }}</small>
-        </{% if theme.seo %}h2{% else %}h1{% endif %}>
+  <link rel="icon" type="image/x-icon" href="https://github.githubassets.com/favicon.ico">
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+
+  
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/1.0.25-csp/vue.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Dante的个人博客" type="application/atom+xml">
+</head>
+
+<body id="replica-app">
+
+<nav class="navbar-wrapper">
+  <div class="navbar">
+    <div class="container clearfix">
+      <a href="/" class="navbar-logo"><i class="fa fa-github"></i></a>
+
+      <div class="navbar-search float-left desktop-only">
+        <div class="navbar-search-form">
+          <label for="gsc-i-id1">This website</label>
+          <div id="google-search">
+            <gcse:search></gcse:search>
+          </div>
+        </div>
       </div>
 
-      {% for post in page.posts %}
-        {{ post_template.render(post) }}
-      {% endfor %}
+      <ul class="navbar-nav float-left">
+        
+        <li><a href="/">Archives</a></li>
+        
+        
+        <li><a href="/">Categories</a></li>
+        
+        
+        <li><a href="/">Tags</a></li>
+        
+        
+        <li class="desktop-only"><a href="/atom.xml" target="_blank">RSS</a></li>
+        
+      </ul>
+
+      <ul class="navbar-nav user-nav float-right desktop-only">
+        <li class="user-nav-notification">
+          <a><span class="user-nav-unread"></span><i class="fa fa-bell"></i></a>
+        </li>
+        <li>
+          <a><i class="fa fa-plus"></i> <i class="fa fa-caret-down"></i></a>
+        </li>
+        <li class="user-nav-logo">
+          <a><img src="https://octodex.github.com/images/baracktocat.jpg"> <i class="fa fa-caret-down"></i></i></a>
+        </li>
+      </ul>
     </div>
-
   </div>
-  {#####################}
-  {### END TAG BLOCK ###}
-  {#####################}
+</nav>
 
-  {% include '_partials/pagination.swig' %}
-{% endblock %}
+<div class="main-container">
+  
 
-{% block sidebar %}
-  {{ sidebar_template.render(false) }}
-{% endblock %}
+<div class="container-lg">
+  
+
+<div class="blog-intro">
+  <div class="blog-intro-user">
+    <img class="avatar" src="https://octodex.github.com/images/baracktocat.jpg">
+    <div class="user-name">
+      <div class="blog-title"></div>
+      <div class="blog-author"></div>
+        <ul class="user-detail mobile-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://dante-game.com.cn">http://dante-game.com.cn</a>
+    </li>
+  </ul>
+    </div>
+    <div class="blog-description">
+      
+    </div>
+  </div>
+
+  <ul class="user-detail desktop-only">
+    
+    <li>
+      <i class="fa fa-link"></i>
+      <a href="http://dante-game.com.cn">http://dante-game.com.cn</a>
+    </li>
+  </ul>
+
+  <div class="social-media desktop-only">
+    <h4>Social Media</h4>
+    <ul>
+      
+    </ul>
+  </div>
+</div>
+
+
+  <div class="blog-detail">
+    
+<nav class="blog-detail-nav desktop-only">
+  <ul class="clearfix">
+    <li class="">
+      <a href="/">Overview</a></li>
+    <li class="">
+      <a href="/">Posts <span class="counter">21</span></a>
+    </li>
+    <li class="">
+      <a href="/">Categories <span
+                class="counter">4</span></a></li>
+    <li class="selected">
+      <a href="/">Tags <span class="counter">9</span></a></li>
+  </ul>
+</nav>
+
+    <div class="body-secondary">
+      <ul class="archive-list">
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/05/25/OpenGL-03-%E5%9D%90%E6%A0%87%E7%B3%BB%E7%BB%9F%E4%B8%8E%E6%91%84%E5%83%8F%E6%9C%BA/">OpenGL_03_坐标系统与摄像机</a></h2>
+          <p>
+               坐标系统与摄像机  本篇简单的记录了关于坐标系统的机制与摄像机,为了方便理解去掉了数学内容,详细的后面会写 
+   坐标系统    
+ 我们先来认识这张图,为了将坐标从一个坐标系转换到另一个坐标系，我们需要用到几个转换矩阵，最重要的几个分别是 模型(Model)  、 视图(View)  、 ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/OpenGL/">OpenGL</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><i class="fa fa-folder-open"></i> 计算机图形学</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 5 </span>
+            <span>Published {{moment(1621904142000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/05/24/OpenGL-02-%E5%90%91%E9%87%8F%E5%92%8C%E7%9F%A9%E9%98%B5/">OpenGL_02_向量和矩阵</a></h2>
+          <p>
+               向量和矩阵  默认大家都学过向量和矩阵,这里就记录一些核心的东西 
+   向量    向量点积(dot product)  向量点积，也称为向量的数量积，点积的结果是一个标量，其定义为$|\ A\ |\cdot{|\ B\ |\cos\theta}$,其几何意义如下,一般用于计算投影和夹角  ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/OpenGL/">OpenGL</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><i class="fa fa-folder-open"></i> 计算机图形学</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 5 </span>
+            <span>Published {{moment(1621846046000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/">OpenGL_01_OpenGL的绘图基本流程与概念</a></h2>
+          <p>
+               OpenGL的绘图基本流程与概念    前言  本博客仅记录本人的理解 全部内容来源于 OpenGL 与 GLSL 以及 傅老师OpenGL课程  如有问题,欢迎评论    
+   图形渲染管线    
+ 图形渲染管线可以被划分为两个主要部分： 
+ 
+ 第一部分把你的3D坐标转换为2D坐标 
+...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/OpenGL/">OpenGL</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"><i class="fa fa-folder-open"></i> 计算机图形学</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 5 </span>
+            <span>Published {{moment(1621833674000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/">OpenGL GLFW, GLAD 在 Visual Studio 配置</a></h2>
+          <p>
+               GLFW    下载GLFW   下载地址    
+ 下载好后解压解压 
+ 
+ github下载可能略慢,建议翻墙 
+ 
+  
+   下载CMake   下载地址  下载好后解压,打开’bin/cmake-gui.exe’ 我们现在需要一个源代码目录(即之前下好的glfw)和一个存放编译结果的...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><i class="fa fa-folder-open"></i> 环境配置</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 4 </span>
+            <span>Published {{moment(1615132800000).fromNow()}}</span>
+          </div>
+        </li>
+        
+        <li class="archive-list-item">
+          <h2><a href="/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/">OpenGL(glut包)在Visual Studio配置</a></h2>
+          <p>
+               OpenGL(glut包)在Visual Studio配置    1.glut下载    下载链接  
+   2.环境配置   
+ 下载好会有如下文件   
+   .h 文件    glut.h  放入路径  C:\Program Files (x86) \ Microsoft Visual ...
+          </p>
+          <ul class="tag-list clearfix">
+            
+            <li class="tag-list-item"><a href="/tags/%E5%AD%A6%E4%B9%A0/">学习</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%B0%E5%BD%95/">记录</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E7%BB%8F%E9%AA%8C/">经验</a></li>
+            
+            <li class="tag-list-item"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/">计算机图形学</a></li>
+            
+          </ul>
+          <div class="post-info">
+            <span>
+              
+              <a class="category-link" href="/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"><i class="fa fa-folder-open"></i> 环境配置</a>
+              
+            </span>
+            <span><i class="fa fa-tag"></i> 4 </span>
+            <span>Published {{moment(1614787200000).fromNow()}}</span>
+          </div>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer-wrapper container">
+  <footer class="footer clearfix">
+    <div class="clearfix">
+    <a href="http://dante-game.com.cn" class="footer-logo">
+      <i class="fa fa-github"></i>
+    </a>
+    <ul class="footer-social-link">
+      <li>© 2019 Dante</li>
+      <li><a href="http://dante-game.com.cn">Home</a></li>
+      
+    </ul>
+    <div class="footer-theme-info">
+      Theme <a target="_blank" rel="noopener" href="//github.com/sabrinaluo/hexo-theme-replica">Replica</a>
+      by <a target="_blank" rel="noopener" href="//github.com/sabrinaluo">Hiitea</a> ❤ Powered by Hexo
+    </div>
+    </div>
+    
+  </footer>
+</div>
+
+
+
+
+<script src="/js/main.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
