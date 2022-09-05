@@ -38,7 +38,7 @@
     
 <link rel="stylesheet" href="/css/syntax.css">
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 6.2.0"></head>
 
 <style>
 
@@ -205,7 +205,7 @@
                 <h1 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h1><h2 id="渲染管线概述"><a href="#渲染管线概述" class="headerlink" title="渲染管线概述"></a>渲染管线概述</h2><p>本文用于记录与整理实时渲染管线的流程,参考<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES101</a>,<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES104</a>,<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1L54y1s7xw?p=2&amp;share_source=copy_web&amp;vd_source=da8280c5c3d89248027ccac72e16e11e">技术美术百人计划</a></p>
 <p>图形渲染管线是一系列输入输出组合而成的流水线,即输入顶点数据,得到屏幕上显示的图像,这个过程中会经历很多操作来使得计算机能够<strong>实时的</strong>将图像<strong>合理的</strong>显示在屏幕上</p>
 <p>很喜欢GAMES101里的一句话,我们往往会更关注what和why,而how是最不重要的地方<br>因此本文会注重WHAT与WHY,具体的HOW会以超链接形式插入(陆续补充…)</p>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><a href="#图形渲染管线">图形渲染管线</a><ul>
 <li><a href="#渲染管线概述">渲染管线概述</a></li>
@@ -233,6 +233,7 @@
 </ul>
 </li>
 <li><a href="#总结">总结</a></li>
+<li><a href="#补充">补充</a></li>
 </ul>
 </li>
 </ul>
@@ -425,11 +426,23 @@
 <li><strong>几何</strong><br>GPU中顶点A经历了模型矩阵,视口矩阵,投影矩阵的变换;模型被细分后加入了许多新顶点,顶点A随之进行了位置的调整,加入了新的三角形中;顶点A除以自身的w后被转换到了一个以原点为中心向各轴延展1的正方形空间中,没有被划分进来的顶点被裁剪掉了,划分了一半的三角形为了维持形状新增了新的顶点进行补全,根据三角形绘制时针方向判断正反面,不该被渲染的面也被剔除掉了,顶点A再次转换到了屏幕空间中(0-W,0-H,Near-Far),顶点A覆盖了像素B,接下来就是像素B的一生了</li>
 <li><strong>光栅化</strong><br>像素B是顶点A在其坐标所对应的像素,但他属于许多三角形,三角形通过顶点的插值决定了三角形在像素B上的数据,像素B要根据深度测试,alpha测试等判断是否要采用三角形的数据,同样应用阶段的各种数据也会作用到像素B的生成上(如阴影,光照等),像素B经过各种数据的混合最终变成了屏幕上所显示的像素</li>
 </ul>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><ul>
+<li>各种测试的相对顺序：裁剪-&gt;Alpha-&gt;模板-&gt;深度</li>
+<li>Early-Z<ul>
+<li>Early-Z是一种提前深度测试的技术，它位于光栅化阶段之后，像素处理阶段之前，目的是减少进入像素着色阶段的片段，优化性能。Early-Z会带来透明测试的冲突，例如某个片元A虽然遮挡了另一个片元B，但A却是透明的，GPU应当渲染的是片元B，这就产生了矛盾，这就是透明度测试会导致性能下降的原因(因为无法用Early-Z)，但是有一种叫PreZ的技术可以解决这个问题，参考上面的链接，不再详述。</li>
+</ul>
+</li>
+</ul>
 
                 <hr>
                 
 
                 <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/2022/09/05/光照模型/" data-toggle="tooltip" data-placement="top"
+                           title="光照模型">&larr; Previous Post</a>
+                    </li>
                     
                     
                     <li class="next">
@@ -453,7 +466,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">渲染管线概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5"><span class="toc-text">CPU(应用阶段)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="toc-text">1.数据的读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-text">2.准备基本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%89%E6%BA%90%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="toc-text">3.光源与阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8A%A0%E9%80%9F%E7%AE%97%E6%B3%95"><span class="toc-text">4.加速算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B8%B2%E6%9F%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">5.渲染设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BE%93%E5%87%BA%E5%88%B0%E6%98%BE%E5%AD%98"><span class="toc-text">6.输出到显存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GPU%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="toc-text">GPU基础架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SIMD-%E4%B8%8ESIMT"><span class="toc-text">SIMD 与SIMT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5"><span class="toc-text">7.几何阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">8.光栅化阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="toc-text">9.逐片元操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">10.后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">渲染管线概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5"><span class="toc-text">CPU(应用阶段)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="toc-text">1.数据的读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-text">2.准备基本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%89%E6%BA%90%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="toc-text">3.光源与阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8A%A0%E9%80%9F%E7%AE%97%E6%B3%95"><span class="toc-text">4.加速算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B8%B2%E6%9F%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">5.渲染设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BE%93%E5%87%BA%E5%88%B0%E6%98%BE%E5%AD%98"><span class="toc-text">6.输出到显存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GPU%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="toc-text">GPU基础架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SIMD-%E4%B8%8ESIMT"><span class="toc-text">SIMD 与SIMT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5"><span class="toc-text">7.几何阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">8.光栅化阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="toc-text">9.逐片元操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">10.后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>

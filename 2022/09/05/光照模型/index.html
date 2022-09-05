@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Unity实验作业 实现对mesh的破碎效果｜Dante-Game
+        光照模型｜Dante-Game
         
     </title>
 
-    <link rel="canonical" href="https://www.dante-game.com.cn/2021/11/01/游戏编程实验04/">
+    <link rel="canonical" href="https://www.dante-game.com.cn/2022/09/05/光照模型/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -159,27 +159,15 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
                 <div class="post-heading">
-                    <h1>Unity实验作业 实现对mesh的破碎效果</h1>
+                    <h1>光照模型</h1>
                     
                     <span class="meta">
                          作者 Dante
                         <span>
-                          日期 2021-11-01
+                          日期 2022-09-05
                          </span>
                     </span>
                     <div class="tags text-center">
-                        
-                        <a class="tag" href="/tags/#学习"
-                           title="学习">学习</a>
-                        
-                        <a class="tag" href="/tags/#记录"
-                           title="记录">记录</a>
-                        
-                        <a class="tag" href="/tags/#经验"
-                           title="经验">经验</a>
-                        
-                        <a class="tag" href="/tags/#Unity"
-                           title="Unity">Unity</a>
                         
                     </div>
                 </div>
@@ -188,7 +176,7 @@
     </div>
     <div class="post-title-haojen">
         <span>
-            Unity实验作业 实现对mesh的破碎效果
+            光照模型
         </span>
     </div>
 </header>
@@ -199,47 +187,16 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="实验作业-4"><a href="#实验作业-4" class="headerlink" title="实验作业 4"></a>实验作业 4</h1><p>目的：  熟悉Mesh的概念，能自由利用Mesh数据</p>
-<p>要求：  编写一个脚本，实现对mesh的破碎效果</p>
-<a id="more"></a>
-<hr>
-<h2 id="实验思路"><a href="#实验思路" class="headerlink" title="实验思路"></a>实验思路</h2><p>想要实现破碎的效果,大致可以分为几种思路,</p>
-<ul>
-<li><p>首先最朴实无华但效果也不错的就是直接进行物理模拟,将cube切割成碎片,为其添加刚体与碰撞属性,使其具有基本的物理特性,这种方法能够得到较为真实的破碎模拟,但开销较大</p>
-</li>
-<li><p>也可以通过脚本控制mesh顶点偏移的方式实现,但我觉得视觉效果欠佳</p>
-</li>
-<li><p>退而求其次的方法是采用外部动画导入,只对特定情况的碰撞做出反应,这样就不用给予每个子物件物理与碰撞属性,只需检测碰撞后播放动画即可,这种方法也能达到不错的效果,但缺乏交互的多样性</p>
-</li>
-<li><p>再者就是更复杂的着色器效果,通过着色器能够实现非物理效果形式的破碎,比如化为飞灰之类的效果,但这部分编写代码较为复杂和繁琐</p>
-</li>
-</ul>
-<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>本次实验我采取的是纯粹的物理模仿的方式</p>
-<p>首先我在外部建模软件对mesh进行处理</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102654.png" alt=""> </p>
-<p>将其碎片化为多个mesh的结合体</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102704.png" alt=""></p>
-<p>然后导入unity,为其添加物理属性</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102714.png" alt=""></p>
-<p>这里我试了几种不同的方法来实现破碎效果,首先就是将模型制成帧动画,通过animator controller对其进行动画控制,由碰撞脚本触发破碎效果,在动画快结束时将材质透明度降低并释放内存(但实际效果很辣眼睛)</p>
-<p>后来我便采用物理模拟的方法来着手,mesh collider能够比较好的模拟,但实际肯定不能使用这么浪费性能的方法,可以在触发想要发生碰撞动画前关闭碰撞检测,由大碰撞体检测,在落地大碰撞触发时,将碎片碰撞打开,进行碰撞模拟</p>
-<p>这种方法也同样适用于当碎片以box collider的时候,但box collider因为挤压,在落地的一瞬间会产生强大的排斥力,让碎片四散飞去.效果略显夸张,在低重力指数的情况下可以模仿烟花爆破等场景(但应该没人会用实体模仿吧)</p>
-<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E7%A0%B4%E7%A2%8E.gif" alt=""></p>
-
+                
                 <hr>
                 
 
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/2021/11/01/游戏编程实验05/" data-toggle="tooltip" data-placement="top"
-                           title="Unity实验作业 用Cube实现篝火动态效果">&larr; Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/2021/11/01/游戏编程实验03/" data-toggle="tooltip" data-placement="top"
-                           title="Unity实验作业 探索SDK之外的秘密">Next Post &rarr;</a>
+                        <a href="/2022/09/03/图像渲染管线/" data-toggle="tooltip" data-placement="top"
+                           title="图形渲染管线">Next Post &rarr;</a>
                     </li>
                     
                 </ul>
@@ -258,7 +215,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BD%9C%E4%B8%9A-4"><span class="toc-text">实验作业 4</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%80%9D%E8%B7%AF"><span class="toc-text">实验思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-text">实验步骤</span></a></li></ol></li></ol>
+                    
                 </div>
             </div>
         </div>
@@ -279,18 +236,6 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
-                        
-                        <a class="tag" href="/tags/#学习"
-                           title="学习">学习</a>
-                        
-                        <a class="tag" href="/tags/#记录"
-                           title="记录">记录</a>
-                        
-                        <a class="tag" href="/tags/#经验"
-                           title="经验">经验</a>
-                        
-                        <a class="tag" href="/tags/#Unity"
-                           title="Unity">Unity</a>
                         
                     </div>
                 </section>
