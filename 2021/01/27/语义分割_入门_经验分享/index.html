@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -206,7 +206,7 @@
 <li>最好有个Google账号</li>
 <li>使用Google的深度学习服务器<a target="_blank" rel="noopener" href="https://colab.research.google.com/">Colab</a>,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过<a target="_blank" rel="noopener" href="https://drive.google.com/">Google云端硬盘</a>上传,自带15G免费内存,可扩充100G/月(250日元/月,差不多15块吧,我们学习阶段应该用不上扩充)</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul>
 <li>学习完全可以跟着这个<a target="_blank" rel="noopener" href="https://github.com/Jack-Cherish/Deep-Learning">网站</a>学</li>
 <li>我先跳过理论直接做了UNet框架的训练,具体步骤参照<a target="_blank" rel="noopener" href="https://cuijiahua.com/blog/2020/03/dl-16.html">这个网站</a>手把手教学,有源码和<a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1uWliDqL0bLOnnyFuOjjm2VwzGlJKBMsa?usp=sharing">数据集</a></li>
@@ -220,8 +220,8 @@
 <li>写的.py文件通过第一栏的笔记本输入<code>!python 绝对路径(直接复制的路径)/相对路径</code>执行</li>
 <li>本地运行点击右上角 连接-&gt;切换到本地运行时,使用jupyter本地运行</li>
 <li><p>请在终端分别输入以下代码(前提你已经配置好了python环境)</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_http_over_ws</span><br><span class="line">jupyter serverextension enable --py jupyter_http_over_ws</span><br></pre></td></tr></table></figure>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  jupyter notebook --NotebookApp.allow_origin&#x3D;&#39;https:&#x2F;&#x2F;colab.research.google.com&#39; \</span><br><span class="line">--port&#x3D;8888 --no-browser</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_http_over_ws</span><br><span class="line">jupyter serverextension enable --py jupyter_http_over_ws</span><br></pre></td></tr></table></figure>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  jupyter notebook --NotebookApp.allow_origin=&#x27;https://colab.research.google.com&#x27; \</span><br><span class="line">--port=8888 --no-browser</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在colab输入你 终端显示的<code>http://localhost:8888/?token=</code>xxxxx</p>
 </li>

@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -204,7 +204,7 @@
 <blockquote>
 <p>github下载可能略慢,建议翻墙</p>
 </blockquote>
-<a id="more"></a>
+<span id="more"></span>
 <h3 id="下载CMake"><a href="#下载CMake" class="headerlink" title="下载CMake"></a>下载CMake</h3><p><a target="_blank" rel="noopener" href="https://cmake.org/download/">下载地址</a><br>下载好后解压,打开’bin/cmake-gui.exe’<br>我们现在需要一个源代码目录(即之前下好的glfw)和一个存放编译结果的目标文件目录(新建一个build文件夹)  </p>
 <blockquote>
 <p>注意路径不要有中文<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013232.png" alt="cmake"><br>Configure(设置)按钮,选择VS2019 16,然后保存<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309013317.png" alt="Configure"></p>
@@ -218,7 +218,7 @@
 <p>将<code>glfw-3.3.3\include\GLFW</code> 整个文件夹放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code></p>
 <h3 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h3><p>在VS<code>项目-&gt;工程属性-&gt;连接器-&gt;输入(input)-&gt;附加依赖项(第一项)</code>添加glfw3.lib<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309032115.png" alt="lib"></p>
 <h2 id="GLAD"><a href="#GLAD" class="headerlink" title="GLAD"></a>GLAD</h2><h3 id="配置GLAD"><a href="#配置GLAD" class="headerlink" title="配置GLAD"></a>配置GLAD</h3><p>打开<a target="_blank" rel="noopener" href="http://glad.dav1d.de/">GLAD在线服务</a>设置如下后generate,下载提供的zip文件,解压<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210309014907.png" alt="GLAD"><br>把<code>glad\include</code>中的2个文件夹放入路径<code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include</code>  </p>
-<p>把<strong>glad.c</strong>添加到工程文件中<br>最后你就能将以下的指令加到你的文件顶部了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;glad&#x2F;glad.h&gt; </span><br></pre></td></tr></table></figure></p>
+<p>把<strong>glad.c</strong>添加到工程文件中<br>最后你就能将以下的指令加到你的文件顶部了<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;glad/glad.h&gt; </span><br></pre></td></tr></table></figure></p>
 
                 <hr>
                 
