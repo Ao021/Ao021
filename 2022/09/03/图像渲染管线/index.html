@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="DANTE的游戏博客">
+    <meta name="keyword" content="GAMES# seo key words">
+    <meta name="theme-color" content="#600090">
+    <meta name="msapplication-navbutton-color" content="#600090">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#600090">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/964987e788bb8e7784f2f3b0c6b20f30.png# your favicon png">
+    <link rel="alternate" type="application/atom+xml" title="Dante-Game" href="/atom.xml">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
+    <title>
+        
+        图形渲染管线｜Dante-Game
+        
+    </title>
+
+    <link rel="canonical" href="http://dante-game.com.cn/2022/09/03/图像渲染管线/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/blog-style.css">
+
+
+    <!-- Pygments Github CSS -->
+    
+<link rel="stylesheet" href="/css/syntax.css">
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+<style>
+
+    header.intro-header {
+        background-image: url('//o7bkkhiex.bkt.clouddn.com/lion-blur-bg.jpg')
+    }
+</style>
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="" class="animated fadeIn">
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
+" data-ishome = "false" >
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand animated pulse" href="/">
+                <span class="brand-logo">
+                    Dante-Game
+                </span>
+                's Blog
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <!-- /.navbar-collapse -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+					
+                    
+                        
+							
+                        <li>
+                            <a href="/categories/">categories</a>
+                        </li>
+							
+						
+                    
+                        
+							
+                        <li>
+                            <a href="/tags/">tags</a>
+                        </li>
+							
+						
+                    
+					
+					
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+//    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+<!-- Main Content -->
+
+<!--only post-->
+
+
+<img class="wechat-title-img"
+     src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>图形渲染管线</h1>
+                    
+                    <span class="meta">
+                         作者 Dante
+                        <span>
+                          日期 2022-09-03
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#游戏引擎"
+                           title="游戏引擎">游戏引擎</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="post-title-haojen">
+        <span>
+            图形渲染管线
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                <h1 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h1><h2 id="渲染管线概述"><a href="#渲染管线概述" class="headerlink" title="渲染管线概述"></a>渲染管线概述</h2><p>本文用于记录与整理实时渲染管线的流程,参考<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES101</a>,<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES104</a>,<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1L54y1s7xw?p=2&amp;share_source=copy_web&amp;vd_source=da8280c5c3d89248027ccac72e16e11e">技术美术百人计划</a></p>
+<p>图形渲染管线是一系列输入输出组合而成的流水线,即输入顶点数据,得到屏幕上显示的图像,这个过程中会经历很多操作来使得计算机能够<strong>实时的</strong>将图像<strong>合理的</strong>显示在屏幕上</p>
+<p>很喜欢GAMES101里的一句话,我们往往会更关注what和why,而how是最不重要的地方<br>因此本文会注重WHAT与WHY,具体的HOW会以超链接形式插入(陆续补充…)</p>
+<a id="more"></a>
+<h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">阶段</th>
+<th style="text-align:center">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">应用阶段:</td>
+<td style="text-align:center">粗颗粒剔除, 渲染设置, 准备基本数据, 输出到几何阶段</td>
+</tr>
+<tr>
+<td style="text-align:center">几何阶段:</td>
+<td style="text-align:center">顶点着色器, 曲面细分, 几何着色器, 顶点裁剪, 屏幕映射</td>
+</tr>
+<tr>
+<td style="text-align:center">光栅化阶段:</td>
+<td style="text-align:center">三角形设置, 三角形遍历, 片段着色器</td>
+</tr>
+<tr>
+<td style="text-align:center">逐片元操作:</td>
+<td style="text-align:center">裁剪测试, 透明度测试, 深度测试, 模板测试, 混合</td>
+</tr>
+<tr>
+<td style="text-align:center">后处理:</td>
+<td style="text-align:center">泛光 边缘检测 模糊 景深 HDR FXAA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="具体流程"><a href="#具体流程" class="headerlink" title="具体流程"></a>具体流程</h2><p>渲染管线相当于一个流水线车间,加工产品是数据,磁盘上的数据会经过 cpu-&gt;gpu 这2个车间,最终加工成屏幕上像素点中的色彩信息</p>
+<h3 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h3><h4 id="应用阶段—数据的读取"><a href="#应用阶段—数据的读取" class="headerlink" title="应用阶段—数据的读取"></a>应用阶段—数据的读取</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210524125640.png" alt=""></p>
+<p>我们的模型与贴图是存储在磁盘上的,这些数据是其他软件的加工品如3dmax,maya,blender等,里面存储着顶点,法线,uv等等我们常见的信息,当然也包含着一些为了更好的效果或者是更快的速度为软件所独有一些信息,这一部分信息是无法被有效利用的.<br>这些数据经过规整化(不同软件可能有着不同的数据定义方式),剔除掉不可用的数据,加载到了内存上以待进一步的处理.</p>
+<h4 id="应用阶段—准备基本数据"><a href="#应用阶段—准备基本数据" class="headerlink" title="应用阶段—准备基本数据"></a>应用阶段—准备基本数据</h4><p>对于需要渲染的数据进行准备</p>
+<ul>
+<li>场景物体数据<ul>
+<li>物体的变换数据(位置,缩放,旋转等)</li>
+<li>物体的网格数据(顶点,贴图,法线,切线等)</li>
+</ul>
+</li>
+<li>光源数据<ul>
+<li>光源类型(方向光,点光,聚光等)</li>
+<li>光源的位置,角度,方向,颜色等</li>
+</ul>
+</li>
+<li>摄像机数据<ul>
+<li>位置,方向,远近裁剪平面等</li>
+<li>正交/透视模式</li>
+<li>屏幕尺寸/比例等<h4 id="应用阶段—光源与阴影"><a href="#应用阶段—光源与阴影" class="headerlink" title="应用阶段—光源与阴影"></a>应用阶段—光源与阴影</h4></li>
+</ul>
+</li>
+<li>设置光源<ul>
+<li>方向光:颜色,方向等</li>
+<li>点光:颜色,位置,范围等</li>
+<li>聚光:颜色,位置,方向,内外圆锥角等</li>
+</ul>
+</li>
+<li>设置阴影<ul>
+<li>是否需要阴影</li>
+<li>阴影参数:对应光源,阴影强度,级联参数,深度偏移,近平面偏移等</li>
+</ul>
+</li>
+<li>逐光源绘制阴影贴图<ul>
+<li>近平面偏移</li>
+<li>逐级联<ul>
+<li>计算当前光源+级联对应的观察矩阵、投影矩阵、阴影贴图的视口区域</li>
+<li>绘制到阴影贴图</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="应用阶段—加速算法"><a href="#应用阶段—加速算法" class="headerlink" title="应用阶段—加速算法"></a>应用阶段—加速算法</h4><ul>
+<li>可见光裁剪:裁剪掉距离过远,光线与视锥不相交的光源</li>
+<li>场景物体裁剪:裁剪被遮挡,不在视锥范围内的物体<ul>
+<li>八叉树</li>
+<li>BSP树</li>
+<li>K-D树</li>
+<li>BVH包围盒<h4 id="应用阶段—渲染设置"><a href="#应用阶段—渲染设置" class="headerlink" title="应用阶段—渲染设置"></a>应用阶段—渲染设置</h4></li>
+</ul>
+</li>
+<li>绘制设置<ul>
+<li>使用不同着色器</li>
+<li>合批方式(动态,静态批处理,GPU instance)</li>
+</ul>
+</li>
+<li>绘制物体的顺序<ul>
+<li>相对摄像机的距离</li>
+<li>材质RenderQueue</li>
+<li>UICanvas</li>
+</ul>
+</li>
+<li>渲染目标<ul>
+<li>FrameBuffer</li>
+<li>RenderTexture</li>
+</ul>
+</li>
+<li>渲染模式<ul>
+<li>前向渲染</li>
+<li>延迟渲染<h4 id="应用阶段—输出到显存"><a href="#应用阶段—输出到显存" class="headerlink" title="应用阶段—输出到显存"></a>应用阶段—输出到显存</h4>将之前处理好的顶点数据和其他数据如(mvp变换矩阵,纹理贴图等)按照渲染设置输出到GPU<h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220905140016.png" alt=""></li>
+</ul>
+</li>
+</ul>
+<h4 id="GPU基础架构"><a href="#GPU基础架构" class="headerlink" title="GPU基础架构"></a>GPU基础架构</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220905131333.png" alt=""></p>
+<p>GPU如图所示可以简单的划分为3个层级,</p>
+<ul>
+<li>GPU: 如图左下侧所示,主要由SM,DRAM(显存),L2(二级缓存)组成</li>
+<li>GPC: 图形处理集群，一个GPU有多个GPC，一个GPC包含多个SM</li>
+<li>SM: 计算单元，一个GPU有多个SM,每个SM如图右侧所示</li>
+<li>Texture Units: 纹理处理单元，可以提取和过滤纹理</li>
+<li>Core: 允许不同处理器同时处理数据的并行处理器</li>
+<li>Warp: 在SM里面将SP（thread）进行分组，一般每32个thread称为一个warp</li>
+</ul>
+<blockquote>
+<p>LD/ST：load/store，用于内存操作的，读取单元。<br>SFU：special function unit，来执行超指令（transcendental instruction）如正弦、余弦、倒数和平方根等函数。每个 SFU 一次执行一个线程块中一个线程的一条指令</p>
+</blockquote>
+<h4 id="SIMD-与SIMT"><a href="#SIMD-与SIMT" class="headerlink" title="SIMD 与SIMT"></a>SIMD 与SIMT</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220905133545.png" alt=""></p>
+<p><strong>SIMD</strong> (Single Instruction Multiple Data)</p>
+<ul>
+<li>单指令处理多数据,处理单元可以同时对多个数据点执行相同的操作(如向量加法)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220905134337.png" alt=""></p>
+<p><strong>SIMT</strong> (Single Instruction Multiple Threads)</p>
+<ul>
+<li>单指令处理多线程,并行计算中使用的一种执行模型，将单指令多数据(SIMD)与多线程结合在一起</li>
+</ul>
+<h4 id="几何阶段"><a href="#几何阶段" class="headerlink" title="几何阶段"></a>几何阶段</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075935.png" alt=""></p>
+<ul>
+<li>顶点着色<ul>
+<li>视图变换(MVP)</li>
+<li>顶点着色</li>
+</ul>
+</li>
+<li>曲面细分着色器-&gt;几何着色器<ul>
+<li>曲面细分</li>
+<li>几何着色</li>
+</ul>
+</li>
+<li>投影<ul>
+<li>除以w将投影坐标系转换到NDC标准坐标系</li>
+</ul>
+</li>
+<li>裁剪<ul>
+<li>视锥体裁剪(CVV)</li>
+<li>正面背面剔除</li>
+</ul>
+</li>
+<li>屏幕映射<ul>
+<li>视口转化(xy分别映射到WH,z映射到远近平面,平移+缩放)</li>
+</ul>
+</li>
+</ul>
+<h4 id="光栅化阶段"><a href="#光栅化阶段" class="headerlink" title="光栅化阶段"></a>光栅化阶段</h4><ul>
+<li>三角形设置(计算三角形/直线边界信息,图元装配)</li>
+<li>三角形遍历(检查像素是否被三角形覆盖,若在三角形内计算插值,更新深度)</li>
+<li>抗锯齿(MSAA,SSAA,FXAA/TXAA(后处理))</li>
+</ul>
+<h4 id="逐片元操作"><a href="#逐片元操作" class="headerlink" title="逐片元操作"></a>逐片元操作</h4><ul>
+<li>片段着色</li>
+<li>颜色混合<ul>
+<li>透明度测试(alpha test)</li>
+<li>深度测试()</li>
+<li>模板测试()</li>
+</ul>
+</li>
+<li>目标缓冲区</li>
+</ul>
+<h4 id="后处理"><a href="#后处理" class="headerlink" title="后处理"></a>后处理</h4><ul>
+<li>泛光</li>
+<li>边缘检测</li>
+<li>模糊</li>
+<li>景深</li>
+<li>HDR</li>
+<li>FXAA<br>……</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>渲染管线是一个复杂的流水线, 理解起来会有很多误区, 这里简单的介绍了一下通用的渲染管线以加深理解.如果以一个顶点的一生来描述渲染管线的话:</p>
+<ul>
+<li><strong>应用</strong><br>存储在磁盘上的顶点A被选择有效数据后加载到内存上,cpu对他的同胞数据进行了各种处理,处理结果会最终作用到自己身上,顶点A被识别为三角形的一员送入了GPU;</li>
+<li><strong>几何</strong><br>GPU中顶点A经历了模型矩阵,视口矩阵,投影矩阵的变换;模型被细分后加入了许多新顶点,顶点A随之进行了位置的调整,加入了新的三角形中;顶点A除以自身的w后被转换到了一个以原点为中心向各轴延展1的正方形空间中,没有被划分进来的顶点被裁剪掉了,划分了一半的三角形为了维持形状新增了新的顶点进行补全,根据三角形绘制时针方向判断正反面,不该被渲染的面也被剔除掉了,顶点A再次转换到了屏幕空间中(0-W,0-H,Near-Far),顶点A覆盖了像素B,接下来就是像素B的一生了</li>
+<li><strong>光栅化</strong><br>像素B是顶点A在其坐标所对应的像素,但他属于许多三角形,三角形通过顶点的插值决定了三角形在像素B上的数据,像素B要根据深度测试,alpha测试等判断是否要采用三角形的数据,同样应用阶段的各种数据也会作用到像素B的生成上(如阴影,光照等),像素B经过各种数据的混合最终变成了屏幕上所显示的像素</li>
+</ul>
+
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2021/11/01/游戏编程实验06/" data-toggle="tooltip" data-placement="top"
+                           title="Unity实验作业 鼠标操作3D空间物体">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">渲染管线概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU"><span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="toc-text">应用阶段—数据的读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E5%87%86%E5%A4%87%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-text">应用阶段—准备基本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E5%85%89%E6%BA%90%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="toc-text">应用阶段—光源与阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E5%8A%A0%E9%80%9F%E7%AE%97%E6%B3%95"><span class="toc-text">应用阶段—加速算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E6%B8%B2%E6%9F%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">应用阶段—渲染设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5%E2%80%94%E8%BE%93%E5%87%BA%E5%88%B0%E6%98%BE%E5%AD%98"><span class="toc-text">应用阶段—输出到显存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GPU%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="toc-text">GPU基础架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SIMD-%E4%B8%8ESIMT"><span class="toc-text">SIMD 与SIMT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5"><span class="toc-text">几何阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">光栅化阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="toc-text">逐片元操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li></ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#游戏引擎"
+                           title="游戏引擎">游戏引擎</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <br>
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Ao021">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Dante-Game 2022
+                    <br>
+                    <span id="busuanzi_container_site_pv" style="font-size: 12px;">PV: <span id="busuanzi_value_site_pv"></span> Times</span>
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="https://haojen.github.io/">Haojen Ma</a>
+                </p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/blog.js"></script>
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://dante-game.com.cn/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+<!-- Google Analytics -->
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- swiftype -->
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install','','2.0.0');
+</script>
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<!--wechat title img-->
+<img class="wechat-title-img" src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png">
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
