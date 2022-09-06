@@ -6,7 +6,7 @@
   <link href="https://www.dante-game.com.cn/atom.xml" rel="self"/>
   
   <link href="https://www.dante-game.com.cn/"/>
-  <updated>2022-09-06T09:09:14.480Z</updated>
+  <updated>2022-09-06T13:09:04.207Z</updated>
   <id>https://www.dante-game.com.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.dante-game.com.cn/2022/09/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%8F%82%E8%80%83/"/>
     <id>https://www.dante-game.com.cn/2022/09/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%8F%82%E8%80%83/</id>
     <published>2022-09-06T09:06:23.000Z</published>
-    <updated>2022-09-06T09:09:14.480Z</updated>
+    <updated>2022-09-06T13:09:04.207Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章用于记录学习过程中受启发很大的文章,都很干,值得反复阅读<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/98956123_p0.jpg" alt="配图"></p><h2 id="链接列表"><a href="#链接列表" class="headerlink" title="链接列表"></a>链接列表</h2><p><a href="https://zhuanlan.zhihu.com/p/430541328">【游戏开发面经汇总】- 图形学基础篇</a><br><a href="https://www.zhihu.com/question/400628576/answer/2403237801">如何保证UDP可靠传输？ - 零声Github分享官的回答 - 知乎</a><br><a href="https://zhuanlan.zhihu.com/p/163672179">从Lambert模型到PBR模型2：Phong、BinnPhong与NDF - 科学养猪的文章 - 知乎</a><br><a href="http://t.csdn.cn/7ocsb">IEEE754浮点标准</a><br><a href="https://space.bilibili.com/7398208/channel/seriesdetail?sid=1067039">技术美术百人计划</a><br><a href="https://games-cn.org/gamescoursescollection/">GAMES101</a><br><a href="www.games-104.com">GAMES104</a></p>]]></content>
     
@@ -36,7 +36,11 @@
     <category term="游戏" scheme="https://www.dante-game.com.cn/categories/%E6%B8%B8%E6%88%8F/"/>
     
     
-    <category term="学习,记录,经验" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0-%E8%AE%B0%E5%BD%95-%E7%BB%8F%E9%AA%8C/"/>
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
