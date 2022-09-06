@@ -410,6 +410,34 @@
   </entry>
   
   <entry>
+    <title>OpenGL(glut包)在Visual Studio配置</title>
+    <link href="https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/"/>
+    <id>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.357Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="OpenGL-glut包-在Visual-Studio配置"><a href="#OpenGL-glut包-在Visual-Studio配置" class="headerlink" title="OpenGL(glut包)在Visual Studio配置"></a>OpenGL(glut包)在Visual Studio配置</h1><h2 id="1-glut下载"><a href="#1-glut下载" class="headerlink" title="1.glut下载"></a>1.glut下载</h2><p> <a href="https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip">下载链接</a></p><h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h2><span id="more"></span><p>下载好会有如下文件<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304215209.png" alt="下载文件"></p><h3 id="h-文件"><a href="#h-文件" class="headerlink" title=".h 文件"></a>.h 文件</h3><p> <strong>glut.h</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include \ GL \</code>，GL是文件夹手动创建的。</p><h3 id="lib-文件"><a href="#lib-文件" class="headerlink" title=".lib 文件"></a>.lib 文件</h3><p> <strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86 \</code>  </p><p><strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x64 \</code>  </p><h3 id="dll-文件"><a href="#dll-文件" class="headerlink" title=".dll 文件"></a>.dll 文件</h3><p><strong>glut.dll</strong> 和 <strong>glut32.dll</strong> 放入<code>C:\ Windows \ SysWOW64 \</code><br><strong>glut32.dll</strong> 放入 <code>C:\ Windows \ System32 \</code>  </p><blockquote><p><a href="https://blog.csdn.net/jjhfen00/article/details/50646834">参考blog</a></p></blockquote>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;OpenGL-glut包-在Visual-Studio配置&quot;&gt;&lt;a href=&quot;#OpenGL-glut包-在Visual-Studio配置&quot; class=&quot;headerlink&quot; title=&quot;OpenGL(glut包)在Visual Studio配置&quot;&gt;&lt;/a&gt;OpenGL(glut包)在Visual Studio配置&lt;/h1&gt;&lt;h2 id=&quot;1-glut下载&quot;&gt;&lt;a href=&quot;#1-glut下载&quot; class=&quot;headerlink&quot; title=&quot;1.glut下载&quot;&gt;&lt;/a&gt;1.glut下载&lt;/h2&gt;&lt;p&gt; &lt;a href=&quot;https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip&quot;&gt;下载链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-环境配置&quot;&gt;&lt;a href=&quot;#2-环境配置&quot; class=&quot;headerlink&quot; title=&quot;2.环境配置&quot;&gt;&lt;/a&gt;2.环境配置&lt;/h2&gt;</summary>
+    
+    
+    
+    <category term="环境配置" scheme="https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
     <title>PicGo GitHub图床设置</title>
     <link href="https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
     <id>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</id>
@@ -501,34 +529,6 @@
     <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
     <category term="Pytorch" scheme="https://www.dante-game.com.cn/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>OpenGL(glut包)在Visual Studio配置</title>
-    <link href="https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/"/>
-    <id>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</id>
-    <published>2021-03-03T16:00:00.000Z</published>
-    <updated>2022-09-02T06:49:21.357Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="OpenGL-glut包-在Visual-Studio配置"><a href="#OpenGL-glut包-在Visual-Studio配置" class="headerlink" title="OpenGL(glut包)在Visual Studio配置"></a>OpenGL(glut包)在Visual Studio配置</h1><h2 id="1-glut下载"><a href="#1-glut下载" class="headerlink" title="1.glut下载"></a>1.glut下载</h2><p> <a href="https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip">下载链接</a></p><h2 id="2-环境配置"><a href="#2-环境配置" class="headerlink" title="2.环境配置"></a>2.环境配置</h2><span id="more"></span><p>下载好会有如下文件<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304215209.png" alt="下载文件"></p><h3 id="h-文件"><a href="#h-文件" class="headerlink" title=".h 文件"></a>.h 文件</h3><p> <strong>glut.h</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ include \ GL \</code>，GL是文件夹手动创建的。</p><h3 id="lib-文件"><a href="#lib-文件" class="headerlink" title=".lib 文件"></a>.lib 文件</h3><p> <strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x86 \</code>  </p><p><strong>glut32.lib</strong> 放入路径 <code>C:\Program Files (x86) \ Microsoft Visual Studio \ (VS版本如2019) \ (VS版本如community/professional/Enterprise) \ VC \ Tools \ MSVC \ 14.28.29333 (版本号) \ lib \ x64 \</code>  </p><h3 id="dll-文件"><a href="#dll-文件" class="headerlink" title=".dll 文件"></a>.dll 文件</h3><p><strong>glut.dll</strong> 和 <strong>glut32.dll</strong> 放入<code>C:\ Windows \ SysWOW64 \</code><br><strong>glut32.dll</strong> 放入 <code>C:\ Windows \ System32 \</code>  </p><blockquote><p><a href="https://blog.csdn.net/jjhfen00/article/details/50646834">参考blog</a></p></blockquote>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;OpenGL-glut包-在Visual-Studio配置&quot;&gt;&lt;a href=&quot;#OpenGL-glut包-在Visual-Studio配置&quot; class=&quot;headerlink&quot; title=&quot;OpenGL(glut包)在Visual Studio配置&quot;&gt;&lt;/a&gt;OpenGL(glut包)在Visual Studio配置&lt;/h1&gt;&lt;h2 id=&quot;1-glut下载&quot;&gt;&lt;a href=&quot;#1-glut下载&quot; class=&quot;headerlink&quot; title=&quot;1.glut下载&quot;&gt;&lt;/a&gt;1.glut下载&lt;/h2&gt;&lt;p&gt; &lt;a href=&quot;https://www.opengl.org/resources/libraries/glut/glutdlls37beta.zip&quot;&gt;下载链接&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;2-环境配置&quot;&gt;&lt;a href=&quot;#2-环境配置&quot; class=&quot;headerlink&quot; title=&quot;2.环境配置&quot;&gt;&lt;/a&gt;2.环境配置&lt;/h2&gt;</summary>
-    
-    
-    
-    <category term="环境配置" scheme="https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-    <category term="计算机图形学" scheme="https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
   </entry>
   
