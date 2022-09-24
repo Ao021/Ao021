@@ -6,7 +6,7 @@
   <link href="https://www.dante-game.com.cn/atom.xml" rel="self"/>
   
   <link href="https://www.dante-game.com.cn/"/>
-  <updated>2022-09-07T12:11:27.463Z</updated>
+  <updated>2022-09-24T06:14:34.098Z</updated>
   <id>https://www.dante-game.com.cn/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>待总结的部分</title>
+    <link href="https://www.dante-game.com.cn/2022/09/24/%E5%BE%85%E6%80%BB%E7%BB%93%E7%9A%84%E9%83%A8%E5%88%86/"/>
+    <id>https://www.dante-game.com.cn/2022/09/24/%E5%BE%85%E6%80%BB%E7%BB%93%E7%9A%84%E9%83%A8%E5%88%86/</id>
+    <published>2022-09-24T05:45:40.000Z</published>
+    <updated>2022-09-24T06:14:34.098Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>参考的课程: GAMES101 GAMES104 GAMES202 动画机系列 百人计划</p></blockquote><ul><li>渲染管线<ul><li>光栅化</li><li>延迟渲染管线</li><li>光纤追踪</li></ul></li><li>理论基础<ul><li>向量与矩阵</li><li>纹理</li><li>模型与材质</li><li>伽马矫正</li><li>LDR与HDR</li><li>色彩空间</li><li>GPU硬件架构</li><li>PC手机图形API</li><li>移动端TBDR架构</li></ul></li><li>混合测试<ul><li>EarlyZ和Zprepass</li><li>混合模式和剔除</li><li>深度测试与模板测试</li></ul></li><li>光照模型<ul><li>传统光照模型</li><li>实时阴影</li><li>SSAO</li><li>pbr</li><li>基于物理的相机</li><li>光线专题</li></ul></li><li>后处理<ul><li>景深</li><li>Bloom实现</li><li>抗锯齿</li></ul></li><li>Shader效果<ul><li>URP与command buffer</li><li>常用函数</li><li>BUMP图</li><li>flowmap</li><li>曲面细分与几何着色器</li><li>shader实战</li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;参考的课程: GAMES101 GAMES104 GAMES202 动画机系列 百人计划&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;渲染管线&lt;ul&gt;
+&lt;li&gt;光栅化&lt;/li&gt;
+&lt;li&gt;延迟渲染管线&lt;/li&gt;
+&lt;li&gt;光纤追踪&lt;/li&gt;
+</summary>
+      
+    
+    
+    
+    <category term="游戏" scheme="https://www.dante-game.com.cn/categories/%E6%B8%B8%E6%88%8F/"/>
+    
+    
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
   
   <entry>
     <title>毕设初期策划</title>
@@ -138,35 +174,6 @@
     <category term="计算机图形学" scheme="https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
     
     <category term="游戏引擎" scheme="https://www.dante-game.com.cn/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity实验作业 手动搭建指定的三维场景</title>
-    <link href="https://www.dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/"/>
-    <id>https://www.dante-game.com.cn/2021/11/01/%E6%B8%B8%E6%88%8F%E7%BC%96%E7%A8%8B%E5%AE%9E%E9%AA%8C0/</id>
-    <published>2021-10-31T16:00:00.000Z</published>
-    <updated>2022-09-02T10:03:51.069Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="实验作业-0"><a href="#实验作业-0" class="headerlink" title="实验作业 0"></a>实验作业 0</h1><p>目的：  熟悉游戏引擎的场景构建功能</p><p>要求：  手动搭建指定的三维场景（三选一）</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/363148b9a2e53962a1d557682117d2b807ce370813d06f31732f8275379dbb24.png" alt=""></p><span id="more"></span><hr><h2 id="实验思考"><a href="#实验思考" class="headerlink" title="实验思考"></a>实验思考</h2><p>本次实验考察unity的移动旋转等建模基础操作,观察要求的几个结果来看,大致可以总结出几种搭建方法</p><ul><li>最简单直接,但也是最麻烦的方法,用unity自带的3Dobjct搭建</li></ul><p>这种方法若不经过详细的计算与特殊的技巧很难精确的达到题目效果,取巧的方法是可以通过外部建模软件将顶点信息导入后作为父节点将2种组对象(如图1的3角球与6连立方体)作为子节点进行较为快速精准的搭建</p><ul><li>代码党</li></ul><p>同上述取巧方法类似,构建组对象预置物件,通过代码构建物件</p><ul><li>外部建模导入</li></ul><p>由于没有插件unity自带的建模能力较差,所以干脆选择外部建模软件对实验要求进行构建,这也是我选择的方法(懒)</p><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="blender建模"><a href="#blender建模" class="headerlink" title="blender建模"></a>blender建模</h3><p>在blender中构建棱角球,将其细分调至1以方便后续构建</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101101949.png" alt=""></p><p>对棱角球进行倒角,构建题目要求的主体形状</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102014.png" alt=""></p><p>将面剔除留下我们所需的框架结构</p><p>![图 8]<img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102031.png" alt=""></p><p>添加经纬球,并将其作为上述框架的子物件实例化,并将坐标(0,0,0)的经纬球隐藏<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102044.png" alt=""></p><p>复制一份框架结构,对其进行倒角构建柱状框架,将2个物件结合即可构成实验目的结构</p><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102111.png" alt=""></p><p>简单的着色,并导出为fbx格式<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102134.png" alt=""> </p><p>导入到unity场景,并设置摄像机,可以得到一个较为满意的结果<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20211101102154.png" alt=""></p>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;实验作业-0&quot;&gt;&lt;a href=&quot;#实验作业-0&quot; class=&quot;headerlink&quot; title=&quot;实验作业 0&quot;&gt;&lt;/a&gt;实验作业 0&lt;/h1&gt;&lt;p&gt;目的：  熟悉游戏引擎的场景构建功能&lt;/p&gt;
-&lt;p&gt;要求：  手动搭建指定的三维场景（三选一）&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/363148b9a2e53962a1d557682117d2b807ce370813d06f31732f8275379dbb24.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="课程" scheme="https://www.dante-game.com.cn/categories/%E8%AF%BE%E7%A8%8B/"/>
-    
-    
-    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-    <category term="Unity" scheme="https://www.dante-game.com.cn/tags/Unity/"/>
     
   </entry>
   
@@ -376,23 +383,22 @@
   </entry>
   
   <entry>
-    <title>Pytorch学习笔记3--激励函数</title>
-    <link href="https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/"/>
-    <id>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</id>
+    <title>Pytorch学习笔记4--回归Regression</title>
+    <link href="https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/"/>
+    <id>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</id>
     <published>2021-03-03T16:00:00.000Z</published>
     <updated>2022-09-02T06:49:21.361Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h2><h3 id="什么是-Activation"><a href="#什么是-Activation" class="headerlink" title="什么是 Activation"></a>什么是 Activation</h3><p>激励函数是非线性函数<br>神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  </p><p>常用的激励函数有</p><ul><li>relu</li><li>sigmoid</li><li>tanh</li><li>softplus</li></ul><span id="more"></span><h3 id="Torch中的激励函数"><a href="#Torch中的激励函数" class="headerlink" title="Torch中的激励函数"></a>Torch中的激励函数</h3><p><a href="https://mofanpy.com/tutorials/data-manipulation/plt/">python的可视化模块</a><br>以下是测试代码<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">from torch.autograd import variable #没啥用了好像</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = torch.linspace(-5,5,200)</span><br><span class="line">x_np = x.numpy()</span><br><span class="line"></span><br><span class="line">y_relu = torch.relu(x).numpy()</span><br><span class="line">y_sigmoid = torch.sigmoid(x).numpy()</span><br><span class="line">y_tanh = torch.tanh(x).numpy()</span><br><span class="line">y_softplus = F.softplus(x).numpy()</span><br><span class="line"></span><br><span class="line">plt.figure(1, figsize=(8, 6))</span><br><span class="line">plt.subplot(221)</span><br><span class="line">plt.plot(x_np, y_relu, c=&#x27;red&#x27;, label=&#x27;relu&#x27;)</span><br><span class="line">plt.ylim((-1, 5))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(222)</span><br><span class="line">plt.plot(x_np, y_sigmoid, c=&#x27;red&#x27;, label=&#x27;sigmoid&#x27;)</span><br><span class="line">plt.ylim((-0.2, 1.2))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(223)</span><br><span class="line">plt.plot(x_np, y_tanh, c=&#x27;red&#x27;, label=&#x27;tanh&#x27;)</span><br><span class="line">plt.ylim((-1.2, 1.2))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(224)</span><br><span class="line">plt.plot(x_np, y_softplus, c=&#x27;red&#x27;, label=&#x27;softplus&#x27;)</span><br><span class="line">plt.ylim((-0.2, 6))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>通过一个散点图建立一个简单神经网络  </p><p>步骤为  </p><ol><li>建立xy数据点集</li><li>定义神经网络结构,只有hidden和predict 2层</li><li>训练神经网络同时绘制图像<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif" alt="训练过程"></li></ol><span id="more"></span><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">#print(torch.linspace(-1,1,100))</span><br><span class="line">x = torch.unsqueeze(torch.linspace(-1,1,100),dim=1) #生成二维的-1到1的伪数据,输出是个列向量</span><br><span class="line">#print(&#x27;\n&#x27;,x)</span><br><span class="line"></span><br><span class="line">y = x.pow(2) + 0.2* torch.rand(x.size())   #把点应造成X^2的抖动函数</span><br><span class="line">plt.scatter(x.numpy(),y.numpy())</span><br><span class="line">plt.show()</span><br><span class="line">#输出图片</span><br><span class="line"></span><br><span class="line">class Net(torch.nn.Module):</span><br><span class="line">    def __init__(self,n_feature, n_hidden,n_output):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.hidden = torch.nn.Linear(n_feature, n_hidden)#定义隐藏层结构</span><br><span class="line">        self.predict = torch.nn.Linear(n_hidden,n_output)#定义预测层结构,输出一个y</span><br><span class="line">    def forward(self,x): #正向传播输入一个x</span><br><span class="line">        x = torch.relu(self.hidden(x)) #正向传播x-&gt;relu过的x-&gt;output</span><br><span class="line">        x = self.predict(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net = Net(n_feature=1,n_hidden=10,n_output=1)  #创建神经网络</span><br><span class="line"></span><br><span class="line">print(net)#可以看出神经网络的结构</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 下面开始训练</span><br><span class="line">optimizer = torch.optim.SGD(net.parameters(),lr=0.2)#传入net的全部参数,学习率为0.2,越高越快,但也会出现梯度爆炸之类的问题</span><br><span class="line">loss_func = torch.nn.MSELoss()</span><br><span class="line"></span><br><span class="line">for i in range(500): #训练500次</span><br><span class="line">    prediction = net(x) #向神经网络传入 x , prediction 相当于神经网络正向传播完的y</span><br><span class="line"></span><br><span class="line">    loss = loss_func(prediction,y) #计算loss</span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()#梯度归零清空上一步的残余更新参数值</span><br><span class="line">    loss.backward()# 误差反向传播, 计算参数更新值</span><br><span class="line">    optimizer.step() # 将参数更新值施加到 net 的 parameters 上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#绘图</span><br><span class="line">    if i % 5 == 0:</span><br><span class="line">        # plot and show learning process</span><br><span class="line">        plt.cla()</span><br><span class="line">        plt.scatter(x.data.numpy(), y.data.numpy())</span><br><span class="line">        plt.plot(x.data.numpy(), prediction.data.numpy(), &#x27;r-&#x27;, lw=5)</span><br><span class="line">        plt.text(0.5, 0, &#x27;Loss=%.4f&#x27; % loss.data.numpy(), fontdict=&#123;&#x27;size&#x27;: 20, &#x27;color&#x27;:  &#x27;red&#x27;&#125;)</span><br><span class="line">        plt.pause(0.1)</span><br></pre></td></tr></table></figure>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;激励函数&quot;&gt;&lt;a href=&quot;#激励函数&quot; class=&quot;headerlink&quot; title=&quot;激励函数&quot;&gt;&lt;/a&gt;激励函数&lt;/h2&gt;&lt;h3 id=&quot;什么是-Activation&quot;&gt;&lt;a href=&quot;#什么是-Activation&quot; class=&quot;headerlink&quot; title=&quot;什么是 Activation&quot;&gt;&lt;/a&gt;什么是 Activation&lt;/h3&gt;&lt;p&gt;激励函数是非线性函数&lt;br&gt;神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  &lt;/p&gt;
-&lt;p&gt;常用的激励函数有&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;relu&lt;/li&gt;
-&lt;li&gt;sigmoid&lt;/li&gt;
-&lt;li&gt;tanh&lt;/li&gt;
-&lt;li&gt;softplus&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h2&gt;&lt;p&gt;通过一个散点图建立一个简单神经网络  &lt;/p&gt;
+&lt;p&gt;步骤为  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;建立xy数据点集&lt;/li&gt;
+&lt;li&gt;定义神经网络结构,只有hidden和predict 2层&lt;/li&gt;
+&lt;li&gt;训练神经网络同时绘制图像&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif&quot; alt=&quot;训练过程&quot;&gt;&lt;/li&gt;
+&lt;/ol&gt;</summary>
     
     
     
@@ -410,22 +416,23 @@
   </entry>
   
   <entry>
-    <title>Pytorch学习笔记4--回归Regression</title>
-    <link href="https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/"/>
-    <id>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</id>
+    <title>Pytorch学习笔记3--激励函数</title>
+    <link href="https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/"/>
+    <id>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</id>
     <published>2021-03-03T16:00:00.000Z</published>
     <updated>2022-09-02T06:49:21.361Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>通过一个散点图建立一个简单神经网络  </p><p>步骤为  </p><ol><li>建立xy数据点集</li><li>定义神经网络结构,只有hidden和predict 2层</li><li>训练神经网络同时绘制图像<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif" alt="训练过程"></li></ol><span id="more"></span><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">#print(torch.linspace(-1,1,100))</span><br><span class="line">x = torch.unsqueeze(torch.linspace(-1,1,100),dim=1) #生成二维的-1到1的伪数据,输出是个列向量</span><br><span class="line">#print(&#x27;\n&#x27;,x)</span><br><span class="line"></span><br><span class="line">y = x.pow(2) + 0.2* torch.rand(x.size())   #把点应造成X^2的抖动函数</span><br><span class="line">plt.scatter(x.numpy(),y.numpy())</span><br><span class="line">plt.show()</span><br><span class="line">#输出图片</span><br><span class="line"></span><br><span class="line">class Net(torch.nn.Module):</span><br><span class="line">    def __init__(self,n_feature, n_hidden,n_output):</span><br><span class="line">        super(Net, self).__init__()</span><br><span class="line">        self.hidden = torch.nn.Linear(n_feature, n_hidden)#定义隐藏层结构</span><br><span class="line">        self.predict = torch.nn.Linear(n_hidden,n_output)#定义预测层结构,输出一个y</span><br><span class="line">    def forward(self,x): #正向传播输入一个x</span><br><span class="line">        x = torch.relu(self.hidden(x)) #正向传播x-&gt;relu过的x-&gt;output</span><br><span class="line">        x = self.predict(x)</span><br><span class="line">        return x</span><br><span class="line"></span><br><span class="line">net = Net(n_feature=1,n_hidden=10,n_output=1)  #创建神经网络</span><br><span class="line"></span><br><span class="line">print(net)#可以看出神经网络的结构</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># 下面开始训练</span><br><span class="line">optimizer = torch.optim.SGD(net.parameters(),lr=0.2)#传入net的全部参数,学习率为0.2,越高越快,但也会出现梯度爆炸之类的问题</span><br><span class="line">loss_func = torch.nn.MSELoss()</span><br><span class="line"></span><br><span class="line">for i in range(500): #训练500次</span><br><span class="line">    prediction = net(x) #向神经网络传入 x , prediction 相当于神经网络正向传播完的y</span><br><span class="line"></span><br><span class="line">    loss = loss_func(prediction,y) #计算loss</span><br><span class="line"></span><br><span class="line">    optimizer.zero_grad()#梯度归零清空上一步的残余更新参数值</span><br><span class="line">    loss.backward()# 误差反向传播, 计算参数更新值</span><br><span class="line">    optimizer.step() # 将参数更新值施加到 net 的 parameters 上</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#绘图</span><br><span class="line">    if i % 5 == 0:</span><br><span class="line">        # plot and show learning process</span><br><span class="line">        plt.cla()</span><br><span class="line">        plt.scatter(x.data.numpy(), y.data.numpy())</span><br><span class="line">        plt.plot(x.data.numpy(), prediction.data.numpy(), &#x27;r-&#x27;, lw=5)</span><br><span class="line">        plt.text(0.5, 0, &#x27;Loss=%.4f&#x27; % loss.data.numpy(), fontdict=&#123;&#x27;size&#x27;: 20, &#x27;color&#x27;:  &#x27;red&#x27;&#125;)</span><br><span class="line">        plt.pause(0.1)</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="激励函数"><a href="#激励函数" class="headerlink" title="激励函数"></a>激励函数</h2><h3 id="什么是-Activation"><a href="#什么是-Activation" class="headerlink" title="什么是 Activation"></a>什么是 Activation</h3><p>激励函数是非线性函数<br>神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  </p><p>常用的激励函数有</p><ul><li>relu</li><li>sigmoid</li><li>tanh</li><li>softplus</li></ul><span id="more"></span><h3 id="Torch中的激励函数"><a href="#Torch中的激励函数" class="headerlink" title="Torch中的激励函数"></a>Torch中的激励函数</h3><p><a href="https://mofanpy.com/tutorials/data-manipulation/plt/">python的可视化模块</a><br>以下是测试代码<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import torch</span><br><span class="line">import torch.nn.functional as F</span><br><span class="line">from torch.autograd import variable #没啥用了好像</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"></span><br><span class="line">x = torch.linspace(-5,5,200)</span><br><span class="line">x_np = x.numpy()</span><br><span class="line"></span><br><span class="line">y_relu = torch.relu(x).numpy()</span><br><span class="line">y_sigmoid = torch.sigmoid(x).numpy()</span><br><span class="line">y_tanh = torch.tanh(x).numpy()</span><br><span class="line">y_softplus = F.softplus(x).numpy()</span><br><span class="line"></span><br><span class="line">plt.figure(1, figsize=(8, 6))</span><br><span class="line">plt.subplot(221)</span><br><span class="line">plt.plot(x_np, y_relu, c=&#x27;red&#x27;, label=&#x27;relu&#x27;)</span><br><span class="line">plt.ylim((-1, 5))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(222)</span><br><span class="line">plt.plot(x_np, y_sigmoid, c=&#x27;red&#x27;, label=&#x27;sigmoid&#x27;)</span><br><span class="line">plt.ylim((-0.2, 1.2))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(223)</span><br><span class="line">plt.plot(x_np, y_tanh, c=&#x27;red&#x27;, label=&#x27;tanh&#x27;)</span><br><span class="line">plt.ylim((-1.2, 1.2))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.subplot(224)</span><br><span class="line">plt.plot(x_np, y_softplus, c=&#x27;red&#x27;, label=&#x27;softplus&#x27;)</span><br><span class="line">plt.ylim((-0.2, 6))</span><br><span class="line">plt.legend(loc=&#x27;best&#x27;)</span><br><span class="line"></span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>]]></content>
     
     
-    <summary type="html">&lt;h2 id=&quot;过程&quot;&gt;&lt;a href=&quot;#过程&quot; class=&quot;headerlink&quot; title=&quot;过程&quot;&gt;&lt;/a&gt;过程&lt;/h2&gt;&lt;p&gt;通过一个散点图建立一个简单神经网络  &lt;/p&gt;
-&lt;p&gt;步骤为  &lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;建立xy数据点集&lt;/li&gt;
-&lt;li&gt;定义神经网络结构,只有hidden和predict 2层&lt;/li&gt;
-&lt;li&gt;训练神经网络同时绘制图像&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub/%E5%9B%9E%E5%BD%92regression.gif&quot; alt=&quot;训练过程&quot;&gt;&lt;/li&gt;
-&lt;/ol&gt;</summary>
+    <summary type="html">&lt;h2 id=&quot;激励函数&quot;&gt;&lt;a href=&quot;#激励函数&quot; class=&quot;headerlink&quot; title=&quot;激励函数&quot;&gt;&lt;/a&gt;激励函数&lt;/h2&gt;&lt;h3 id=&quot;什么是-Activation&quot;&gt;&lt;a href=&quot;#什么是-Activation&quot; class=&quot;headerlink&quot; title=&quot;什么是 Activation&quot;&gt;&lt;/a&gt;什么是 Activation&lt;/h3&gt;&lt;p&gt;激励函数是非线性函数&lt;br&gt;神经网络每一层出来都是线性的需要Activation掰弯来处理非线性问题  &lt;/p&gt;
+&lt;p&gt;常用的激励函数有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;relu&lt;/li&gt;
+&lt;li&gt;sigmoid&lt;/li&gt;
+&lt;li&gt;tanh&lt;/li&gt;
+&lt;li&gt;softplus&lt;/li&gt;
+&lt;/ul&gt;</summary>
     
     
     
