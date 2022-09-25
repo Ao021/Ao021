@@ -203,13 +203,20 @@
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="图形渲染管线"><a href="#图形渲染管线" class="headerlink" title="图形渲染管线"></a>图形渲染管线</h1><h2 id="渲染管线概述"><a href="#渲染管线概述" class="headerlink" title="渲染管线概述"></a>渲染管线概述</h2><p>本文用于记录与整理实时渲染管线的流程,参考<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES101</a>,<a target="_blank" rel="noopener" href="https://games-cn.org">GAMES104</a>,<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1L54y1s7xw?p=2&amp;share_source=copy_web&amp;vd_source=da8280c5c3d89248027ccac72e16e11e">技术美术百人计划</a></p>
-<p>图形渲染管线是一系列输入输出组合而成的流水线,即输入顶点数据,得到屏幕上显示的图像,这个过程中会经历很多操作来使得计算机能够<strong>实时的</strong>将图像<strong>合理的</strong>显示在屏幕上</p>
+<p>图形渲染管线是一系列输入输出组合而成的流水线,即输入顶点数据,得到屏幕上显示的图像,这个过程中会经历很多操作来使得计算机能够将由顶点数据构成的图形显示成由像素块组成的屏幕上的图像</p>
+<blockquote>
 <p>很喜欢GAMES101里的一句话,我们往往会更关注what和why,而how是最不重要的地方<br>因此本文会注重WHAT与WHY,具体的HOW会以超链接形式插入(陆续补充…)</p>
+</blockquote>
 <span id="more"></span>
 <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
 <li><a href="#图形渲染管线">图形渲染管线</a><ul>
 <li><a href="#渲染管线概述">渲染管线概述</a></li>
 <li><a href="#目录">目录</a></li>
+<li><a href="#渲染管线的分类">渲染管线的分类</a><ul>
+<li><a href="#光栅化渲染管线">光栅化渲染管线</a></li>
+<li><a href="#光线追踪渲染管线">光线追踪渲染管线</a></li>
+</ul>
+</li>
 <li><a href="#整体流程">整体流程</a></li>
 <li><a href="#具体流程">具体流程</a><ul>
 <li><a href="#cpu应用阶段">CPU(应用阶段)</a><ul>
@@ -237,7 +244,17 @@
 </ul>
 </li>
 </ul>
-<h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><div class="table-container">
+<h2 id="渲染管线的分类"><a href="#渲染管线的分类" class="headerlink" title="渲染管线的分类"></a>渲染管线的分类</h2><p>为了更好的说明渲染管线,首先不妨看一看渲染管线的分类和应用。</p>
+<p>渲染管线就是将模型文件中的顶点数据转化成由屏幕上像素方块组成的图像的过程。可以说由AI中制作的矢量图形转换成PS中的像素图像这个过程也算是一种渲染管线。但我们平时玩游戏或者建模所接触到的渲染管线是面向三维的模型的。</p>
+<h3 id="光栅化渲染管线"><a href="#光栅化渲染管线" class="headerlink" title="光栅化渲染管线"></a>光栅化渲染管线</h3><p>如游戏中的实时渲染管线，大多采用的是<font color = red><b>光栅化渲染管线</b></font>，即将顶点挨个变成像素，通过插值和计算补全由顶点组成的三角的空间,最终得到图像.这也是我们今天要主要介绍的渲染管线。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925202803.png" alt=""></p>
+<p>光栅化的渲染管线也有 <strong>前向渲染管线</strong> 和 <strong>延迟渲染管线</strong>等分支，在unity中我们也可以通过URP、HDRP等基于可编程渲染管线的模板来自定义光栅化渲染管线。我们可以巧妙的利用各种缓存和绘制方式（不同的绘制顺序，规定绘制的范围）等来实现各种效果与性能的优化。所以有许多不同的光栅化渲染管线。</p>
+<h3 id="光线追踪渲染管线"><a href="#光线追踪渲染管线" class="headerlink" title="光线追踪渲染管线"></a>光线追踪渲染管线</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925203932.png" alt=""><br>如果说在游戏中的渲染管线是为了满足实时性的话，那么光线追踪渲染管线就是为了满足真实性与准确性，我们愿意牺牲大量的时间对光线的反射进行计算。<br>光线追踪的渲染管线不是将顶点换算到像素块上然后进行计算，而是从像素块出发根据光路可逆的原则判断有哪些光线会被该像素点所接收（即判断射到人眼的同一方向上的所有光线），根据光线计算的不同方向（是否逆路径）将光线追踪分为了前向和后向光线追踪。<br>这并不是讨论的重点,可以看<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1n5411M7pa/?spm_id_from=333.337.search-card.all.click&amp;vd_source=26f358375b19c380eea8013ae3143ec5">《十分钟看懂光线追踪到底是怎么追的？》</a>这个视频了解更多</p>
+<blockquote>
+<p>值得一提的是游戏中的光线追踪有的采用的高度优化的光线追踪渲染管线(如我的世界RTX),有的采用的是光栅化渲染管线加上光线追踪形成的部分信息</p>
+</blockquote>
+<h2 id="整体流程"><a href="#整体流程" class="headerlink" title="整体流程"></a>整体流程</h2><p>那么让我们来好好看一看光栅化的具体流程吧,记住输入是 顶点数据(.obj等文件),输出是屏幕上的像素</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -371,14 +388,18 @@
 <ul>
 <li>单指令处理多线程,并行计算中使用的一种执行模型，将单指令多数据(SIMD)与多线程结合在一起</li>
 </ul>
-<h4 id="7-几何阶段"><a href="#7-几何阶段" class="headerlink" title="7.几何阶段"></a>7.几何阶段</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075935.png" alt=""></p>
+<p>这样的硬件构成使得GPU能够轻松进行大量的浮点运算,尤为适合进行大量多维度数据的运算,当然也能通过硬件支持如sin,cos一类较为复杂的数学运算(机器学习中也使用到了GPU进行加速), 现代GPU更是将光线追踪的运算硬件化来适应实时光线追踪.</p>
+<blockquote>
+<p>注意这只是电脑的GPU架构,在移动手机端的架构更加特殊,所以所使用的渲染管线也相应的有一定的调整(TBDR基于块元的渲染),这里不多做叙述</p>
+<h4 id="7-几何阶段"><a href="#7-几何阶段" class="headerlink" title="7.几何阶段"></a>7.几何阶段</h4></blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210525075935.png" alt=""></p>
 <ul>
 <li>顶点着色<ul>
-<li>视图变换(MVP)</li>
+<li>视图变换(MVP): <code>将模型坐标空间转换到了裁剪坐标空间</code></li>
 <li>顶点着色</li>
 </ul>
 </li>
-<li>曲面细分着色器-&gt;几何着色器<ul>
+<li>曲面细分着色器-&gt;几何着色器: <code>在原有的顶点数据基础上进一步增加新的顶点数据来实现不同的效果</code><ul>
 <li>曲面细分</li>
 <li>几何着色</li>
 </ul>
@@ -392,7 +413,7 @@
 <li>正面背面剔除</li>
 </ul>
 </li>
-<li>屏幕映射<ul>
+<li>屏幕映射: <code>将裁剪空间转换到屏幕空间</code><ul>
 <li>视口转化(xy分别映射到WH,z映射到远近平面,平移+缩放)</li>
 </ul>
 </li>
@@ -403,11 +424,11 @@
 <li>抗锯齿(MSAA,SSAA,FXAA/TXAA(后处理))</li>
 </ul>
 <h4 id="9-逐片元操作"><a href="#9-逐片元操作" class="headerlink" title="9.逐片元操作"></a>9.逐片元操作</h4><ul>
-<li>片段着色</li>
+<li>片段着色: <code>绘制阶段,在这之前都没有绘图操作</code></li>
 <li>颜色混合<ul>
-<li>透明度测试(alpha test)</li>
-<li>深度测试()</li>
-<li>模板测试()</li>
+<li>透明度测试</li>
+<li>深度测试</li>
+<li>模板测试</li>
 </ul>
 </li>
 <li>目标缓冲区</li>
@@ -467,7 +488,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">渲染管线概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5"><span class="toc-text">CPU(应用阶段)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="toc-text">1.数据的读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-text">2.准备基本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%89%E6%BA%90%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="toc-text">3.光源与阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8A%A0%E9%80%9F%E7%AE%97%E6%B3%95"><span class="toc-text">4.加速算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B8%B2%E6%9F%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">5.渲染设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BE%93%E5%87%BA%E5%88%B0%E6%98%BE%E5%AD%98"><span class="toc-text">6.输出到显存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GPU%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="toc-text">GPU基础架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SIMD-%E4%B8%8ESIMT"><span class="toc-text">SIMD 与SIMT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5"><span class="toc-text">7.几何阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">8.光栅化阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="toc-text">9.逐片元操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">10.后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BE%E5%BD%A2%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">图形渲染管线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%A6%82%E8%BF%B0"><span class="toc-text">渲染管线概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">渲染管线的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E6%A0%85%E5%8C%96%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">光栅化渲染管线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%89%E7%BA%BF%E8%BF%BD%E8%B8%AA%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF"><span class="toc-text">光线追踪渲染管线</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B4%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">整体流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%B5%81%E7%A8%8B"><span class="toc-text">具体流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CPU-%E5%BA%94%E7%94%A8%E9%98%B6%E6%AE%B5"><span class="toc-text">CPU(应用阶段)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E7%9A%84%E8%AF%BB%E5%8F%96"><span class="toc-text">1.数据的读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%87%86%E5%A4%87%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE"><span class="toc-text">2.准备基本数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E5%85%89%E6%BA%90%E4%B8%8E%E9%98%B4%E5%BD%B1"><span class="toc-text">3.光源与阴影</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E5%8A%A0%E9%80%9F%E7%AE%97%E6%B3%95"><span class="toc-text">4.加速算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E6%B8%B2%E6%9F%93%E8%AE%BE%E7%BD%AE"><span class="toc-text">5.渲染设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-%E8%BE%93%E5%87%BA%E5%88%B0%E6%98%BE%E5%AD%98"><span class="toc-text">6.输出到显存</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#GPU%E5%9F%BA%E7%A1%80%E6%9E%B6%E6%9E%84"><span class="toc-text">GPU基础架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SIMD-%E4%B8%8ESIMT"><span class="toc-text">SIMD 与SIMT</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-%E5%87%A0%E4%BD%95%E9%98%B6%E6%AE%B5"><span class="toc-text">7.几何阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%85%89%E6%A0%85%E5%8C%96%E9%98%B6%E6%AE%B5"><span class="toc-text">8.光栅化阶段</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E9%80%90%E7%89%87%E5%85%83%E6%93%8D%E4%BD%9C"><span class="toc-text">9.逐片元操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%90%8E%E5%A4%84%E7%90%86"><span class="toc-text">10.后处理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-text">补充</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
