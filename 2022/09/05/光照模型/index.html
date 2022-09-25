@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -204,6 +204,21 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h1><h2 id="光学原理"><a href="#光学原理" class="headerlink" title="光学原理"></a>光学原理</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210448.png" alt=""><br>我们肉眼能看见物体是因为光线直接进入到了我们的眼睛,而进入我们眼睛的光线可能是一条直线,也可能是经过无数次反射形成的复杂折现, 那么物体为什么会有颜色呢?</p>
 <span id="more"></span>
+<ul>
+<li><a href="#光照模型">光照模型</a><ul>
+<li><a href="#光学原理">光学原理</a></li>
+<li><a href="#传统光照模型">传统光照模型</a><ul>
+<li><a href="#lambert兰伯特光照模型">lambert兰伯特光照模型</a></li>
+<li><a href="#半兰伯特光照模型">半兰伯特光照模型</a></li>
+<li><a href="#phong模型">phong模型</a></li>
+<li><a href="#blin-phong模型">blin-phong模型</a></li>
+<li><a href="#着色方式">着色方式</a></li>
+</ul>
+</li>
+<li><a href="#基于物理的光照模型">基于物理的光照模型</a></li>
+</ul>
+</li>
+</ul>
 <p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210829.png" alt=""><br>我们平时最常见的太阳光是由不同频率的光所组成的,人类可以看见的范围是可见光,光线射到物体表面会被物体吸收,由于物体材质不同,对于不同光端的吸收率不同,导致最终我们看见的颜色不同</p>
 <h2 id="传统光照模型"><a href="#传统光照模型" class="headerlink" title="传统光照模型"></a>传统光照模型</h2><p>那么游戏中我们是如何对物体进行绘制的呢<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925211319.png" alt=""><br>这个很复杂的公式是渲染方程,我们暂时不讨论每个值是什么意思,后续将pbr会仔细说明.</p>
 <p>我们将公式简化为$L_o = L_e + L_i^<code>$,即最终到我们眼睛中的光(出射光$L_o$)是由自发光$L_e$与入射光经过反射后的$L_i^</code>$构成的.<br>而反射后的光线可以简单划分为我们耳熟能详的漫反射与镜面反射,传统光照模型很好的模拟了这2部分.</p>
