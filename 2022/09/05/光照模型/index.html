@@ -232,8 +232,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz - i.worldPos);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 h = normalize(l+v);</span><br><span class="line">    </span><br><span class="line">    half4 diffuse = col*_DiffColor*max(0,dot(n,l))  ;</span><br><span class="line">    half4 spec = _SpecColor*pow(max(0,dot(h,n)),_Gloss);</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return col*lerp(ambient+diffuse,diffuse+spec,dot(n,l));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="基于物理的光照模型"><a href="#基于物理的光照模型" class="headerlink" title="基于物理的光照模型"></a>基于物理的光照模型</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926121216.png" alt=""><br>我们将不同光滑的blin-phong模型作为第一排和第二排中不同光滑度和金属度的pbr模型进行对比。</p>
 <p>很明显第二排的pbr能够表现更多的材质，并且能够反射环境，而非高光点；<br>blin-phong模型则只能表现不同光滑度的塑料材质，可以看出blin-phong模型1-1和pbr模型2-2恨相似，但仔细观察可以发现，除了微弱的环境反射以外，blin-phong1-1的高光部分太过亮了，这也是经验模型的一个通病，不遵循能量守恒（当然也存在模仿能量守恒的经验模型。</p>
-<p>现在我们可以再次看看之前提到过的渲染方程了<br> $L<em>0(p,w_o) = L_e(p,w_o)+\int</em>\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i$</p>
-
+<p>现在我们可以再次看看之前提到过的渲染方程了</p>
+<script type="math/tex; mode=display">L_0(p,w_o) = L_e(p,w_o)+\int_\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i</script>
                 <hr>
                 
 
