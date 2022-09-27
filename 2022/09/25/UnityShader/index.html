@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -169,6 +169,24 @@
                     </span>
                     <div class="tags text-center">
                         
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#游戏引擎"
+                           title="游戏引擎">游戏引擎</a>
+                        
+                        <a class="tag" href="/tags/#Unity"
+                           title="Unity">Unity</a>
+                        
                     </div>
                 </div>
             </div>
@@ -187,7 +205,124 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <h1 id="Unity-Shader"><a href="#Unity-Shader" class="headerlink" title="Unity Shader"></a>Unity Shader</h1><p><img src="https://docs.unity3d.com/cn/current/uploads/Main/GraphicsIntroPic.png" alt=""></p>
+<p>这是对于Unity Shader的一个学习记录文档,主要围绕<a target="_blank" rel="noopener" href="https://docs.unity3d.com/cn/current/Manual/SL-Properties.html">官方文档</a>对Shader的结构和不同渲染管线的使用进行学习.</p>
+<p>Unity的官方文档中的图形模块包含着以下几个子模块,本文主要探讨着色器部分</p>
+<ul>
+<li>渲染管线</li>
+<li>摄像机</li>
+<li>后期处理</li>
+<li>照明部分</li>
+<li>网格、材质、纹理和着色器</li>
+<li>粒子系统</li>
+<li>创建环境</li>
+<li>天空</li>
+<li>Visual Effects</li>
+<li>优化图形性能</li>
+<li>颜色空间</li>
+</ul>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>本文会先从Shader类进行详细分析,因为本人学习过程中被网络上的教程弄得云里雾里,再加上Shader没有很好的代码补全,故为了方便查阅与了解,以<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2021.3/Documentation/Manual/Shaders.html">官方文档</a>切入</p>
+<ul>
+<li><a href="#unity-shader">Unity Shader</a><ul>
+<li><a href="#目录">目录</a></li>
+<li><a href="#shader类">Shader类</a><ul>
+<li><a href="#如何实例化shader对象">如何实例化Shader对象？</a></li>
+<li><a href="#shader对象的结构">Shader对象的结构</a><ul>
+<li><a href="#lod">LOD</a></li>
+<li><a href="#tags">Tags</a></li>
+<li><a href="#commands">commands</a></li>
+<li><a href="#pass">Pass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#编写shader">编写Shader</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="Shader类"><a href="#Shader类" class="headerlink" title="Shader类"></a>Shader类</h2><p>我们熟知的渲染管线有unity内建渲染管线、URP、HDRP、SRP等<br>这些渲染管线都需要实例化Shader对象，Shader对象和材质决定了场景的外观<br>只有挂载有Shader的材质才能被显示在场景中,一般Unity中创建的基础模型都是挂载着标准着色器的</p>
+<blockquote>
+<p>这里是<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2021.3/Documentation/ScriptReference/Shader.html">Shader类的组成</a></p>
+</blockquote>
+<h3 id="如何实例化Shader对象？"><a href="#如何实例化Shader对象？" class="headerlink" title="如何实例化Shader对象？"></a>如何实例化Shader对象？</h3><ul>
+<li>创建着色器资源</li>
+<li>创建Shader Graph资源</li>
+</ul>
+<h3 id="Shader对象的结构"><a href="#Shader对象的结构" class="headerlink" title="Shader对象的结构"></a>Shader对象的结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926150723.png" alt=""><br>这些是Shader对象的属性,当然现在还用不上,我们不妨从资源文件来看编写好的Shader的结构吧<br>下面是一个.Shader文件的内容,其中包含了材质给Shader对象设置的参数Properties以及多个SubShader</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;ShaderName&quot;</span><br><span class="line">&#123;</span><br><span class="line">    Properties&#123;</span><br><span class="line">        //传入着色器的参数</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    SubShader&#123;</span><br><span class="line">        LOD [value1]</span><br><span class="line">        Tags&#123;...&#125;</span><br><span class="line"></span><br><span class="line">        [commands]</span><br><span class="line"></span><br><span class="line">        Pass&#123;</span><br><span class="line">            Name &quot;PassName&quot;</span><br><span class="line">            //....</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    SubShader&#123;</span><br><span class="line">        LOD [value2]</span><br><span class="line">        Tags&#123;...&#125;</span><br><span class="line">        Pass&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>Shader 对象被<strong>子着色器SubShader</strong>分成多个部分，用于兼容不同的硬件、渲染管线和运行时设置。<br>在 SubShader 代码块中，可以：</p>
+<ul>
+<li>使用 LOD 代码块为 SubShader 分配 LOD（细节级别）值。</li>
+<li>使用 Tags 代码块将数据的键值对分配给子着色器。</li>
+<li>使用 ShaderLab 命令将 GPU 指令或着色器代码添加到 SubShader。</li>
+<li>使用 Pass 代码块定义一个或多个通道。</li>
+</ul>
+<h4 id="LOD"><a href="#LOD" class="headerlink" title="LOD"></a>LOD</h4><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926151108.png" alt=""></p>
+<p>不同的SubShader可以定义不同的LOD值,这个LOD与模型精细度的LOD不是同样的概念,即该LOD与摄像机距离无关.<br>渲染过程中会将满足渲染条件的SubShader添加到队列中并绘制第一个SubShader,其中满足<code>Shader.globalMaximumLOD &lt;= LOD_Val</code>的SubShader可以被添加到队列,我们可以通过脚本来设置全局最大LOD(默认是没有的)来控制全局的SubShader的切换,也可以访问材质下挂在的Shader实例中的<code>shader.maximumLOD</code>进行局部控制</p>
+<h4 id="Tags"><a href="#Tags" class="headerlink" title="Tags"></a>Tags</h4><p>Tags用于以键值对的形式配置SubShader如何被渲染,我们可以罗列以下所有的Tags</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>TagName</th>
+<th>Values</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RenderPipeline</td>
+<td></td>
+<td>告诉 Unity 此 SubShader 是否与 URP 或 HDRP 兼容。</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>Background,Geometry,AlphaTest,Transparent,Overlay,自定义整数</td>
+<td>用于设置渲染队列“Queue” = “[queue name] + [offset]”</td>
+</tr>
+<tr>
+<td>RenderType</td>
+<td>String</td>
+<td>用于标记渲染的类型,可以对不同type进行识别</td>
+</tr>
+<tr>
+<td>DisableBatching</td>
+<td>True,False,LODFading</td>
+<td>禁用动态批处理(会使默认空间变成世界空间造成问题)</td>
+</tr>
+<tr>
+<td>ForceNoShadowCasting</td>
+<td>True,False</td>
+<td>可防止SubShader产生或接收阴影</td>
+</tr>
+<tr>
+<td>IgnoreProjector</td>
+<td>True,False</td>
+<td>是否忽略Projector组件</td>
+</tr>
+<tr>
+<td>CanUseSpriteAtlas</td>
+<td></td>
+</tr>
+<tr>
+<td>PreviewType</td>
+<td>Sphere,Plane,    Skybox</td>
+<td>Unity Editor 使用哪个形状来显示使用此 SubShader 的材质的预览。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Tags在默认情况下会有一些初始值,我们可以在需要的时候进行配置,配置语法如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tags &#123; “[name1]” = “[value1]” “[name2]” = “[value2]”&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h4><p>用于设置渲染状态的命令,如下<br>|commands|作用<br>—|—|<br>AlphaToMask|<br>Blend|混合模式<br>BlendOp|混合操作<br>ColorMask|控制颜色写入RGBA等通道<br>Conservative|<br>Cull|剔除(正反面)<br>Offset|<br>Stencil|模板测试<br>ZClip|深度裁剪<br>ZTest|深度测试<br>ZWrite|深度写入<br>UsePass|根据PassName使用Pass<br>GrabPass|抓取Pass,使用_GrabTexture/Grab内命名来引用纹理。<br>这些指令可以绘制不同有趣的效果,内容很多,可以参考<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2021.3/Documentation/Manual/shader-shaderlab-commands.html">文档</a>查看具体内容</p>
+<h4 id="Pass"><a href="#Pass" class="headerlink" title="Pass"></a>Pass</h4><p>Pass是绘制通道,Pass的结构和SubShader类似,如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">    &lt;optional: Name&gt;</span><br><span class="line">    &lt;optional: Tags&gt;</span><br><span class="line">    &lt;optional: Commands&gt;</span><br><span class="line">    &lt;optional: shader code&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>name是pass的名字,可以由command usepass访问</li>
+<li>tags包括 LightMode与自定tags,pass的tag与SubShader的tag不能同名请注意</li>
+<li>commands 同SubShader的Command</li>
+<li>Shader code通过 HLSLPROGRAM ENDHLSL/ CGPROGREAM ENDCG 包裹<h2 id="编写Shader"><a href="#编写Shader" class="headerlink" title="编写Shader"></a>编写Shader</h2></li>
+</ul>
+
                 <hr>
                 
 
@@ -215,7 +350,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Unity-Shader"><span class="toc-text">Unity Shader</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Shader%E7%B1%BB"><span class="toc-text">Shader类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E4%BE%8B%E5%8C%96Shader%E5%AF%B9%E8%B1%A1%EF%BC%9F"><span class="toc-text">如何实例化Shader对象？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Shader%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-text">Shader对象的结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#LOD"><span class="toc-text">LOD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tags"><span class="toc-text">Tags</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#commands"><span class="toc-text">commands</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Pass"><span class="toc-text">Pass</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E5%86%99Shader"><span class="toc-text">编写Shader</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -236,6 +371,24 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#计算机图形学"
+                           title="计算机图形学">计算机图形学</a>
+                        
+                        <a class="tag" href="/tags/#游戏引擎"
+                           title="游戏引擎">游戏引擎</a>
+                        
+                        <a class="tag" href="/tags/#Unity"
+                           title="Unity">Unity</a>
                         
                     </div>
                 </section>
