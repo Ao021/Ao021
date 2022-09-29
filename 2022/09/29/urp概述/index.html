@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -207,7 +207,59 @@
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
                 <h1 id="URP概述"><a href="#URP概述" class="headerlink" title="URP概述"></a>URP概述</h1><h2 id="CommandBuffer"><a href="#CommandBuffer" class="headerlink" title="CommandBuffer"></a>CommandBuffer</h2><p>Command Buffer保存着渲染命令列表，如(set render target, draw mesh等等)，可以设置为在摄像机渲染期间的不同点执行。</p>
 <p>而为了更好扩展unity的渲染管线，unity提供了CommandBuffer，让你根据自己的需求，在不同的渲染阶段插入绘制指令，例如插入DrawRenderer，DrawMesh，DrawProcedure，绘制的时候也可以根据需要设置绘制时材质(Material)的MaterialPropertyBlock更改当前绘制的材质的属性。</p>
-<p>对应ForwardRenderer.cs脚本中的<br>|FrameDebugger|CommandBuffer|<br>—|—<br>DepthOnlyPass | m_DepthPrepass<br>DepthNormalOnlyPass | m_DepthNormalPrepass<br>MainLightShadowCasterPass | m_MainLightShadowCasterPass<br>DepthOnlyPass | m_DepthPrepass<br> ColorGradingLutPass | m_ColorGradingLutPass<br>DrawObjectsPass | m_RenderOpaqueForwardPass<br> DrawSkyboxPass | m_DrawSkyboxPass<br> CopyColorPass | m_CopyColorPass<br> PostProcessPass | m_PostProcessPass<br> PostProcessPass | m_FinalPostProcessPass</p>
+<p>对应ForwardRenderer.cs脚本中的</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>FrameDebugger</th>
+<th>CommandBuffer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DepthOnlyPass</td>
+<td>m_DepthPrepass</td>
+</tr>
+<tr>
+<td>DepthNormalOnlyPass</td>
+<td>m_DepthNormalPrepass </td>
+</tr>
+<tr>
+<td>MainLightShadowCasterPass</td>
+<td>m_MainLightShadowCasterPass </td>
+</tr>
+<tr>
+<td>DepthOnlyPass</td>
+<td>m_DepthPrepass</td>
+</tr>
+<tr>
+<td> ColorGradingLutPass</td>
+<td>m_ColorGradingLutPass</td>
+</tr>
+<tr>
+<td>DrawObjectsPass</td>
+<td>m_RenderOpaqueForwardPass</td>
+</tr>
+<tr>
+<td> DrawSkyboxPass</td>
+<td>m_DrawSkyboxPass</td>
+</tr>
+<tr>
+<td> CopyColorPass</td>
+<td>m_CopyColorPass</td>
+</tr>
+<tr>
+<td> PostProcessPass</td>
+<td>m_PostProcessPass</td>
+</tr>
+<tr>
+<td> PostProcessPass</td>
+<td>m_FinalPostProcessPass</td>
+</tr>
+</tbody>
+</table>
+</div>
 <h3 id="SRP"><a href="#SRP" class="headerlink" title="SRP"></a>SRP</h3><h3 id="CommandBufferAPI"><a href="#CommandBufferAPI" class="headerlink" title="CommandBufferAPI"></a>CommandBufferAPI</h3><h2 id="CommandBuffer-with-URP"><a href="#CommandBuffer-with-URP" class="headerlink" title="CommandBuffer with URP"></a>CommandBuffer with URP</h2>
                 <hr>
                 
