@@ -6,7 +6,7 @@
   <link href="https://www.dante-game.com.cn/atom.xml" rel="self"/>
   
   <link href="https://www.dante-game.com.cn/"/>
-  <updated>2022-09-26T10:01:01.961Z</updated>
+  <updated>2022-09-29T11:42:06.857Z</updated>
   <id>https://www.dante-game.com.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>urp概述</title>
+    <link href="https://www.dante-game.com.cn/2022/09/29/urp%E6%A6%82%E8%BF%B0/"/>
+    <id>https://www.dante-game.com.cn/2022/09/29/urp%E6%A6%82%E8%BF%B0/</id>
+    <published>2022-09-29T10:27:48.000Z</published>
+    <updated>2022-09-29T11:42:06.857Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="URP概述"><a href="#URP概述" class="headerlink" title="URP概述"></a>URP概述</h1><h2 id="CommandBuffer"><a href="#CommandBuffer" class="headerlink" title="CommandBuffer"></a>CommandBuffer</h2><p>Command Buffer保存着渲染命令列表，如(set render target, draw mesh等等)，可以设置为在摄像机渲染期间的不同点执行。</p><p>而为了更好扩展unity的渲染管线，unity提供了CommandBuffer，让你根据自己的需求，在不同的渲染阶段插入绘制指令，例如插入DrawRenderer，DrawMesh，DrawProcedure，绘制的时候也可以根据需要设置绘制时材质(Material)的MaterialPropertyBlock更改当前绘制的材质的属性。</p><p>对应ForwardRenderer.cs脚本中的<br>|FrameDebugger|CommandBuffer|<br>—|—<br>DepthOnlyPass | m_DepthPrepass<br>DepthNormalOnlyPass | m_DepthNormalPrepass<br>MainLightShadowCasterPass | m_MainLightShadowCasterPass<br>DepthOnlyPass | m_DepthPrepass<br> ColorGradingLutPass | m_ColorGradingLutPass<br>DrawObjectsPass | m_RenderOpaqueForwardPass<br> DrawSkyboxPass | m_DrawSkyboxPass<br> CopyColorPass | m_CopyColorPass<br> PostProcessPass | m_PostProcessPass<br> PostProcessPass | m_FinalPostProcessPass</p><h3 id="SRP"><a href="#SRP" class="headerlink" title="SRP"></a>SRP</h3><h3 id="CommandBufferAPI"><a href="#CommandBufferAPI" class="headerlink" title="CommandBufferAPI"></a>CommandBufferAPI</h3><h2 id="CommandBuffer-with-URP"><a href="#CommandBuffer-with-URP" class="headerlink" title="CommandBuffer with URP"></a>CommandBuffer with URP</h2>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;URP概述&quot;&gt;&lt;a href=&quot;#URP概述&quot; class=&quot;headerlink&quot; title=&quot;URP概述&quot;&gt;&lt;/a&gt;URP概述&lt;/h1&gt;&lt;h2 id=&quot;CommandBuffer&quot;&gt;&lt;a href=&quot;#CommandBuffer&quot; class=&quot;header</summary>
+      
+    
+    
+    
+    <category term="Unity" scheme="https://www.dante-game.com.cn/categories/Unity/"/>
+    
+    
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="计算机图形学" scheme="https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+    <category term="游戏引擎" scheme="https://www.dante-game.com.cn/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/"/>
+    
+    <category term="Unity" scheme="https://www.dante-game.com.cn/tags/Unity/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity Shader</title>
@@ -55,11 +89,28 @@
     <link href="https://www.dante-game.com.cn/2022/09/24/A%20Star%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/"/>
     <id>https://www.dante-game.com.cn/2022/09/24/A%20Star%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2/</id>
     <published>2022-09-24T11:26:43.000Z</published>
-    <updated>2022-09-24T11:35:29.487Z</updated>
+    <updated>2022-09-29T07:33:23.623Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="A-Star启发式搜索"><a href="#A-Star启发式搜索" class="headerlink" title="A Star启发式搜索"></a>A Star启发式搜索</h1><h2 id="BFS与DFS"><a href="#BFS与DFS" class="headerlink" title="BFS与DFS"></a>BFS与DFS</h2><p>对于常见的搜索算法来说有广度优先搜索(BFS),深度优先搜索(DFS),2个算法都能完成对图的遍历,但2者由于搜索方式的不同有着不同的试用领域.</p><h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul><li>递归的或者是利用<strong>栈</strong>迭代对目标进行遍历<br>如果只是要找到某一个结果是否存在，那么DFS会更高效。因为DFS会首先把一种可能的情况尝试到底，才会回溯去尝试下一种情况，只要找到一种情况，就可以返回了。但是BFS必须所有可能的情况同时尝试，在找到一种满足条件的结果的同时，也尝试了很多不必要的路径；</li></ul><h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><ul><li>利用<strong>队列</strong>进行遍历<br>如果是要找所有可能结果中最短的，那么BFS回更高效。因为DFS是一种一种的尝试，在把所有可能情况尝试完之前，无法确定哪个是最短，所以DFS必须把所有情况都找一遍，才能确定最终答案（DFS的优化就是剪枝，不剪枝很容易超时）。而BFS从一开始就是尝试所有情况，所以只要找到第一个达到的那个点，那就是最短的路径，可以直接返回了，其他情况都可以省略了，所以这种情况下，BFS更高效。</li></ul><h2 id="A-Star"><a href="#A-Star" class="headerlink" title="A Star"></a>A Star</h2><p>为了寻找最短路径所采用的BFS是需要对</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;A-Star启发式搜索&quot;&gt;&lt;a href=&quot;#A-Star启发式搜索&quot; class=&quot;headerlink&quot; title=&quot;A Star启发式搜索&quot;&gt;&lt;/a&gt;A Star启发式搜索&lt;/h1&gt;&lt;h2 id=&quot;BFS与DFS&quot;&gt;&lt;a href=&quot;#BFS与DFS&quot; c</summary>
+      
     
     
     
+    <category term="算法" scheme="https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
+    
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+    <category term="算法" scheme="https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
@@ -152,9 +203,9 @@
     <link href="https://www.dante-game.com.cn/2022/09/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%8F%82%E8%80%83/"/>
     <id>https://www.dante-game.com.cn/2022/09/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%8F%82%E8%80%83/</id>
     <published>2022-09-06T09:06:23.000Z</published>
-    <updated>2022-09-25T13:48:28.320Z</updated>
+    <updated>2022-09-29T11:49:24.495Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章用于记录学习过程中受启发很大的文章,都很干,值得反复阅读<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/98956123_p0.jpg" alt="配图"></p><span id="more"></span><h2 id="链接列表"><a href="#链接列表" class="headerlink" title="链接列表"></a>链接列表</h2><p><a href="https://zhuanlan.zhihu.com/p/430541328">【游戏开发面经汇总】- 图形学基础篇</a><br><a href="https://www.zhihu.com/question/400628576/answer/2403237801">如何保证UDP可靠传输？ - 零声Github分享官的回答 - 知乎</a><br><a href="https://zhuanlan.zhihu.com/p/163672179">从Lambert模型到PBR模型2：Phong、BinnPhong与NDF - 科学养猪的文章 - 知乎</a><br><a href="http://t.csdn.cn/7ocsb">IEEE754浮点标准</a><br><a href="https://space.bilibili.com/7398208/channel/seriesdetail?sid=1067039">技术美术百人计划</a><br><a href="https://games-cn.org/gamescoursescollection/">GAMES101</a><br><a href="www.games-104.com">GAMES104</a><br><a href="http://t.csdn.cn/7exaw">重心坐标与透视矫正</a><br><a href="http://events.jianshu.io/p/3fef69e2efb6">内置管线Shader升级到URP详细手册</a></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章用于记录学习过程中受启发很大的文章,都很干,值得反复阅读<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/98956123_p0.jpg" alt="配图"></p><span id="more"></span><h2 id="链接列表"><a href="#链接列表" class="headerlink" title="链接列表"></a>链接列表</h2><p><a href="http://t.csdn.cn/7ocsb">IEEE754浮点标准</a><br><a href="https://zhuanlan.zhihu.com/p/430541328">【游戏开发面经汇总】- 图形学基础篇</a><br><a href="https://www.zhihu.com/question/400628576/answer/2403237801">如何保证UDP可靠传输？</a><br><a href="https://zhuanlan.zhihu.com/p/33464301">猴子也能看懂的pbr</a><br><a href="https://space.bilibili.com/7398208/channel/seriesdetail?sid=1067039">技术美术百人计划</a><br><a href="https://games-cn.org/gamescoursescollection/">GAMES101</a><br><a href="www.games-104.com">GAMES104</a><br><a href="http://t.csdn.cn/7exaw">重心坐标与透视矫正</a><br><a href="http://events.jianshu.io/p/3fef69e2efb6">内置管线Shader升级到URP详细手册</a><br><a href="https://catlikecoding.com/unity/tutorials/">CatLikeCoding</a><br><a href="https://zhuanlan.zhihu.com/p/151238164?utm_campaign=shareopn&amp;utm_medium=social&amp;utm_oi=1071663136624558080&amp;utm_psn=1558905217588080640&amp;utm_source=wechat_session">CatLikeCoding的翻译</a></p><h2 id="待看列表"><a href="#待看列表" class="headerlink" title="待看列表"></a>待看列表</h2><p><a href="https://note.youdao.com/ynoteshare/index.html?id=fc232bdd46150205a7d5f19b5d1596d6&amp;type=note&amp;_time=1664446995569">羊羊的笔记</a></p>]]></content>
     
     
     <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;这篇文章用于记录学习过程中受启发很大的文章,都很干,值得反复阅读&lt;br&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/98956123_p0.jpg&quot; alt=&quot;配图&quot;&gt;&lt;/p&gt;</summary>
@@ -177,9 +228,9 @@
     <link href="https://www.dante-game.com.cn/2022/09/05/%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/"/>
     <id>https://www.dante-game.com.cn/2022/09/05/%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/</id>
     <published>2022-09-05T09:17:53.000Z</published>
-    <updated>2022-09-27T03:45:50.963Z</updated>
+    <updated>2022-09-27T12:15:38.919Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h1><h2 id="光学原理"><a href="#光学原理" class="headerlink" title="光学原理"></a>光学原理</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210448.png" alt=""><br>我们肉眼能看见物体是因为光线直接进入到了我们的眼睛,而进入我们眼睛的光线可能是一条直线,也可能是经过无数次反射形成的复杂折现, 那么物体为什么会有颜色呢?</p><span id="more"></span><ul><li><a href="#光照模型">光照模型</a><ul><li><a href="#光学原理">光学原理</a></li><li><a href="#传统光照模型">传统光照模型</a><ul><li><a href="#lambert兰伯特光照模型">lambert兰伯特光照模型</a></li><li><a href="#phong模型">phong模型</a></li><li><a href="#blin-phong模型">blin-phong模型</a></li></ul></li><li><a href="#基于物理的光照模型">基于物理的光照模型</a></li></ul></li></ul><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210829.png" alt=""><br>我们平时最常见的太阳光是由不同频率的光所组成的,人类可以看见的范围是可见光,光线射到物体表面会被物体吸收,由于物体材质不同,对于不同光端的吸收率不同,导致最终我们看见的颜色不同</p><h2 id="传统光照模型"><a href="#传统光照模型" class="headerlink" title="传统光照模型"></a>传统光照模型</h2><p>那么游戏中我们是如何对物体进行绘制的呢</p><p>$L<em>0(p,w_o) = L_e(p,w_o)+\int</em>\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i$</p><p>这个很复杂的公式是渲染方程,我们暂时不讨论每个值是什么意思,后续将pbr会仔细说明.</p><p>我们将公式简化为 $L_o = L_e + L_i^<code>$ ,即最终到我们眼睛中的光(出射光 $L_o$ )是由自发光 $L_e$ 与入射光经过反射后的 $L_i^</code>$ 构成的.<br>而反射后的光线可以简单划分为我们耳熟能详的漫反射与镜面反射,传统光照模型很好的模拟了这2部分.</p><h3 id="lambert兰伯特光照模型"><a href="#lambert兰伯特光照模型" class="headerlink" title="lambert兰伯特光照模型"></a>lambert兰伯特光照模型</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925212727.png" alt=""><br>我们之前所说的漫反射还可以进一步被拆分为直接光照形成的漫反射和间接光照形成漫反射,我们以美术中的明暗交界线为例,暗面最暗的地方是与亮面相交的地方,而不是离光线最远的地方.这是因为光线照射到背景布的光经过漫反射射到了球的下半部分,所以球的下半部分也会呈现一部分布的颜色.<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925212951.png" alt=""><br>我们回到主题的兰伯特光照模型, 这是一个描述漫反射直接光照部分的光照模型,原理很简单,我们认为相同的受光面积下,与光照垂直的平面更亮,而与光照形成斜面的平面更暗,与光线垂直的面或者被遮挡的面不受光. 那么直接用光线方向与平面的法线方向的夹角即可描述这个关系,这就是兰伯特光照模型.<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926095803.png" alt=""><br>关键代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col = tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz);</span><br><span class="line">    col *= max(0,dot(n,l));</span><br><span class="line">    return col;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在早期的应用中为了模拟环境光防止背光面死黑, 还有一种半兰伯特模型,原理也很简单,就是将点乘的结果从(0,1)映射到了(0.5,1),即<code>col *= max(0,dot(n,l))/2+0.5;</code>.效果如下<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926100139.png" alt=""></p><h3 id="phong模型"><a href="#phong模型" class="headerlink" title="phong模型"></a>phong模型</h3><p>我们之前所说,物体由直接光的漫反射和镜面反射以间接接光组成,而兰伯特只解决了直接光的漫反射,phong模型将这三个部分抽象为diffuse（漫反射）、specular（镜面反射）、ambient（环境光）<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926100654.png" alt=""><br>延续了兰伯特模型的漫反射部分， 镜面反射部分通过判断光线经过反射能够进入相机的部分 ， 环境光作为底色防止死黑， 主要就是镜面反射部分</p><p>phong模型通过入射光线和法向量能够通过简单的几何运算计算出出射光线（很简单，不细说），将出射光线与相机方向做点乘即可判断该点是否能够形成镜面反射，通过求幂来缩减反射范围来描述粗糙度<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926103645.png" alt=""><br>可以看出我们已经得到了一个光照信息较为全面的球体,代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 w_o = normalize(-2*(l-dot(l,n)*n)+l);</span><br><span class="line">    </span><br><span class="line">    half4 diffuse = col*_DiffColor*max(0,dot(n,l))  ;</span><br><span class="line">    half4 spec = _SpecColor*pow(max(0,dot(v,w_o)),_Gloss);</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return col*lerp(ambient+diffuse,diffuse+spec,dot(n,l));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="blin-phong模型"><a href="#blin-phong模型" class="headerlink" title="blin-phong模型"></a>blin-phong模型</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926104709.png" alt=""><br>phong模型判断的是反射光线与相机视线的重合程度,但计算反射光线的性能消耗似乎有点大,光路总是由入射光-&gt;法线-&gt;反射光这样的对称关系组成的,blin-phong就提出了一种不需要计算反射光线的方法,判断法线与入射光和相机视线的角平分线的重合度,我们把$normalize(l+v)$称作半角向量$h$,那么稍微更改phong模型即可得到更简洁的blin-phong模型</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz - i.worldPos);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 h = normalize(l+v);</span><br><span class="line">    </span><br><span class="line">    half4 diffuse = col*_DiffColor*max(0,dot(n,l))  ;</span><br><span class="line">    half4 spec = _SpecColor*pow(max(0,dot(h,n)),_Gloss);</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return col*lerp(ambient+diffuse,diffuse+spec,dot(n,l));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="基于物理的光照模型"><a href="#基于物理的光照模型" class="headerlink" title="基于物理的光照模型"></a>基于物理的光照模型</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926121216.png" alt=""><br>我们将不同光滑的blin-phong模型作为第一排和第二排中不同光滑度和金属度的pbr模型进行对比。</p><p>很明显第二排的pbr能够表现更多的材质，并且能够反射环境，而非高光点；<br>blin-phong模型则只能表现不同光滑度的塑料材质，可以看出blin-phong模型1-1和pbr模型2-2恨相似，但仔细观察可以发现，除了微弱的环境反射以外，blin-phong1-1的高光部分太过亮了，这也是经验模型的一个通病，不遵循能量守恒（当然也存在模仿能量守恒的经验模型。</p><p>现在我们可以再次看看之前提到过的渲染方程了</p><script type="math/tex; mode=display">L_0(p,w_o) = L_e(p,w_o)+\int_\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i</script>]]></content>
+    <content type="html"><![CDATA[<h1 id="光照模型"><a href="#光照模型" class="headerlink" title="光照模型"></a>光照模型</h1><h2 id="光学原理"><a href="#光学原理" class="headerlink" title="光学原理"></a>光学原理</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210448.png" alt=""><br>我们肉眼能看见物体是因为光线直接进入到了我们的眼睛,而进入我们眼睛的光线可能是一条直线,也可能是经过无数次反射形成的复杂折现, 那么物体为什么会有颜色呢?</p><span id="more"></span><ul><li><a href="#光照模型">光照模型</a><ul><li><a href="#光学原理">光学原理</a></li><li><a href="#传统光照模型">传统光照模型</a><ul><li><a href="#lambert兰伯特光照模型">lambert兰伯特光照模型</a></li><li><a href="#phong模型">phong模型</a></li><li><a href="#blin-phong模型">blin-phong模型</a></li></ul></li><li><a href="#基于物理的光照模型">基于物理的光照模型</a><ul><li><a href="#光照的组成">光照的组成</a></li><li><a href="#直接光-镜面反射">直接光-镜面反射</a><ul><li><a href="#d--法线分布项ndf">D—法线分布项NDF</a></li><li><a href="#g--几何遮蔽项">G—几何遮蔽项</a></li><li><a href="#f--菲尼尔项">F—菲尼尔项</a></li></ul></li></ul></li></ul></li></ul><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210829.png" alt=""><br>我们平时最常见的太阳光是由不同频率的光所组成的,人类可以看见的范围是可见光,光线射到物体表面会被物体吸收,由于物体材质不同,对于不同光端的吸收率不同,导致最终我们看见的颜色不同</p><h2 id="传统光照模型"><a href="#传统光照模型" class="headerlink" title="传统光照模型"></a>传统光照模型</h2><p>那么游戏中我们是如何对物体进行绘制的呢</p><script type="math/tex; mode=display">L_0(p,w_o) = L_e(p,w_o)+\int_\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i</script><p>这个很复杂的公式是渲染方程,我们暂时不讨论每个值是什么意思,后续将pbr会仔细说明.</p><p>我们将公式简化为 <script type="math/tex">L_o = L_e + L_i^`</script> ,即最终到我们眼睛中的光(出射光 L_o )是由自发光 L_e 与入射光经过反射后的 L_i` 构成的.<br>而反射后的光线可以简单划分为我们耳熟能详的漫反射与镜面反射,传统光照模型很好的模拟了这2部分.</p><h3 id="lambert兰伯特光照模型"><a href="#lambert兰伯特光照模型" class="headerlink" title="lambert兰伯特光照模型"></a>lambert兰伯特光照模型</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925212727.png" alt=""><br>我们之前所说的漫反射还可以进一步被拆分为直接光照形成的漫反射和间接光照形成漫反射,我们以美术中的明暗交界线为例,暗面最暗的地方是与亮面相交的地方,而不是离光线最远的地方.这是因为光线照射到背景布的光经过漫反射射到了球的下半部分,所以球的下半部分也会呈现一部分布的颜色.<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925212951.png" alt=""><br>我们回到主题的兰伯特光照模型, 这是一个描述漫反射直接光照部分的光照模型,原理很简单,我们认为相同的受光面积下,与光照垂直的平面更亮,而与光照形成斜面的平面更暗,与光线垂直的面或者被遮挡的面不受光. 那么直接用光线方向与平面的法线方向的夹角即可描述这个关系,这就是兰伯特光照模型.<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926095803.png" alt=""><br>关键代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col = tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz);</span><br><span class="line">    col *= max(0,dot(n,l));</span><br><span class="line">    return col;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在早期的应用中为了模拟环境光防止背光面死黑, 还有一种半兰伯特模型,原理也很简单,就是将点乘的结果从(0,1)映射到了(0.5,1),即<code>col *= max(0,dot(n,l))/2+0.5;</code>.效果如下<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926100139.png" alt=""></p><h3 id="phong模型"><a href="#phong模型" class="headerlink" title="phong模型"></a>phong模型</h3><p>我们之前所说,物体由直接光的漫反射和镜面反射以间接接光组成,而兰伯特只解决了直接光的漫反射,phong模型将这三个部分抽象为diffuse（漫反射）、specular（镜面反射）、ambient（环境光）<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926100654.png" alt=""><br>延续了兰伯特模型的漫反射部分， 镜面反射部分通过判断光线经过反射能够进入相机的部分 ， 环境光作为底色防止死黑， 主要就是镜面反射部分</p><p>phong模型通过入射光线和法向量能够通过简单的几何运算计算出出射光线（很简单，不细说），将出射光线与相机方向做点乘即可判断该点是否能够形成镜面反射，通过求幂来缩减反射范围来描述粗糙度<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926103645.png" alt=""><br>可以看出我们已经得到了一个光照信息较为全面的球体,代码如下</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 w_o = normalize(-2*(l-dot(l,n)*n)+l);</span><br><span class="line">    </span><br><span class="line">    half4 diffuse = col*_DiffColor*max(0,dot(n,l))  ;</span><br><span class="line">    half4 spec = _SpecColor*pow(max(0,dot(v,w_o)),_Gloss);</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return col*lerp(ambient+diffuse,diffuse+spec,dot(n,l));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="blin-phong模型"><a href="#blin-phong模型" class="headerlink" title="blin-phong模型"></a>blin-phong模型</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926104709.png" alt=""><br>phong模型判断的是反射光线与相机视线的重合程度,但计算反射光线的性能消耗似乎有点大,光路总是由入射光-&gt;法线-&gt;反射光这样的对称关系组成的,blin-phong就提出了一种不需要计算反射光线的方法,判断法线与入射光和相机视线的角平分线的重合度,我们把$normalize(l+v)$称作半角向量$h$,那么稍微更改phong模型即可得到更简洁的blin-phong模型</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz - i.worldPos);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 h = normalize(l+v);</span><br><span class="line">    </span><br><span class="line">    half4 diffuse = col*_DiffColor*max(0,dot(n,l))  ;</span><br><span class="line">    half4 spec = _SpecColor*pow(max(0,dot(h,n)),_Gloss);</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return col*lerp(ambient+diffuse,diffuse+spec,dot(n,l));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="基于物理的光照模型"><a href="#基于物理的光照模型" class="headerlink" title="基于物理的光照模型"></a>基于物理的光照模型</h2><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926121216.png" alt=""><br>我们将不同光滑的blin-phong模型作为第一排和第二排中不同光滑度和金属度的pbr模型进行对比。</p><p>很明显第二排的pbr能够表现更多的材质，并且能够反射环境，而非高光点；<br>blin-phong模型则只能表现不同光滑度的塑料材质，可以看出blin-phong模型1-1和pbr模型2-2恨相似，但仔细观察可以发现，除了微弱的环境反射以外，blin-phong1-1的高光部分太过亮了，这也是经验模型的一个通病，不遵循能量守恒（当然也存在模仿能量守恒的经验模型。</p><p>现在我们可以再次看看之前提到过的渲染方程了</p><script type="math/tex; mode=display">L_0(p,w_o) = L_e(p,w_o)+\int_\Omega f_r(p,w_i,w_o)L_i(p,w_i)n\cdot w_idw_i</script><p>其中$f_r$是物理光照模型的关键,双向反射分布函数BRDF描述了入射光出射的情况,以Cook-Torrance光照模型为例,其中</p><script type="math/tex; mode=display">f_r(p,w_i,w_o) = k_d\frac{c}{\pi} + k_s\frac{DFG}{4(w_i\cdot{n})(w_o\cdot{n})}</script><p>看上去很复杂,但其实这个函数也是由2部分组成,漫反射与镜面反射,经验模型其实也可以写成类似的形式,我们以blin-phong为例</p><script type="math/tex; mode=display">f_r(p,w_i,w_o) = k_dc + k_s(n\cdot{h})^{gloss}</script><p>我们之前在Shader中写的blin-phong模型使用的就是这个双向反射函数,其中Kd与Ks均为1,但显而易见,这样很不物理,他不符合能量守恒,高光与反射部分的表现也太过生硬,虽然说是基于物理的光照模型,但实际上还是一种经验模型,不过考虑了许多物理方面的表现</p><h3 id="光照的组成"><a href="#光照的组成" class="headerlink" title="光照的组成"></a>光照的组成</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220927160126.png" alt=""></p><p>我们将光照分为直接光照与间接光照,每部分的光照都由漫反射与镜面反射组成</p><p>我们之前按所实现的blin-phong主要是由直接漫反射的diffuse,直接镜面反射的specular,与间接光ambient组成<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220927160353.png" alt=""><br>我们现在不妨一点一点的改进这个blin-phong模型使其变成一个可由光滑度与金属读控制的pbr模型<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">half4 frag(const v2f i) : SV_TARGET&#123;</span><br><span class="line">    half4 col =  _Color*tex2D(_MainTex,i.uv);</span><br><span class="line">    float3 n = normalize(i.worldNormal);</span><br><span class="line">    float3 l = normalize(_MainLightPosition.xyz);</span><br><span class="line">    float3 v = GetWorldSpaceNormalizeViewDir(i.worldPos);</span><br><span class="line">    float3 h = normalize(l+v);</span><br><span class="line">    float nl = max(0,dot(n,l));</span><br><span class="line">    float kd = 1 - _Smooth,ks = _Smooth;</span><br><span class="line">    half4 diff = kd*col;</span><br><span class="line">    half4 spec = ks*(pow(max(0,dot(n,h)),_Gloss));</span><br><span class="line">    half4 direct =  (diff + spec)*nl;</span><br><span class="line">    half4 ambient = _GlossyEnvironmentColor;</span><br><span class="line">    return direct + ambient;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="直接光-镜面反射"><a href="#直接光-镜面反射" class="headerlink" title="直接光-镜面反射"></a>直接光-镜面反射</h3><p>其实blin-phong的直接光漫反射部分实际上相对于pbr只需要除以一个Π即可,这是由于半球积分的原因所造成的</p><p>于是直接光部分我们只需要考虑镜面反射,我们再次拿出这个公式的镜面反射部分<script type="math/tex">k_s\frac{DFG}{4(w_i\cdot{n})(w_o\cdot{n})}</script></p><h4 id="D—法线分布项NDF"><a href="#D—法线分布项NDF" class="headerlink" title="D—法线分布项NDF"></a>D—法线分布项NDF</h4><p>我们的镜面其实是由许多凹凸不平的微平面所组成的,对于发生的镜面反射,光线并不是只沿着我们计算出的理论反射方向所发出,而是会以反射方向为中心呈现一定的分布,blin-phong中所采用的高光其实也是一种分布,但能量不守恒,我们来看公式<script type="math/tex">\frac{a^2}{\pi[(n\cdot{h})^2(a^2-1)+1]^2}</script><br>其中a为粗糙度</p><p>观察一下blin-phong与NDF的区别<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/img2/动画2.gif" alt=""><br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/img2/动画.gif" alt=""></p><h4 id="G—几何遮蔽项"><a href="#G—几何遮蔽项" class="headerlink" title="G—几何遮蔽项"></a>G—几何遮蔽项</h4><p>当光线角度与微平面角度相近的时候(小角度)会被遮挡住一小部分,宏观的表现就是边缘光相对垂直光会更暗<br>该项的作用就是描述微平面对于光线的遮蔽情况</p><script type="math/tex; mode=display">G=\frac{n\cdot{l}}{lerp(n\cdot{l},1,k)}×\frac{n\cdot{v}}{lerp(n\cdot{v},1,k)}</script><ul><li>其中直接光照时<script type="math/tex">k = (1+a)^2/8</script></li><li>间接光照时<script type="math/tex">k = a^2/2</script><br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/img2/2ee.gif" alt=""></li></ul><h4 id="F—菲尼尔项"><a href="#F—菲尼尔项" class="headerlink" title="F—菲尼尔项"></a>F—菲尼尔项</h4><p>Ks代表着镜面反射比例这个值就是F(菲尼尔项),同时菲尼尔项也描述着金属度</p><ul><li><strong>材质(F0 电解质)</strong><br><code>float3 F0</code>是菲尼尔项的重要参数,用于区分导体,表示垂直观察物体时有多少光会被反射,基于经验将其定义为<br><code>float3 F0 = lerp(0.04,baseColor,metallic);</code><br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/img2/123.gif" alt=""><blockquote><p>这是错误效果,矫正的分母为0时会出现问题</p></blockquote></li></ul>]]></content>
     
     
     <summary type="html">&lt;h1 id=&quot;光照模型&quot;&gt;&lt;a href=&quot;#光照模型&quot; class=&quot;headerlink&quot; title=&quot;光照模型&quot;&gt;&lt;/a&gt;光照模型&lt;/h1&gt;&lt;h2 id=&quot;光学原理&quot;&gt;&lt;a href=&quot;#光学原理&quot; class=&quot;headerlink&quot; title=&quot;光学原理&quot;&gt;&lt;/a&gt;光学原理&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220925210448.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;我们肉眼能看见物体是因为光线直接进入到了我们的眼睛,而进入我们眼睛的光线可能是一条直线,也可能是经过无数次反射形成的复杂折现, 那么物体为什么会有颜色呢?&lt;/p&gt;</summary>
@@ -412,6 +463,34 @@
   </entry>
   
   <entry>
+    <title>PicGo GitHub图床设置</title>
+    <link href="https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
+    <id>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</id>
+    <published>2021-03-03T16:00:00.000Z</published>
+    <updated>2022-09-02T06:49:21.359Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="PicGo-GitHub图床设置"><a href="#PicGo-GitHub图床设置" class="headerlink" title="PicGo GitHub图床设置"></a>PicGo GitHub图床设置</h1><ol><li>创建一个仓库,用于存储图片</li><li>生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  </li></ol><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213307.png" alt="token"></p><ol><li>generate token后记得复制显示的token,只会出现这一次,如果忘记了需要regenerate</li><li>最后设置图床信息,仓库名为 用户名/仓库名形式,分支名为master,token为之前复制的一长串<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213638.png" alt="图床"></li><li>加速图床,由于GitHub国内访问速度很慢,在自定义域名加上<code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></li><li>最后保存就ok了</li></ol>]]></content>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;PicGo-GitHub图床设置&quot;&gt;&lt;a href=&quot;#PicGo-GitHub图床设置&quot; class=&quot;headerlink&quot; title=&quot;PicGo GitHub图床设置&quot;&gt;&lt;/a&gt;PicGo GitHub图床设置&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;创建一个仓库,用于存储图片&lt;/li&gt;
+&lt;li&gt;生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  &lt;/li&gt;
+&lt;/ol&gt;</summary>
+    
+    
+    
+    <category term="环境配置" scheme="https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
+    
+    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Pytorch学习笔记3--激励函数</title>
     <link href="https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/"/>
     <id>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</id>
@@ -442,34 +521,6 @@
     <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
     <category term="Pytorch" scheme="https://www.dante-game.com.cn/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PicGo GitHub图床设置</title>
-    <link href="https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/"/>
-    <id>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</id>
-    <published>2021-03-03T16:00:00.000Z</published>
-    <updated>2022-09-02T06:49:21.359Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="PicGo-GitHub图床设置"><a href="#PicGo-GitHub图床设置" class="headerlink" title="PicGo GitHub图床设置"></a>PicGo GitHub图床设置</h1><ol><li>创建一个仓库,用于存储图片</li><li>生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  </li></ol><span id="more"></span><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213307.png" alt="token"></p><ol><li>generate token后记得复制显示的token,只会出现这一次,如果忘记了需要regenerate</li><li>最后设置图床信息,仓库名为 用户名/仓库名形式,分支名为master,token为之前复制的一长串<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/20210304213638.png" alt="图床"></li><li>加速图床,由于GitHub国内访问速度很慢,在自定义域名加上<code>https://cdn.jsdelivr.net/gh/用户名/仓库名</code></li><li>最后保存就ok了</li></ol>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;PicGo-GitHub图床设置&quot;&gt;&lt;a href=&quot;#PicGo-GitHub图床设置&quot; class=&quot;headerlink&quot; title=&quot;PicGo GitHub图床设置&quot;&gt;&lt;/a&gt;PicGo GitHub图床设置&lt;/h1&gt;&lt;ol&gt;
-&lt;li&gt;创建一个仓库,用于存储图片&lt;/li&gt;
-&lt;li&gt;生成一个token,点击github右上角头像选项的Settings/Developer settings/Personal access tokens,点击generate new token生成token  &lt;/li&gt;
-&lt;/ol&gt;</summary>
-    
-    
-    
-    <category term="环境配置" scheme="https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
-    
-    
-    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
   </entry>
   
@@ -592,39 +643,6 @@
     <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
     
     <category term="Pytorch" scheme="https://www.dante-game.com.cn/tags/Pytorch/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>人工智能小测试</title>
-    <link href="https://www.dante-game.com.cn/2021/01/27/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2_%E5%85%A5%E9%97%A8_%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
-    <id>https://www.dante-game.com.cn/2021/01/27/%E8%AF%AD%E4%B9%89%E5%88%86%E5%89%B2_%E5%85%A5%E9%97%A8_%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/</id>
-    <published>2021-01-27T14:31:14.000Z</published>
-    <updated>2022-09-02T06:49:21.364Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="前置"><a href="#前置" class="headerlink" title="前置"></a>前置</h2><ul><li>翻墙工具</li><li>github账号,看源码必备</li><li>基于pytorch</li><li>最好有个Google账号</li><li>使用Google的深度学习服务器<a href="https://colab.research.google.com/">Colab</a>,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过<a href="https://drive.google.com/">Google云端硬盘</a>上传,自带15G免费内存,可扩充100G/月(250日元/月,差不多15块吧,我们学习阶段应该用不上扩充)</li></ul><span id="more"></span><h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><ul><li>学习完全可以跟着这个<a href="https://github.com/Jack-Cherish/Deep-Learning">网站</a>学</li><li>我先跳过理论直接做了UNet框架的训练,具体步骤参照<a href="https://cuijiahua.com/blog/2020/03/dl-16.html">这个网站</a>手把手教学,有源码和<a href="https://drive.google.com/drive/folders/1uWliDqL0bLOnnyFuOjjm2VwzGlJKBMsa?usp=sharing">数据集</a></li><li>我们需要做的只有学会怎么用colab</li><li>进入colab首先配置GPU加速模式,不然训练的超级慢<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20201217224044.png" alt=""><br>进去后硬件加速器选GPU(训练模型用GPU,不充钱不稳定后文有推荐本地运行的方法)</li><li>记得选择这个显示模式,更直观<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20201217224344.png" alt=""></li><li>然后跟着使用入门连接你的Google云端硬盘</li><li>然后再文件-&gt;新建笔记本</li><li>再左侧栏最下面文件夹里就是你的目录了,可以新建文件或者文件夹,你也能看见你的云端硬盘的文件夹,可以直接通过复制路径调用资源</li><li>记得自己的代码最好建立在本地或云端硬盘里,colab容易丢失,谢邀写到这里发现我代码没了</li><li>写的.py文件通过第一栏的笔记本输入<code>!python 绝对路径(直接复制的路径)/相对路径</code>执行</li><li>本地运行点击右上角 连接-&gt;切换到本地运行时,使用jupyter本地运行</li><li><p>请在终端分别输入以下代码(前提你已经配置好了python环境)</p>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyter_http_over_ws</span><br><span class="line">jupyter serverextension enable --py jupyter_http_over_ws</span><br></pre></td></tr></table></figure>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  jupyter notebook --NotebookApp.allow_origin=&#x27;https://colab.research.google.com&#x27; \</span><br><span class="line">--port=8888 --no-browser</span><br></pre></td></tr></table></figure></li><li><p>在colab输入你 终端显示的<code>http://localhost:8888/?token=</code>xxxxx</p></li></ul>]]></content>
-    
-    
-    <summary type="html">&lt;h2 id=&quot;前置&quot;&gt;&lt;a href=&quot;#前置&quot; class=&quot;headerlink&quot; title=&quot;前置&quot;&gt;&lt;/a&gt;前置&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;翻墙工具&lt;/li&gt;
-&lt;li&gt;github账号,看源码必备&lt;/li&gt;
-&lt;li&gt;基于pytorch&lt;/li&gt;
-&lt;li&gt;最好有个Google账号&lt;/li&gt;
-&lt;li&gt;使用Google的深度学习服务器&lt;a href=&quot;https://colab.research.google.com/&quot;&gt;Colab&lt;/a&gt;,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过&lt;a href=&quot;https://drive.google.com/&quot;&gt;Google云端硬盘&lt;/a&gt;上传,自带15G免费内存,可扩充100G/月(250日元/月,差不多15块吧,我们学习阶段应该用不上扩充)&lt;/li&gt;
-&lt;/ul&gt;</summary>
-    
-    
-    
-    <category term="机器学习" scheme="https://www.dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="学习" scheme="https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/"/>
-    
-    <category term="记录" scheme="https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/"/>
-    
-    <category term="经验" scheme="https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/"/>
-    
-    <category term="人工智能" scheme="https://www.dante-game.com.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
     
   </entry>
   

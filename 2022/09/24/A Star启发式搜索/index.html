@@ -38,7 +38,7 @@
     
 <link rel="stylesheet" href="/css/syntax.css">
 
-<meta name="generator" content="Hexo 6.2.0"></head>
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 <style>
 
@@ -169,6 +169,18 @@
                     </span>
                     <div class="tags text-center">
                         
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#算法"
+                           title="算法">算法</a>
+                        
                     </div>
                 </div>
             </div>
@@ -187,7 +199,15 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                
+                <h1 id="A-Star启发式搜索"><a href="#A-Star启发式搜索" class="headerlink" title="A Star启发式搜索"></a>A Star启发式搜索</h1><h2 id="BFS与DFS"><a href="#BFS与DFS" class="headerlink" title="BFS与DFS"></a>BFS与DFS</h2><p>对于常见的搜索算法来说有广度优先搜索(BFS),深度优先搜索(DFS),2个算法都能完成对图的遍历,但2者由于搜索方式的不同有着不同的试用领域.</p>
+<h3 id="DFS"><a href="#DFS" class="headerlink" title="DFS"></a>DFS</h3><ul>
+<li>递归的或者是利用<strong>栈</strong>迭代对目标进行遍历<br>如果只是要找到某一个结果是否存在，那么DFS会更高效。因为DFS会首先把一种可能的情况尝试到底，才会回溯去尝试下一种情况，只要找到一种情况，就可以返回了。但是BFS必须所有可能的情况同时尝试，在找到一种满足条件的结果的同时，也尝试了很多不必要的路径；</li>
+</ul>
+<h3 id="BFS"><a href="#BFS" class="headerlink" title="BFS"></a>BFS</h3><ul>
+<li>利用<strong>队列</strong>进行遍历<br>如果是要找所有可能结果中最短的，那么BFS回更高效。因为DFS是一种一种的尝试，在把所有可能情况尝试完之前，无法确定哪个是最短，所以DFS必须把所有情况都找一遍，才能确定最终答案（DFS的优化就是剪枝，不剪枝很容易超时）。而BFS从一开始就是尝试所有情况，所以只要找到第一个达到的那个点，那就是最短的路径，可以直接返回了，其他情况都可以省略了，所以这种情况下，BFS更高效。</li>
+</ul>
+<h2 id="A-Star"><a href="#A-Star" class="headerlink" title="A Star"></a>A Star</h2><p>为了寻找最短路径所采用的BFS是需要对</p>
+
                 <hr>
                 
 
@@ -220,7 +240,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#A-Star%E5%90%AF%E5%8F%91%E5%BC%8F%E6%90%9C%E7%B4%A2"><span class="toc-text">A Star启发式搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#BFS%E4%B8%8EDFS"><span class="toc-text">BFS与DFS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS"><span class="toc-text">DFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS"><span class="toc-text">BFS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#A-Star"><span class="toc-text">A Star</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
@@ -241,6 +261,18 @@
                         <a href="/tags/">FEATURED TAGS</a>
                     </h5>
                     <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                        <a class="tag" href="/tags/#算法"
+                           title="算法">算法</a>
                         
                     </div>
                 </section>
