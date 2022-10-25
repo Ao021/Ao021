@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.dante-game.com.cn/2022/10/24/GameJam%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</loc>
+    
+    <lastmod>2022-10-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.dante-game.com.cn/2022/09/25/UnityShader/</loc>
     
     <lastmod>2022-10-25</lastmod>
@@ -21,15 +30,6 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/2022/09/05/%E5%85%89%E7%85%A7%E6%A8%A1%E5%9E%8B/</loc>
-    
-    <lastmod>2022-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/2022/10/24/GameJam%E5%BC%80%E5%8F%91%E5%A4%8D%E7%9B%98/</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -239,13 +239,6 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-10-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -261,6 +254,13 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/Unity/</loc>
+    <lastmod>2022-10-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -297,14 +297,14 @@
 
   
   <url>
-    <loc>https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>https://www.dante-game.com.cn/categories/Unity/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/categories/Unity/</loc>
+    <loc>https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-10-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
