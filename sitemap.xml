@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -239,6 +239,13 @@
   </url>
   
   <url>
+    <loc>https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -254,13 +261,6 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/Unity/</loc>
-    <lastmod>2022-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -297,6 +297,13 @@
 
   
   <url>
+    <loc>https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-10-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.dante-game.com.cn/categories/Unity/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>weekly</changefreq>
@@ -305,13 +312,6 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2022-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2022-10-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
