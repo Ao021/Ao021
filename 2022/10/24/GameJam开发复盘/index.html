@@ -221,7 +221,11 @@
 <p>最终决定了初版的设计思路如下<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/img2/20221025160948.png" alt=""></p>
 <h3 id="需求指定与分工安排"><a href="#需求指定与分工安排" class="headerlink" title="需求指定与分工安排"></a>需求指定与分工安排</h3><p>在完善了故事背景与玩法后, 就开始分工开发, 由2位美术讨论风格设计场景与角色, 程序分别开发UI与Gameplay内容, 各部分同步进行开发, 美术的风格需求由负责技术美术板块的我尽力实现</p>
 <p>在整理游戏流程图后 确保每位成员了解项目的预期内容<br>随后在第二天上午前制定了详细的安排(因为内容太多实在放不下, <a target="_blank" rel="noopener" href="https://kdocs.cn/l/cguAuZlqpFKP">点击链接查看详细内容</a>)<br><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/img2/20221025161654.png" alt=""></p>
-<h3 id="设计与开发"><a href="#设计与开发" class="headerlink" title="设计与开发"></a>设计与开发</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/img2/20221025174000.png" alt=""><br>开发主要围绕着关卡, 方块, 角色, UI等进行<br>主要采用了单例模式的基类和基于观察者模式的事件系统, 以单关卡为例进行开发</p>
+<h3 id="设计与开发"><a href="#设计与开发" class="headerlink" title="设计与开发"></a>设计与开发</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub/img2/20221025174000.png" alt=""></p>
+<blockquote>
+<p>则张图是早期的设计,现在看上去很蠢</p>
+</blockquote>
+<p>开发主要围绕着关卡, 方块, 角色, UI等进行<br>主要采用了单例模式的基类和基于观察者模式的事件系统, 以单关卡为例进行开发</p>
 <p>前期采用二维数组对关卡中的<strong>方块</strong>进行绑定与访问(这个设计是很不好的), 在场景初始化时, 关卡单例会获取场景中所有的方块并排列为二维数组,二维数组的方块会沿上下左右4个方向判断可行进路线加入List以实现方块与方块间的连接, 同时方块记录着方块的信息来判定是否可交互是否可对玩家造成伤害等</p>
 <p><strong>关卡单例除</strong>了记录了关卡信息,方块组信息,还提供A*寻路算法, 因为unity中没有优先队列所以在网上扒了一个优先队列基类进行开发, 这期间因为bug耽搁了不少时间.</p>
 <p>关卡与方块的游戏逻辑编写完后, 开始着手开发<strong>角色</strong>逻辑. 由于玩家的移动高度受限所以逻辑比较简单, 每次鼠标选择寻路终点后玩家会从关卡类的完成寻路运算的path中获取第一个方块的信息作为nextCube, 玩家的运动逻辑就是当nextCube和玩家当前的currentCube不同时尝试移动到下一个方块.并加上逻辑的判断以满足游戏性</p>

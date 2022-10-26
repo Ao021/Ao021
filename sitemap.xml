@@ -110,15 +110,6 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</loc>
-    
-    <lastmod>2022-09-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.dante-game.com.cn/2021/02/19/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-Autograd%20%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/</loc>
     
     <lastmod>2022-09-02</lastmod>
@@ -129,6 +120,15 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B04-%E5%9B%9E%E5%BD%92Regression/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -200,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/08/OpenGL%20%20GLFW,%20GLAD%20%E5%9C%A8%20Visual%20Studio%20%E9%85%8D%E7%BD%AE/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/OpenGL(glut%E5%8C%85)%E5%9C%A8Visual%20Studio%E9%85%8D%E7%BD%AE/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
