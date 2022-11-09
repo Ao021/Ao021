@@ -2,9 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.dante-game.com.cn/2022/09/29/urp%E6%A6%82%E8%BF%B0/</loc>
+    
+    <lastmod>2022-11-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.dante-game.com.cn/2022/09/06/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E5%8F%82%E8%80%83/</loc>
     
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -30,15 +39,6 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/2022/09/25/UnityShader/</loc>
-    
-    <lastmod>2022-10-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/2022/09/29/urp%E6%A6%82%E8%BF%B0/</loc>
     
     <lastmod>2022-10-25</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/02/19/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-Autograd%20%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/</loc>
+    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/03/04/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B03-%E6%BF%80%E5%8A%B1%E5%87%BD%E6%95%B0/</loc>
+    <loc>https://www.dante-game.com.cn/2021/02/19/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B02-Autograd%20%E8%87%AA%E5%8A%A8%E6%B1%82%E5%AF%BC%E6%9C%BA%E5%88%B6/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -146,15 +146,6 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/01/27/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E5%BC%A0%E9%87%8F/</loc>
-    
-    <lastmod>2022-09-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.dante-game.com.cn/2021/03/02/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-pip%E5%AE%89%E8%A3%85python%E6%A8%A1%E5%9D%97%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F/</loc>
     
     <lastmod>2022-09-02</lastmod>
@@ -164,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
+    <loc>https://www.dante-game.com.cn/2021/01/27/Pytorch%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B01-%E5%BC%A0%E9%87%8F/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -174,6 +165,15 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/2021/03/04/PicGo%20GitHub%E5%9B%BE%E5%BA%8A%E8%AE%BE%E7%BD%AE/</loc>
+    
+    <lastmod>2022-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/2021/05/24/OpenGL_01_OpenGL%E7%9A%84%E7%BB%98%E5%9B%BE%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E4%B8%8E%E6%A6%82%E5%BF%B5/</loc>
     
     <lastmod>2022-09-02</lastmod>
     
@@ -220,7 +220,7 @@
 
   <url>
     <loc>https://www.dante-game.com.cn/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -228,77 +228,77 @@
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/%E8%AE%B0%E5%BD%95/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/%E7%BB%8F%E9%AA%8C/</loc>
-    <lastmod>2022-10-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
-    <lastmod>2022-10-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
-    <lastmod>2022-10-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.dante-game.com.cn/tags/Unity/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
+    <lastmod>2022-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/tags/%E6%B8%B8%E6%88%8F%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2022-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/tags/Unity/</loc>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/OpenGL/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/Pytorch/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/python/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -306,50 +306,50 @@
 
   
   <url>
-    <loc>https://www.dante-game.com.cn/categories/Unity/</loc>
-    <lastmod>2022-10-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.dante-game.com.cn/categories/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.dante-game.com.cn/categories/Unity/</loc>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E6%B8%B8%E6%88%8F/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://www.dante-game.com.cn/categories/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2022-10-27</lastmod>
+    <lastmod>2022-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
