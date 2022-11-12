@@ -18,11 +18,11 @@
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.css">
     <title>
         
-        Dante-Game
+        C#反射机制｜Dante-Game
         
     </title>
 
-    <link rel="canonical" href="https://www.dante-game.com.cn/tags/人工智能/">
+    <link rel="canonical" href="https://www.dante-game.com.cn/2022/11/10/C-反射机制/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -49,7 +49,7 @@
 <!-- hack iOS CSS :active style -->
 <body ontouchstart="" class="animated fadeIn">
 <!-- Navigation -->
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "false" data-istags="true
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top " id="nav-top" data-ispost = "true" data-istags="false
 " data-ishome = "false" >
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -138,178 +138,140 @@
 
 <!-- Main Content -->
 
+<!--only post-->
 
-<!-- Page Header -->
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 visible-xs-block visible-sm-block">
-    <div class="row">
-        <header class="intro-header">
-            <div class="container">
-                <div class="site-heading text-center">
-                    <div class="about-me">
-                        <!--移动端头部显示-->
-                        <img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"/>
-                        <h5><a href="/about/">Dante</a></h5>
-                        <p>菜鸡游戏练习生</p>
+
+<img class="wechat-title-img"
+     src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png">
+
+
+<style>
+    
+    header.intro-header {
+        background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')
+    }
+
+    
+</style>
+
+<header class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 text-center">
+                <div class="post-heading">
+                    <h1>C#反射机制</h1>
+                    
+                    <span class="meta">
+                         作者 Dante
+                        <span>
+                          日期 2022-11-10
+                         </span>
+                    </span>
+                    <div class="tags text-center">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
                     </div>
                 </div>
             </div>
-        </header>
-    </div>
-</div>
-<!-- Main Content -->
-<div class="container custom-haojen-container">
-    <!-- Post Container -->
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-1 col-md-8 col-md-offset-1 col-sm-12 col-xs-12 post-container">
-            <!-- Main Content -->
-
-
-
-<div class="post-preview "
-     style="background-image: url('https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/84137197_p0.png')">
-    <a href="/2021/01/27/语义分割_入门_经验分享/">
-        <h2 class="post-title">
-            人工智能小测试
-        </h2>
-        <p class="post-meta">
-            <i class="fa fa-calendar" aria-hidden="true"></i> 2021-01-27
-        </p>
-        
-        <div class="post-content-preview">
-            <p>
-                前置
-翻墙工具
-github账号,看源码必备
-基于pytorch
-最好有个Google账号
-使用Google的深度学习服务器Colab,自带24G显存的GPU,如果要长时间使用9.99美元/月(65块/月),我们的数据集通过Google云端硬盘上传,自带15G免费内存,可扩充100G/月(250..
-            </p>
-        </div>
-    </a>
-
-</div>
-
-<hr>
-
-
-
-
-<!-- 翻页 pager -->
-
-<ul class="pager">
-    
-    
-</ul>
-
-
-        </div>
-        <!-- Sidebar Container -->
-        <div class="
-                col-lg-3 col-lg-offset-0
-                col-md-3 col-md-offset-0
-                col-sm-12
-                col-xs-12
-                sidebar-container
-            ">
-
-            <!-- About Me -->
-            <section class="visible-md visible-lg" style="padding: 0 18px">
-                <div class="short-about">
-                    <!--侧边栏头像-->
-                    
-                    <img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220902170530.png"/>
-                    
-                    <h5><a href="/about/">Dante</a></h5>
-                    
-                    <p>菜鸡游戏练习生</p>
-                    
-                    <hr>
-                    <!-- SNS Link 社交 -->
-                    <ul class="list-inline">
-                        
-                        
-                        
-
-                        
-
-                        
-
-                        
-                        <li>
-                            <a target="_blank" href="https://github.com/Ao021">
-                                        <span class="fa-stack fa-lg">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
-                                            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                        </span>
-                            </a>
-                        </li>
-                        
-
-                        
-                    </ul>
-                </div>
-            </section>
-
-            <!-- Featured Tags  标签 -->
-            
-            <section>
-                <div class="tags">
-                    
-                    
-                    <a href="/tags/#学习" title="学习"
-                       rel="23">学习</a>
-                    
-                    
-                    
-                    <a href="/tags/#记录" title="记录"
-                       rel="23">记录</a>
-                    
-                    
-                    
-                    <a href="/tags/#经验" title="经验"
-                       rel="23">经验</a>
-                    
-                    
-                    
-                    <a href="/tags/#计算机图形学" title="计算机图形学"
-                       rel="10">计算机图形学</a>
-                    
-                    
-                    
-                    <a href="/tags/#游戏引擎" title="游戏引擎"
-                       rel="6">游戏引擎</a>
-                    
-                    
-                    
-                    <a href="/tags/#Unity" title="Unity"
-                       rel="4">Unity</a>
-                    
-                    
-                    
-                    
-                    
-                    <a href="/tags/#OpenGL" title="OpenGL"
-                       rel="3">OpenGL</a>
-                    
-                    
-                    
-                    <a href="/tags/#Pytorch" title="Pytorch"
-                       rel="6">Pytorch</a>
-                    
-                    
-                    
-                    
-                    
-                    
-                </div>
-            </section>
-            
-
-            
-
         </div>
     </div>
-</div>
+    <div class="post-title-haojen">
+        <span>
+            C#反射机制
+        </span>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <!-- Post Container -->
+            <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
+                
+                <hr>
+                
+
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/2022/10/26/面向对象编程的一些记录/" data-toggle="tooltip" data-placement="top"
+                           title="面向对象编程的一些记录">Next Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+
+                
+
+                
+
+
+                <!--加入新的评论系统-->
+                
+
+                
+
+            </div>
+
+            <div class="hidden-xs col-sm-3 toc-col">
+                <div class="toc-wrap">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5 class="text-center">
+                        <a href="/tags/">FEATURED TAGS</a>
+                    </h5>
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/#学习"
+                           title="学习">学习</a>
+                        
+                        <a class="tag" href="/tags/#记录"
+                           title="记录">记录</a>
+                        
+                        <a class="tag" href="/tags/#经验"
+                           title="经验">经验</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+            </div>
+        </div>
+
+    </div>
+</article>
+
+
+
+
+
+
 
 <!-- Footer -->
 <!-- Footer -->

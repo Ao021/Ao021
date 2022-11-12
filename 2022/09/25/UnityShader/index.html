@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -250,7 +250,7 @@
 </ul>
 <h3 id="Shader对象的结构"><a href="#Shader对象的结构" class="headerlink" title="Shader对象的结构"></a>Shader对象的结构</h3><p><img src="https://cdn.jsdelivr.net/gh/Ao021/PicPub@master/20220926150723.png" alt=""><br>这些是Shader对象的属性,当然现在还用不上,我们不妨从资源文件来看编写好的Shader的结构吧<br>下面是一个.Shader文件的内容,其中包含了材质给Shader对象设置的参数Properties以及多个SubShader</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Shader &quot;ShaderName&quot;</span><br><span class="line">&#123;</span><br><span class="line">    Properties&#123;</span><br><span class="line">        //传入着色器的参数</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    SubShader&#123;</span><br><span class="line">        LOD [value1]</span><br><span class="line">        Tags&#123;...&#125;</span><br><span class="line"></span><br><span class="line">        [commands]</span><br><span class="line"></span><br><span class="line">        Pass&#123;</span><br><span class="line">            Name &quot;PassName&quot;</span><br><span class="line">            //....</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    SubShader&#123;</span><br><span class="line">        LOD [value2]</span><br><span class="line">        Tags&#123;...&#125;</span><br><span class="line">        Pass&#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>Shader 对象被<strong>子着色器SubShader</strong>分成多个部分，用于兼容不同的硬件、渲染管线和运行时设置。<br>在 SubShader 代码块中，可以：</p>
+<p>Shader 对象被<strong>子着色器SubShader</strong>分成多个部分，用于兼容不同的硬件、渲染管线和运行时设置。<br>被渲染物体最终显示在屏幕上的内容简单说就是其中一个适用的SubShader在不同阶段Pass渲染后的结果.<br>在 SubShader 代码块中，可以：</p>
 <ul>
 <li>使用 LOD 代码块为 SubShader 分配 LOD（细节级别）值。</li>
 <li>使用 Tags 代码块将数据的键值对分配给子着色器。</li>
@@ -314,14 +314,134 @@
 </div>
 <p>Tags在默认情况下会有一些初始值,我们可以在需要的时候进行配置,配置语法如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tags &#123; “[name1]” = “[value1]” “[name2]” = “[value2]”&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h4><p>用于设置渲染状态的命令,如下<br>|commands|作用<br>—|—|<br>AlphaToMask|<br>Blend|混合模式<br>BlendOp|混合操作<br>ColorMask|控制颜色写入RGBA等通道<br>Conservative|<br>Cull|剔除(正反面)<br>Offset|<br>Stencil|模板测试<br>ZClip|深度裁剪<br>ZTest|深度测试<br>ZWrite|深度写入<br>UsePass|根据PassName使用Pass<br>GrabPass|抓取Pass,使用_GrabTexture/Grab内命名来引用纹理。<br>这些指令可以绘制不同有趣的效果,内容很多,可以参考<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2021.3/Documentation/Manual/shader-shaderlab-commands.html">文档</a>查看具体内容</p>
+<h4 id="commands"><a href="#commands" class="headerlink" title="commands"></a>commands</h4><p>用于设置渲染状态的命令,如下</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>commands</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AlphaToMask</td>
+<td></td>
+</tr>
+<tr>
+<td>Blend</td>
+<td>混合模式</td>
+</tr>
+<tr>
+<td>BlendOp</td>
+<td>混合操作</td>
+</tr>
+<tr>
+<td>ColorMask</td>
+<td>控制颜色写入RGBA等通道</td>
+</tr>
+<tr>
+<td>Conservative</td>
+<td></td>
+</tr>
+<tr>
+<td>Cull</td>
+<td>剔除(正反面)</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td></td>
+</tr>
+<tr>
+<td>Stencil</td>
+<td>模板测试</td>
+</tr>
+<tr>
+<td>ZClip</td>
+<td>深度裁剪</td>
+</tr>
+<tr>
+<td>ZTest</td>
+<td>深度测试</td>
+</tr>
+<tr>
+<td>ZWrite</td>
+<td>深度写入</td>
+</tr>
+<tr>
+<td>UsePass</td>
+<td>根据PassName使用Pass</td>
+</tr>
+<tr>
+<td>GrabPass</td>
+<td>抓取Pass,使用_GrabTexture/Grab内命名来引用纹理。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>这些指令可以绘制不同有趣的效果,内容很多,可以参考<a target="_blank" rel="noopener" href="https://docs.unity3d.com/2021.3/Documentation/Manual/shader-shaderlab-commands.html">文档</a>查看具体内容</p>
+</blockquote>
 <h4 id="Pass"><a href="#Pass" class="headerlink" title="Pass"></a>Pass</h4><p>Pass是绘制通道,Pass的结构和SubShader类似,如下<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Pass</span><br><span class="line">&#123;</span><br><span class="line">    &lt;optional: Name&gt;</span><br><span class="line">    &lt;optional: Tags&gt;</span><br><span class="line">    &lt;optional: Commands&gt;</span><br><span class="line">    &lt;optional: shader code&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>name是pass的名字,可以由command usepass访问</li>
 <li>tags包括 LightMode与自定tags,pass的tag与SubShader的tag不能同名请注意</li>
 <li>commands 同SubShader的Command</li>
-<li>Shader code通过 HLSLPROGRAM ENDHLSL/ CGPROGREAM ENDCG 包裹<h2 id="编写Shader"><a href="#编写Shader" class="headerlink" title="编写Shader"></a>编写Shader</h2>还没吃呢</li>
+<li>Shader code通过 HLSLPROGRAM ENDHLSL/ CGPROGREAM ENDCG 包裹</li>
 </ul>
+<p>其中LightMode是决定Pass何时被渲染的重要tag,下面是URP中所使用到的LightMode<br>同样LightMode也可以由开发者自行定制</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>LightMode</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UniversalForward</td>
+<td>该通道会渲染对象几何体并评估所有光源影响。URP 在前向渲染路径中使用此标签值。</td>
+</tr>
+<tr>
+<td>UniversalGBuffer</td>
+<td>该通道会渲染对象几何体，但不评估任何光源影响。在 Unity 必须在延迟渲染路径中执行的通道中使用此标签值。</td>
+</tr>
+<tr>
+<td>UniversalForwardOnly</td>
+<td>该通道会渲染对象几何体并评估所有光源影响，类似于 LightMode 具有 UniversalForward 值的情况。与 UniversalForward 的区别在于，URP 可以将该通道用于前向渲染路径和延迟渲染路径两者。<br>如果在 URP 使用延迟渲染路径时某个通道必须使用前向渲染路径来渲染对象，请使用此值。例如，如果 URP 使用延迟渲染路径来渲染某个场景，并且该场景包含的某些对象具有不适合 G 缓冲区的着色器数据（例如透明涂层法线），则应使用此标签。<br>如果着色器必须在前向渲染路径和延迟渲染路径两者中进行渲染，请使用 UniversalForward 和 UniversalGBuffer 标签值声明两个通道。<br>如果着色器必须使用前向渲染路径进行渲染，而不管 URP 渲染器使用的渲染路径如何，请仅声明一个 LightMode 标签设置为 UniversalForwardOnly 的通道。<br>如果使用了 SSAO 渲染器功能，请添加一个 LightMode 标签设置为 DepthNormalsOnly 的通道。有关更多信息，请参阅 DepthNormalsOnly 值。</td>
+</tr>
+<tr>
+<td>DepthNormalsOnly</td>
+<td>将此值与延迟渲染路径中的 UniversalForwardOnly 结合使用。此值允许 Unity 在深度和法线预通道中渲染着色器。在延迟渲染路径中，如果缺少具有 DepthNormalsOnly 标签值的通道，则 Unity 不会在网格周围生成环境光遮挡。</td>
+</tr>
+<tr>
+<td>Universal2D</td>
+<td>该通道会渲染对象并评估 2D 光源影响。URP 在 2D 渲染器中使用此标签值。</td>
+</tr>
+<tr>
+<td>ShadowCaster</td>
+<td>该通道从光源的角度将对象深度渲染到阴影贴图或深度纹理中。</td>
+</tr>
+<tr>
+<td>DepthOnly</td>
+<td>该通道仅从摄像机的角度将深度信息渲染到深度纹理中。</td>
+</tr>
+<tr>
+<td>Meta</td>
+<td>Unity 仅在 Unity 编辑器中烘焙光照贴图时执行该通道。Unity 在构建播放器时会从着色器中剥离该通道。</td>
+</tr>
+<tr>
+<td>SRPDefaultUnlit</td>
+<td>渲染对象时，使用此 LightMode 标签值绘制额外的通道。应用示例：绘制对象轮廓。此标签值对前向渲染路径和延迟渲染路径均有效。<br>当通道没有 LightMode 标签时，URP 使用此标签值作为默认值。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>这里只是简单的机翻译,<a target="_blank" rel="noopener" href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@12.1/manual/urp-shaders/urp-shaderlab-pass-tags.html">详细移步urp官方文档</a></p>
+</blockquote>
+<h2 id="编写Shader"><a href="#编写Shader" class="headerlink" title="编写Shader"></a>编写Shader</h2><p>还没吃呢</p>
 
                 <hr>
                 
