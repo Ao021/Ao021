@@ -86,7 +86,7 @@
                         
 							
                         <li>
-                            <a href="/categories/">categories</a>
+                            <a href="/tags/">tags</a>
                         </li>
 							
 						
@@ -94,7 +94,7 @@
                         
 							
                         <li>
-                            <a href="/tags/">tags</a>
+                            <a href="/categories/">categories</a>
                         </li>
 							
 						
@@ -196,7 +196,7 @@
         <div class="row">
             <!-- Post Container -->
             <div class="col-lg-8 col-lg-offset-1 col-sm-9 post-container">
-                <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><p>说起面向对象, 大学老师总是很喜欢重复这个词, 但却总不喜欢把话说明白. 积累了一定的开发经验后, 我开始理解面向对象. 我们都知道面向对象的几个特性, 封装, 继承和多态, 有的可能还把抽象也算进去了. 但是为什么需要这些特性呢?</p>
+                <h1 id="面向对象编程"><a href="#面向对象编程" class="headerlink" title="面向对象编程"></a>面向对象编程</h1><p>说起面向对象, 大学老师总是很喜欢重复这个词, 但却总不喜欢把话说明白. 积累了一定的开发经验后, 我开始理解面向对象. 我们都知道面向对象的几个特性, 封装, 继承和多态, 有的语言还具有抽象. 但是为什么需要这些特性呢?什么时候用他们呢?</p>
 <h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h3 id="类的内存分布"><a href="#类的内存分布" class="headerlink" title="类的内存分布"></a>类的内存分布</h3><p>类中的数据可以简单的划分为成员变量和函数;<br>其中影响类实例化后对象大小的只有普通成员变量，虚函数，继承（单一继承，多重继承，重复继承，虚拟继承）</p>
 <blockquote>
 <p>因为虚函数和继承关系都会为类创建一张虚表, 并占用一个地址大小的变量进行存储</p>
@@ -305,16 +305,48 @@
 </li>
 </ul>
 <p>此部分参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/guanmao4322/article/details/85947083">链接</a></p>
+<h2 id="依赖注入"><a href="#依赖注入" class="headerlink" title="依赖注入"></a>依赖注入</h2><p>在具有关联的不同类中往往会需要引用到另一个类的对象,这时难免会产生耦合关系.</p>
+<p>而依赖注入就是减少这种耦合的方法, 即类之间的依赖关系由容器来负责。简单来讲a依赖b，但a不创建（或销毁）b，仅使用b; b的创建（或销毁）交给容器。</p>
+<p>依赖注入的方式有很多</p>
+<ul>
+<li>构造函数注入<br>在a中不创建b,而是通过构造函数传入已创建的b.</li>
+<li>Setter注入<br>在a中不创建b,而是通过属性的get,set来传入b.</li>
+<li>接口注入</li>
+</ul>
+<p>而在unity引擎中实现依赖注入使用最多的方式就是反射.</p>
+<h2 id="反射"><a href="#反射" class="headerlink" title="反射"></a>反射</h2><p>在.NetFramework中提供一套特殊的机制,反射机制.<br>反射指程序可以访问、检测和修改它本身状态或行为的一种能力。<br>程序集包含模块，而模块包含类型，类型又包含成员。反射则提供了封装程序集、模块和类型的对象。<br>可以使用反射动态地创建类型的实例，将类型绑定到现有对象，或从现有对象中获取类型。然后，可以调用类型的方法或访问其字段和属性。</p>
+<h3 id="反射的用途"><a href="#反射的用途" class="headerlink" title="反射的用途"></a>反射的用途</h3><ul>
+<li>在运行时查看特性（attribute）信息。</li>
+<li>审查集合中的各种类型，以及实例化这些类型。</li>
+<li>延迟绑定的方法和属性（property）。</li>
+<li>在运行时创建新类型，然后使用这些类型执行一些任务。</li>
+</ul>
+<p>简单来说,反射可以实现 不需要new就能拿到运行时的对象; 也可以使开发者不需要知道对象类型就能直接执行内部的方法等任务.</p>
+<p>在Unity中反射随处可见,只不过都被封装了, 比如诸如start, update等生命周期函数, 都是通过反射机制调用的(因此父类private的update在子类中同样会被执行,因为反射可以无视权限);<br>我们经常通过gatcomponent来获取组件对象,这也是一种反射机制的使用,这是通过反射实现的依赖注入.</p>
+<h3 id="反射的优缺点"><a href="#反射的优缺点" class="headerlink" title="反射的优缺点"></a>反射的优缺点</h3><ul>
+<li>优点<ul>
+<li>反射提高了程序的灵活性和扩展性。</li>
+<li>降低耦合性，提高自适应能力。</li>
+<li>它允许程序创建和控制任何类的对象，无需提前硬编码目标类。</li>
+</ul>
+</li>
+<li>缺点<ul>
+<li>性能问题：使用反射基本上是一种解释操作，用于字段和方法接入时要远慢于直接代码。因此反射机制主要应用在对灵活性和拓展性要求很高的系统框架上，普通程序不建议使用。</li>
+<li>使用反射会模糊程序内部逻辑；程序员希望在源代码中看到程序的逻辑，反射却绕过了源代码的技术，因而会带来维护的问题，反射代码比相应的直接代码更复杂。</li>
+</ul>
+</li>
+</ul>
 <h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
 <li>内聚度<br>内聚度是从功能角度来度量模块内的联系，一个好的内聚模块应当恰好只做一件事，高内聚就是一个类封装的很完善，每个类只完成一项任务，也就是常说的单一责任原则。</li>
 <li>耦合度<br>耦合度是对模块间关联程度的度量，模块间的耦合度是指模块之间的依赖关系，包括控制关系、调用关系、数据传递关系，模块间联系越多，耦合性越强，模块的独立性越差。</li>
 </ul>
-<p>我们在开发之前总会对项目框架的构成进行设计, 其中最基础的就是类图的设计, 我们需要处理各个类的功能的同时合理安排类之间的关系, 以实现<strong>高内聚 低耦合</strong>的程序架构,即符合面向对象的基本原则, 这样的程序具有优秀的扩展性和可维护性, 同时也为合作带来便利.<br>本着这样的设计理念,有了各种各样的设计模式来辅助我们的系统更合理的架构.</p>
+<p>遵循着面向对象基本原则的方法所写出适用于不同情况的代码统一后形成了一套设计模式.在开发中使用设计模式能有效提升代码内聚度降低代码之间的耦合度.</p>
 <p><strong><font color = red> 在学习设计模式之前需要具备以下基础 </font></strong> </p>
 <ul>
 <li>透彻理解接口与抽象类,并在实际项目中熟练的使用</li>
 <li>深入理解面向对象的基础原则</li>
 </ul>
+<p>故本文主要简要总结了面向对象的基础知识.</p>
 <h2 id="参考连接"><a href="#参考连接" class="headerlink" title="参考连接"></a>参考连接</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_57504000/article/details/124218420">https://blog.csdn.net/weixin_57504000/article/details/124218420</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/guanmao4322/article/details/85947083">https://blog.csdn.net/guanmao4322/article/details/85947083</a></p>
 
                 <hr>
@@ -349,7 +381,7 @@
 
             <div class="hidden-xs col-sm-3 toc-col">
                 <div class="toc-wrap">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83"><span class="toc-text">类的内存分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="toc-text">类的内存对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#private-protected-public"><span class="toc-text">private, protected, public</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">接口与抽象类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0"><span class="toc-text">虚函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1"><span class="toc-text">抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E6%8E%A5%E5%8F%A3%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E6%8A%BD%E8%B1%A1"><span class="toc-text">什么时候用接口什么时候用抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">类之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94"><span class="toc-text">关联</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">面向对象的基本原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%BF%9E%E6%8E%A5"><span class="toc-text">参考连接</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B"><span class="toc-text">面向对象编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB"><span class="toc-text">类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%86%85%E5%AD%98%E5%88%86%E5%B8%83"><span class="toc-text">类的内存分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E7%9A%84%E5%86%85%E5%AD%98%E5%AF%B9%E9%BD%90"><span class="toc-text">类的内存对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#private-protected-public"><span class="toc-text">private, protected, public</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E4%B8%8E%E6%8A%BD%E8%B1%A1%E7%B1%BB"><span class="toc-text">接口与抽象类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E5%87%BD%E6%95%B0"><span class="toc-text">虚函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1"><span class="toc-text">抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3"><span class="toc-text">接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E6%8E%A5%E5%8F%A3%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8%E6%8A%BD%E8%B1%A1"><span class="toc-text">什么时候用接口什么时候用抽象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-text">类之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E8%81%94"><span class="toc-text">关联</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">面向对象的基本原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5"><span class="toc-text">依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84"><span class="toc-text">反射</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E7%94%A8%E9%80%94"><span class="toc-text">反射的用途</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%B0%84%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">反射的优缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%BF%9E%E6%8E%A5"><span class="toc-text">参考连接</span></a></li></ol></li></ol>
                 </div>
             </div>
         </div>
